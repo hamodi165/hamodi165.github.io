@@ -26,3 +26,24 @@
   text-decoration: none;
   margin: 50px;
 }
+
+.search-container {
+  position: absolute;
+  left: 40%;
+  top: 160px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#searchBar {
+  width: 400px;
+  height: 31px;
+  border-radius: 6px;
+}
+
+#submitBtn {
+  border-radius: 6px;
+  float: right;
+  padding: 6px 10px;
+  cursor: pointer;
+}
