@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#eLogo {
+  position: relative;
+  left: 1.5%;
+  top: -40px;
+}
+
+#mainsection {
+  font-family: "Papyrus", Copperplate, fantasy;
+  letter-spacing: 1px;
+  position: -webkit-sticky;
+  position: sticky;
+  color: white;
+  background-color: orange;
+  text-align: center;
+}
+
+#navBar {
+  position: relative;
+  left: 1.5%;
+  text-decoration: none;
+  margin: 50px;
+}
