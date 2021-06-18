@@ -1,8 +1,6 @@
 * {
-  background-color: black;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 #eLogo {
@@ -21,16 +19,69 @@
   text-align: center;
 }
 
-li {
+.support {
+  position: absolute;
+  top: 0%;
+  left: 15%;
+  font-size: 90%;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+a.support:hover {
+  font-size: 110%;
+}
+
+.store {
+  position: absolute;
+  top: 0%;
+  left: 25%;
+  font-size: 90%;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.dropdown {
+  position: absolute;
+}
+
+a.store:hover {
+  font-size: 110%;
+}
+
+.links {
   position: relative;
-  display: inline;
+  float: left;
   text-align: center;
   text-decoration: none;
-  left: 1.5%;
+  left: 31%;
+  font-size: 120%;
+  display: inline-block;
+  padding: 0.7em 1.7em;
+  margin: 0 0.1em 0.1em 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-shadow: 0 0.04em 0.04em grey;
+  transition: all 1s;
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: green;
 }
 
 li a:active {
@@ -47,7 +98,7 @@ ul {
 .search-container {
   position: absolute;
   left: 40%;
-  top: 160px;
+  top: 135px;
   padding: 10px;
   cursor: pointer;
 }
