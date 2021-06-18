@@ -1,4 +1,5 @@
 * {
+  background-color: black;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -20,11 +21,27 @@
   text-align: center;
 }
 
-#navBar {
+li {
   position: relative;
-  left: 1.5%;
+  display: inline;
+  text-align: center;
   text-decoration: none;
-  margin: 50px;
+  left: 1.5%;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+li a:active {
+  background-color: yellow;
+}
+
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
 }
 
 .search-container {
