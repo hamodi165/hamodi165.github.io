@@ -1,166 +1,36 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-#eLogo {
+.mainsection {
   position: relative;
-  left: 1.5%;
-  top: -40px;
-}
-
-#mainsection {
-  font-family: "Papyrus", Copperplate, fantasy;
-  letter-spacing: 1px;
-  position: -webkit-sticky;
-  position: sticky;
-  color: white;
-  background-color: orange;
-  text-align: center;
-}
-
-.support {
-  position: absolute;
-  top: 0%;
-  left: 15%;
-  font-size: 90%;
-  margin: 0 0.3em 0.3em 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: white;
-  text-align: center;
-  transition: all 0.3s;
-}
-
-a.support:hover {
-  font-size: 110%;
-}
-
-.store {
-  position: absolute;
-  top: 0%;
-  left: 25%;
-  font-size: 90%;
-  margin: 0 0.3em 0.3em 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: white;
-  text-align: center;
-  transition: all 0.3s;
-}
-
-a.store:hover {
-  font-size: 110%;
+  background-color: pink;
 }
 
 .links {
   position: relative;
-  float: left;
-  text-align: center;
-  text-decoration: none;
-  left: 31%;
-  font-size: 120%;
+  left: 32%;
   display: inline-block;
-  padding: 0.7em 1.7em;
-  margin: 0 0.1em 0.1em 0;
+  padding: 0.8em 1.2em;
+  margin: 0 0.8em 0.8em 0;
+  border: 0.16em solid red;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  text-decoration: none;
+}
+
+.links:hover {
+  background-color: red;
   text-shadow: 0 0.04em 0.04em grey;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
-li a:hover {
-  background-color: green;
-}
-
-li a:active {
-  background-color: yellow;
-}
-
-ul {
-  list-style-type: none;
-  overflow: hidden;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-}
-
-.search-container {
-  position: absolute;
-  left: 40%;
-  top: 135px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-#searchBar {
-  width: 400px;
-  height: 31px;
-  border-radius: 6px;
-}
-
-#submitBtn {
-  border-radius: 6px;
-  float: right;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-
-.dropbtn {
-  position: absolute;
-  color: white;
-  top: 0%;
-  cursor: pointer;
-  font-size: 90%;
-  margin: 0 0.3em 0.3em 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
-  font-weight: 300;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: yellow;
-}
-
-.dropdown-content a:hover {
-  background-color: purple;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown {
-  position: absolute;
-  left: 70%;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 80px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
+#eLogo {
+  position: relative;
+  left: 45%;
+  height: 200px;
+  top: -40px;
 }
 
 .sales {
   position: absolute;
   left: 19%;
+  top: 25%;
   background-color: pink;
   width: 1200px;
   height: 300px;
@@ -185,8 +55,8 @@ ul {
   left: 44%;
   top: 60%;
   display: inline-block;
-  background: black;
-  color: #fff;
+  background-color: white;
+  color: black;
   padding: 0.5em 1.5em;
   margin: 0 0.5em 0.6em 0;
   border-radius: 2em;
@@ -203,9 +73,58 @@ ul {
 .pictures {
   position: absolute;
   left: 19%;
-  top: 70%;
+  top: 60%;
   background-color: pink;
   width: 1200px;
-  height: 300px;
+  height: 600px;
   font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.pictures-1 {
+  position: absolute;
+  top: 125%;
+  left: 19%;
+  background-color: pink;
+  width: 1200px;
+  height: 600px;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.Slide img {
+  border: solid white;
+}
+
+.Slide-1 img {
+  border: solid white;
+}
+
+#secondimg {
+  position: absolute;
+  left: 50%;
+}
+#firstimg {
+  position: absolute;
+  left: -2px;
+}
+
+#fourthimg {
+  position: absolute;
+  left: 50%;
+}
+
+#fifthimg {
+  position: absolute;
+  left: -2px;
+}
+
+#shoesmen {
+  position: absolute;
+  left: 20%;
+  top: 80%;
+}
+
+#shoeslady {
+  position: absolute;
+  left: 68%;
+  top: 80%;
 }
