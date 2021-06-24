@@ -148,50 +148,107 @@
 .col{
   position:absolute;
   left:330px;
-  bottom:-326px;
+  bottom:-350px;
 }
 .col-1{
   position:absolute;
   left:-500px;
-  bottom:-326px;
+  bottom:-350px;
 }
 
 .col-2{
   position:absolute;
   left:-85px;
-  bottom:-326px;
+  bottom:-350px;
 }
 
 .featured-class{
-  position: absolute;
-  left: 19.25%;
-  bottom:-1050px;
-  background-color: pink;
-  width: 1200px;
-  height: 150px;
-  font-family: "Lucida Console", "Courier New", monospace;
-
-  animation:scroll 70s linear infinite;
-  background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"), #111111;
-  color: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 1000px;
-  perspective-origin: 50% 50%;
-  
+  position:absolute;
+  left:365px;
+  bottom:-1065px;
 }
 
-@keyframes scroll {
-  100%{
-   background-position:0px -3000px;
- }
+.featured-class1{
+  position:absolute;
+  left:1120px;
+  bottom:-1065px;
 }
 
-@media (prefers-reduced-motion) {
- .featured-class {
-   animation: scroll 200s linear infinite;
- }
+.featured-class2{
+  position:absolute;
+  left:620px;
+  bottom:-1065px;
 }
 
+.featured-class3{
+  position:absolute;
+  left:870px;
+  bottom:-1065px;
 }
+.featured-class4{
+  position:absolute;
+  left:1365px;
+  bottom:-1065px;
+}
+
+.featured-class img{
+  border-radius:1000px;
+}
+
+.featured-class1 img{
+  border-radius:1000px;
+}
+.featured-class2 img{
+  border-radius:1000px;
+}
+.featured-class3 img{
+  border-radius:1000px;
+}
+.featured-class4 img{
+  border-radius:1000px;
+}
+
+.middle{
+  transition: 1s ease;
+  opacity: 0;
+}
+
+.featured-class:hover img{
+  opacity: 0.7;
+}
+
+.featured-class:hover .middle{
+  opacity: 1;
+}
+
+.featured-class1:hover img{
+  opacity: 0.7;
+}
+
+.featured-class1:hover .middle{
+  opacity: 1;
+}
+.featured-class2:hover img{
+  opacity: 0.7;
+}
+
+.featured-class2:hover .middle{
+  opacity: 1;
+}
+.featured-class3:hover img{
+  opacity: 0.7;
+}
+
+.featured-class3:hover .middle{
+  opacity: 1;
+}
+.featured-class4:hover img{
+  opacity: 0.7;
+}
+
+.featured-class4:hover .middle{
+  opacity: 1;
+}
+
+
+
