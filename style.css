@@ -1,3 +1,7 @@
+body {
+  font-family: "Heebo", sans-serif;
+}
+
 .mainsection {
   position: relative;
   background-color: pink;
@@ -12,6 +16,7 @@
   border: 0.16em solid red;
   box-sizing: border-box;
   text-decoration: none;
+  font-family: "Heebo", sans-serif;
 }
 
 .links:hover {
@@ -34,7 +39,6 @@
   background-color: pink;
   width: 1200px;
   height: 300px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .sales-2 {
@@ -45,7 +49,6 @@
   width: 600px;
   height: 300px;
   border: solid white;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .sales-2 .explore {
@@ -61,7 +64,6 @@
   border: solid white;
   width: 600px;
   height: 300px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .sales-3 .explore {
@@ -95,6 +97,7 @@
   border-radius: 2em;
   box-sizing: border-box;
   text-decoration: none;
+  font-family: "Heebo", sans-serif;
 }
 
 .explore:hover {
@@ -109,7 +112,6 @@
   background-color: pink;
   width: 1200px;
   height: 600px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .pictures-1 {
@@ -343,7 +345,7 @@
   background: #272133;
   border-radius: 10px;
 }
-i {
+.box i {
   position: absolute;
   top: 50%;
   left: 43%;
@@ -356,4 +358,79 @@ i {
 .box:hover i {
   opacity: 0;
   z-index: -1;
+}
+
+/*-----footer------*/
+.footer {
+  position: absolute;
+  background: pink;
+  width: 1885px;
+  height: 200px;
+  font-size: 14px;
+  bottom: -2500px;
+}
+
+.footer-col-2 {
+  position: absolute;
+  left: 35%;
+}
+
+.footer-col-2 img {
+  position: absolute;
+  bottom: 10%;
+  left: 30%;
+}
+
+.footer-col-4 h3 {
+  color: white;
+  position: absolute;
+  left: 19%;
+  bottom: 70%;
+}
+
+.footer-col-3 h3 {
+  color: white;
+  position: absolute;
+  left: 26%;
+  bottom: 70%;
+}
+
+.footer-col-4 {
+  position: absolute;
+  bottom: 10%;
+  left: 80%;
+  font-size: 15px;
+}
+.footer-col-3 {
+  position: absolute;
+  bottom: 10%;
+  left: 70%;
+  font-size: 15px;
+}
+
+.footer-col-3 ul {
+  list-style-type: none;
+}
+
+.footer-col-4 ul {
+  list-style-type: none;
+}
+
+.app-logo {
+  margin-top: 20px;
+}
+
+.app-logo img {
+  width: 140px;
+}
+
+.footer hr {
+  border: none;
+  background: #b5b5b5;
+  height: 1px;
+  margin: 20px 0;
+}
+
+.copyright {
+  text-align: center;
 }
