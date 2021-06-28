@@ -82,7 +82,7 @@
 .cole-1 {
   position: absolute;
   left: 19%;
-  bottom: -1300px;
+  bottom: -2700px;
 }
 
 .cole-1 i {
@@ -100,13 +100,13 @@
 .cole-2 {
   position: absolute;
   left: 45%;
-  bottom: -1300px;
+  bottom: -2700px;
 }
 
 .cole-3 {
   position: absolute;
   left: 70%;
-  bottom: -1300px;
+  bottom: -2700px;
 }
 
 .explore {
@@ -249,13 +249,13 @@
 .small-container {
   position: absolute;
   left: 45.5%;
-  bottom: -1700px;
+  bottom: -1250px;
 }
 
 .featured-text {
-  position: relative;
+  position: absolute;
   left: 46%;
-  bottom: 70%;
+  top:190%;
   font-family: "Heebo", sans-serif;
 }
 
@@ -379,7 +379,7 @@
   border-radius: 5px;
   position: absolute;
   left: 25%;
-  bottom: 20%;
+  bottom: 85%;
 }
 
 .ladysale {
