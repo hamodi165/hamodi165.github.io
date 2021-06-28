@@ -1,28 +1,22 @@
-body {
-  font-family: "Heebo", sans-serif;
-}
-
 .mainsection {
   position: relative;
-  background-color: pink;
+  background-color: white;
 }
 
 .links {
   position: relative;
-  left: 32%;
+  left: 26%;
   display: inline-block;
   padding: 0.8em 1.2em;
   margin: 0 0.8em 0.8em 0;
-  border: 0.16em solid red;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "Heebo", sans-serif;
 }
 
 .links:hover {
-  background-color: red;
+  border-bottom: 3px solid white;
   text-shadow: 0 0.04em 0.04em grey;
-  transition: all 0.5s;
+  transition: all 0.4s;
 }
 
 #eLogo {
@@ -35,7 +29,7 @@ body {
 .sales {
   position: absolute;
   left: 19%;
-  top: 25%;
+  top: 25.1%;
   background-color: pink;
   width: 1200px;
   height: 300px;
@@ -43,10 +37,9 @@ body {
 
 .sales-2 {
   position: absolute;
-  left: 19.25%;
-  bottom: -1420px;
+  left: 18.9%;
+  top: 25.1%;
   background-color: burlywood;
-  width: 600px;
   height: 300px;
   border: solid white;
 }
@@ -59,7 +52,7 @@ body {
 .sales-3 {
   position: absolute;
   left: 50.5%;
-  bottom: -1420px;
+  top: 25.1%;
   background-color: grey;
   border: solid white;
   width: 600px;
@@ -86,6 +79,36 @@ body {
   font-size: 80%;
 }
 
+.cole-1 {
+  position: absolute;
+  left: 19%;
+  bottom: -1300px;
+}
+
+.cole-1 i {
+  color: grey;
+}
+
+.cole-2 i {
+  color: orange;
+}
+
+.cole-3 i {
+  color: pink;
+}
+
+.cole-2 {
+  position: absolute;
+  left: 45%;
+  bottom: -1300px;
+}
+
+.cole-3 {
+  position: absolute;
+  left: 70%;
+  bottom: -1300px;
+}
+
 .explore {
   position: absolute;
   left: 44%;
@@ -97,7 +120,7 @@ body {
   border-radius: 2em;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "Heebo", sans-serif;
+  color: black;
 }
 
 .explore:hover {
@@ -114,14 +137,86 @@ body {
   height: 600px;
 }
 
+.pictures .explorelady {
+  position: absolute;
+  left: 70%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.pictures .exploremen {
+  position: absolute;
+  left: 20%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.pictures .explorelady:hover {
+  background-color: white;
+  transition: all 0.5s;
+}
+.pictures .exploremen:hover {
+  background-color: white;
+  transition: all 0.5s;
+}
 .pictures-1 {
   position: absolute;
-  top: 149%;
+  top: 126%;
   left: 19%;
   background-color: pink;
   width: 1200px;
   height: 600px;
-  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.pictures-1 .exploreladdy {
+  position: absolute;
+  left: 19%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.pictures-1 .exploremenn {
+  position: absolute;
+  left: 72%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.pictures-1 .exploreladdy:hover {
+  background-color: white;
+  transition: all 0.5s;
+}
+.pictures-1 .exploremenn:hover {
+  background-color: white;
+  transition: all 0.5s;
 }
 
 .Slide img {
@@ -134,11 +229,11 @@ body {
 
 #secondimg {
   position: absolute;
-  left: 50%;
+  left: -2px;
 }
 #firstimg {
   position: absolute;
-  left: -2px;
+  left: 50%;
 }
 
 #fourthimg {
@@ -151,29 +246,17 @@ body {
   left: -2px;
 }
 
-#shoesmen {
-  position: absolute;
-  left: 20%;
-  top: 80%;
-}
-
-#shoeslady {
-  position: absolute;
-  left: 68%;
-  top: 80%;
-}
-
 .small-container {
   position: absolute;
   left: 45.5%;
-  bottom: -1850px;
+  bottom: -1700px;
 }
 
 .featured-text {
-  position: absolute;
-  text-align: center;
+  position: relative;
   left: 46%;
-  bottom: -1500px;
+  bottom: 70%;
+  font-family: "Heebo", sans-serif;
 }
 
 .col {
@@ -208,50 +291,37 @@ body {
   transform: translateY(-5px);
 }
 
-.featured-class {
+.col-3 {
   position: absolute;
-  left: 365px;
-  bottom: -450px;
+  left: -85px;
+  bottom: -1050px;
+  transition: transform 0.3s;
 }
 
-.featured-class1 {
-  position: absolute;
-  left: 1120px;
-  bottom: -450px;
+.col-3:hover {
+  transform: translateY(-5px);
 }
 
-.featured-class2 {
+.col-4 {
   position: absolute;
-  left: 620px;
-  bottom: -450px;
+  left: 330px;
+  bottom: -1050px;
+  transition: transform 0.3s;
 }
 
-.featured-class3 {
-  position: absolute;
-  left: 870px;
-  bottom: -450px;
-}
-.featured-class4 {
-  position: absolute;
-  left: 1365px;
-  bottom: -450px;
+.col-4:hover {
+  transform: translateY(-5px);
 }
 
-.featured-class img {
-  border-radius: 1000px;
+.col-5 {
+  position: absolute;
+  left: -500px;
+  bottom: -1050px;
+  transition: transform 0.3s;
 }
 
-.featured-class1 img {
-  border-radius: 1000px;
-}
-.featured-class2 img {
-  border-radius: 1000px;
-}
-.featured-class3 img {
-  border-radius: 1000px;
-}
-.featured-class4 img {
-  border-radius: 1000px;
+.col-5:hover {
+  transform: translateY(-5px);
 }
 
 .middle {
@@ -259,7 +329,7 @@ body {
   opacity: 0;
 }
 
-.featured-class:hover img {
+.hed-class:hover img {
   opacity: 0.7;
 }
 
@@ -296,15 +366,20 @@ body {
   opacity: 1;
 }
 
+.featured-text {
+  position: absolute;
+  bottom: -1370px;
+}
+
 .featurehead::after {
   content: "";
-  background: #ff523b;
+  background: pink;
   width: 80px;
   height: 5px;
   border-radius: 5px;
   position: absolute;
   left: 25%;
-  bottom: 10%;
+  bottom: 20%;
 }
 
 .ladysale {
@@ -367,7 +442,8 @@ body {
   width: 1885px;
   height: 200px;
   font-size: 14px;
-  bottom: -2500px;
+  bottom: -3100px;
+  font-family: "Heebo", sans-serif;
 }
 
 .footer-col-2 {
@@ -428,7 +504,7 @@ body {
   border: none;
   background: #b5b5b5;
   height: 1px;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .copyright {
