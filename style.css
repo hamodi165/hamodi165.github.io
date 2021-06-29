@@ -21,9 +21,9 @@
 
 #eLogo {
   position: relative;
-  left: 45%;
+  left: 18.6%;
   height: 200px;
-  top: -40px;
+  top: 50px;
 }
 
 .sales {
@@ -82,31 +82,62 @@
 .cole-1 {
   position: absolute;
   left: 19%;
-  bottom: -2700px;
+  bottom: -2800px;
+}
+
+.cole-1 h3 {
+  font-family: "Heebo", sans-serif;
+}
+
+.cole-1 img {
+  border-radius: 1000px;
 }
 
 .cole-1 i {
   color: grey;
 }
 
+.cole-2 {
+  position: absolute;
+  left: 45%;
+  bottom: -2800px;
+}
+
+.cole-2 h3 {
+  font-family: "Heebo", sans-serif;
+}
+
+.cole-2 img {
+  border-radius: 1000px;
+}
+
 .cole-2 i {
   color: orange;
+}
+
+.cole-3 {
+  position: absolute;
+  left: 70%;
+  bottom: -2800px;
+}
+
+.cole-3 h3 {
+  font-family: "Heebo", sans-serif;
+}
+
+.cole-3 img {
+  border-radius: 1000px;
 }
 
 .cole-3 i {
   color: pink;
 }
 
-.cole-2 {
+.testimonial {
   position: absolute;
-  left: 45%;
-  bottom: -2700px;
 }
 
-.cole-3 {
-  position: absolute;
-  left: 70%;
-  bottom: -2700px;
+.rowe {
 }
 
 .explore {
@@ -255,7 +286,7 @@
 .featured-text {
   position: absolute;
   left: 46%;
-  top:190%;
+  top: 190%;
   font-family: "Heebo", sans-serif;
 }
 
@@ -397,8 +428,8 @@
 
 .box {
   position: absolute;
-  top: 60%;
-  left: 50%;
+  top: 21%;
+  left: 75%;
   transform: translate(-50%, -50%);
 }
 .input {
@@ -427,8 +458,17 @@
   right: 15px;
   transform: translate(-50%, -50%);
   font-size: 15px;
-  color: white;
+  color: black;
   transition: 0.2s;
+  font-size: 20px;
+}
+
+#shopping {
+  position: absolute;
+  left: 77%;
+  top: 20%;
+  font-size: 20px;
+  color: black;
 }
 .box:hover i {
   opacity: 0;
@@ -509,4 +549,91 @@
 
 .copyright {
   text-align: center;
+}
+
+.account {
+  position: absolute;
+  top: 20%;
+  left: 79%;
+  font-size: 20px;
+  color: black;
+}
+
+/*-----account-page------*/
+
+.account-page {
+}
+
+.form-container {
+  background: #fff;
+  width: 360px;
+  height: 400px;
+  position: relative;
+  left: 500px;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.form-container span {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #555;
+  cursor: pointer;
+  width: 100px;
+  display: inline-block;
+}
+
+.form-btn {
+  display: inline-block;
+}
+
+.form-container form {
+  max-width: 300px;
+  padding: 0 20px;
+  position: absolute;
+  top: 130px;
+  transition: transform 1s;
+}
+
+form input {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+}
+
+form .btn {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+form .btn:focus {
+  outline: none;
+}
+
+#loginForm {
+  left: -300px;
+}
+
+#registerForm {
+  left: 0;
+}
+
+form a {
+  font-size: 15px;
+}
+
+#indicator {
+  width: 100px;
+  border: none;
+  background: #ff523b;
+  height: 3px;
+  margin-top: 8px;
+  transform: translateX(65px);
+  transition: transform 1s;
 }
