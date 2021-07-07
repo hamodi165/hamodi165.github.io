@@ -1,29 +1,78 @@
-.mainsection {
-  position: relative;
-  background-color: white;
+/*-----navigation links------*/
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+body{
+  font-family: "Quicksand", sans-serif;
 }
 
-.links {
+.dropdown{
   position: relative;
-  left: 26%;
   display: inline-block;
-  padding: 0.8em 1.2em;
-  margin: 0 0.8em 0.8em 0;
-  box-sizing: border-box;
-  text-decoration: none;
+  left:32%;
+  margin-right:30px;
+  font-family: "Quicksand", sans-serif;
 }
 
-.links:hover {
-  border-bottom: 3px solid white;
-  text-shadow: 0 0.04em 0.04em grey;
-  transition: all 0.4s;
+#home{
+  position:relative;
+  display:inline-block;
+  left:40%;
+  text-decoration:none;
 }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  overflow:auto;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown-content a:hover{
+  background-color:pink;
+  transition: all 0.7s ease;
+}
+
+
+
+.links{
+  text-decoration:none;
+}
+
+.links::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color:black;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .links:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
 
 #eLogo {
   position: relative;
-  left: 18.6%;
+  left: 19%;
   height: 200px;
-  top: 50px;
+  top: 70px;
 }
 
 .sales {
@@ -85,9 +134,6 @@
   bottom: -2800px;
 }
 
-.cole-1 h3 {
-  font-family: "Heebo", sans-serif;
-}
 
 .cole-1 img {
   border-radius: 1000px;
@@ -103,9 +149,6 @@
   bottom: -2800px;
 }
 
-.cole-2 h3 {
-  font-family: "Heebo", sans-serif;
-}
 
 .cole-2 img {
   border-radius: 1000px;
@@ -121,9 +164,6 @@
   bottom: -2800px;
 }
 
-.cole-3 h3 {
-  font-family: "Heebo", sans-serif;
-}
 
 .cole-3 img {
   border-radius: 1000px;
@@ -137,8 +177,7 @@
   position: absolute;
 }
 
-.rowe {
-}
+
 
 .explore {
   position: absolute;
@@ -287,7 +326,6 @@
   position: absolute;
   left: 46%;
   top: 190%;
-  font-family: "Heebo", sans-serif;
 }
 
 .col {
@@ -426,9 +464,12 @@
   color: white;
 }
 
+
+/*----search box-----*/
+
 .box {
   position: absolute;
-  top: 21%;
+  top: 23%;
   left: 75%;
   transform: translate(-50%, -50%);
 }
@@ -440,14 +481,14 @@
   border: 4px solid white;
   border-radius: 50px;
   box-sizing: border-box;
-  font-family: Comic Sans MS;
   font-size: 26px;
   color: white;
   outline: none;
   transition: 0.5s;
+
 }
 .box:hover input {
-  width: 350px;
+  width: 150px;
   background: #272133;
   border-radius: 10px;
 }
@@ -463,13 +504,22 @@
   font-size: 20px;
 }
 
+
+
+/*----shopping cart-----*/
+
 #shopping {
   position: absolute;
   left: 77%;
-  top: 20%;
+  top: 22%;
   font-size: 20px;
   color: black;
 }
+
+#shopping:hover{
+  color:green;
+}
+
 .box:hover i {
   opacity: 0;
   z-index: -1;
@@ -483,7 +533,6 @@
   height: 200px;
   font-size: 14px;
   bottom: -3100px;
-  font-family: "Heebo", sans-serif;
 }
 
 .footer-col-2 {
@@ -553,16 +602,18 @@
 
 .account {
   position: absolute;
-  top: 20%;
+  top: 21.7%;
   left: 79%;
   font-size: 20px;
   color: black;
 }
 
+.account:hover{
+  color:green;
+}
+
 /*-----account-page------*/
 
-.account-page {
-}
 
 .form-container {
   background: #fff;
