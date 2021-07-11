@@ -338,6 +338,12 @@ body{
   top: 190%;
 }
 
+.featuredtext{
+  position: absolute;
+  left: 46%;
+  top: 1%;
+}
+
 .col {
   position: absolute;
   left: 330px;
@@ -450,7 +456,25 @@ body{
   bottom: -1370px;
 }
 
+.featuretext {
+  position: absolute;
+  top:40%;
+  left:50%;
+
+}
+
 .featurehead::after {
+  content: "";
+  background: pink;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  left: 25%;
+  bottom: 85%;
+}
+
+.featureheaded::after {
   content: "";
   background: pink;
   width: 80px;
@@ -473,6 +497,73 @@ body{
   bottom: 40%;
   color: white;
 }
+
+/*----women products-----*/
+.col-p {
+  position: absolute;
+  left: 1200px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col-p:hover {
+  transform: translateY(-5px);
+}
+.col-1p {
+  position: absolute;
+  left: 700px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col-1p:hover {
+  transform: translateY(-5px);
+}
+
+.col-2p {
+  position: absolute;
+  left: 200px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col-2p:hover {
+  transform: translateY(-5px);
+}
+
+.col-3p {
+  position: absolute;
+  left: 800px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-3p:hover {
+  transform: translateY(-5px);
+}
+
+.col-4p {
+  position: absolute;
+  left: 400px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-4p:hover {
+  transform: translateY(-5px);
+}
+
+.col-5p {
+  position: absolute;
+  left: 1200px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-5p:hover {
+  transform: translateY(-5px);
+}
+
 
 
 /*----search box-----*/
