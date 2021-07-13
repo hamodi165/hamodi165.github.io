@@ -326,10 +326,15 @@ body{
   left: -2px;
 }
 
+.small-container-product {
+  position: absolute;
+  bottom: -820px;
+  left:45.5%;
+}
 .small-container {
   position: absolute;
-  left: 45.5%;
   bottom: -1250px;
+  left:45.5%;
 }
 
 .featured-text {
@@ -458,7 +463,7 @@ body{
 
 .featuretext {
   position: absolute;
-  bottom:10%;
+  bottom:-50%;
   left:50%;
 
 }
@@ -501,7 +506,7 @@ body{
 /*----women products-----*/
 .col-p {
   position: absolute;
-  left: 1200px;
+  left: 330px;
   bottom: -350px;
   transition: transform 0.3s;
 }
@@ -511,7 +516,7 @@ body{
 }
 .col-1p {
   position: absolute;
-  left: 700px;
+  left: -500px;
   bottom: -350px;
   transition: transform 0.3s;
 }
@@ -522,7 +527,7 @@ body{
 
 .col-2p {
   position: absolute;
-  left: 200px;
+  left: -85px;
   bottom: -350px;
   transition: transform 0.3s;
 }
@@ -533,7 +538,7 @@ body{
 
 .col-3p {
   position: absolute;
-  left: 800px;
+  left: -85px;
   bottom: -1050px;
   transition: transform 0.3s;
 }
@@ -544,7 +549,7 @@ body{
 
 .col-4p {
   position: absolute;
-  left: 400px;
+  left: 330px;
   bottom: -1050px;
   transition: transform 0.3s;
 }
@@ -555,7 +560,7 @@ body{
 
 .col-5p {
   position: absolute;
-  left: 1200px;
+  left: -500px;
   bottom: -1050px;
   transition: transform 0.3s;
 }
@@ -948,48 +953,210 @@ form a {
 
 /*----------slideshow women products----------*/
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  box-sizing:border-box;
+.slideshow {
+  list-style-type: none;
 }
 
-.slideshow img{
-  vertical-align:middle;
+/** SLIDESHOW **/
+.slideshow,
+.slideshow:after { 
+    top: 226.5px; /*Not sure why I needed this fix*/
+		position: absolute;
+    width:600px;
+    height:1200px;
+    z-index: 0; 
 }
 
-.mySlides{
-  display:none;
+.slideshow li span { 
+		position: absolute;
+    width:700px;
+    height:900px;
+   
+    top: 0px;
+    left: 95%;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 30s linear infinite 0s; 
 }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+
+
+.slideshow li:nth-child(1) span { 
+    background-image: url("ecommerce/img/clothes/alex-shaw-__AThUMXbUw-unsplash.jpg"); 
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url("ecommerce/img/clothes/ussama-azam-AcK5XQKUlZY-unsplash.jpg");
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url("ecommerce/img/clothes/felipe-galvan-AhfrA5VQNpM-unsplash.jpg");
+    animation-delay: 12s; 
+}
+.slideshow li:nth-child(4) span { 
+    background-image: url("ecommerce/img/clothes/ussama-azam-5IcEBmSOQq0-unsplash.jpg");   
+    animation-delay: 18s; 
+}
+.slideshow li:nth-child(5) span { 
+    background-image: url("ecommerce/img/clothes/brooke-cagle-z1B9f48F5dc-unsplash.jpg");
+    animation-delay: 24s; 
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+
+
+@keyframes imageAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
 }
 
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+
+@keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+
+.no-cssanimations .cb-slideshow li span {
+	opacity: 1;
+}
+
+.sidepicwomen{
+  position:relative;
+  top:215px;
+  width:607.5px;
+  height:900px;
+}
+
+.side-text{
+  color:palevioletred;
+}
+
+.womensale{
+  position:absolute;
+  top:50%;
+  left:20%;
+  font-size:20px;
+}
+.sidepicwomenright{
+  position:relative;
+  top:-685px;
+  width:607.5px;
+  height:900px;
+  left:1277px;
+}
+
+.side-text-right{
+  color:palevioletred;
+}
+
+.womensale-right{
+  position:absolute;
+  top:50%;
+  left:20%;
+  font-size:20px;
+}
+
+.search-box form input{
+  width:20rem;
+  padding:7px;
+  border:none;
+  outline:none;
+  font-size:1.4rem;
+  border-radius:5px;
+  border-bottom:2px solid var(red);
+}
+
+.search-box {
+  position:relative;
+  left:41.5%;
+}
+
+.filter-box{
+  position:absolute;
+  left:39%;
+  top:150px;
+}
+
+
+
+.filterbtn1{
+  font-size:1.4rem;
+  text-decoration:none;
+  color:white;
+  background-color:palevioletred;
+  padding:7px;
+  display:inline-block;
+  border-radius:5px;
+  margin:6px;
+}
+
+.filterbtn1:hover{
+  transition:all 0.5s ease;
+  opacity:50%;
+}
+.filterbtn2{
+  font-size:1.4rem;
+  text-decoration:none;
+  color:white;
+  background-color:palevioletred;
+  padding:7px;
+  display:inline-block;
+  border-radius:5px;
+  margin:6px;
+}
+
+.filterbtn2:hover{
+  transition:all 0.5s ease;
+  opacity:50%;
+}
+
+.filterbtn3{
+  font-size:1.4rem;
+  text-decoration:none;
+  color:white;
+  background-color:palevioletred;
+  padding:7px;
+  display:inline-block;
+  border-radius:5px;
+  margin:6px;
+}
+
+.filterbtn3:hover{
+  transition:all 0.5s ease;
+  opacity:50%;
+}
+.filterbtn4{
+  font-size:1.4rem;
+  text-decoration:none;
+  color:white;
+  background-color:palevioletred;
+  padding:7px;
+  display:inline-block;
+  border-radius:5px;
+  margin:6px;
+}
+
+.filterbtn4:hover{
+  transition:all 0.5s ease;
+  opacity:50%;
+}
+
+.whole-product{
+  position:relative;
+  background-color:rgba(128, 128, 128, 0.178);
+  top:-600px;
+}
+
+.whole-product h1{
+  position:relative;
+  left:43.5%;
 }
