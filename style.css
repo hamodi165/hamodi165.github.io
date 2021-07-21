@@ -538,7 +538,7 @@ body{
 
 .col-3p {
   position: absolute;
-  left: -85px;
+  left: -60px;
   bottom: -1050px;
   transition: transform 0.3s;
 }
@@ -549,7 +549,7 @@ body{
 
 .col-4p {
   position: absolute;
-  left: 330px;
+  left: 355px;
   bottom: -1050px;
   transition: transform 0.3s;
 }
@@ -566,6 +566,39 @@ body{
 }
 
 .col-5p:hover {
+  transform: translateY(-5px);
+}
+
+.col-6p {
+  position: absolute;
+  left: -500px;
+  bottom: -1620px;
+  transition: transform 0.3s;
+}
+
+.col-6p:hover {
+  transform: translateY(-5px);
+}
+
+.col-7p {
+  position: absolute;
+  left: -60px;
+  bottom: -1620px;
+  transition: transform 0.3s;
+}
+
+.col-7p:hover {
+  transform: translateY(-5px);
+}
+
+.col-8p {
+  position: absolute;
+  left: 355px;
+  bottom: -1620px;
+  transition: transform 0.3s;
+}
+
+.col-8p:hover {
   transform: translateY(-5px);
 }
 
@@ -940,17 +973,6 @@ form a {
   font-size: 15px;
 }
 
-#indicator {
-  width: 100px;
-  border: none;
-  background: #ff523b;
-  height: 3px;
-  margin-top: 8px;
-  transform: translateX(65px);
-  transition: transform 1s;
-}
-
-
 /*----------slideshow women products----------*/
 
 .slideshow {
@@ -982,8 +1004,6 @@ form a {
     z-index: 0;
     animation: imageAnimation 30s linear infinite 0s; 
 }
-
-
 
 .slideshow li:nth-child(1) span { 
     background-image: url("ecommerce/img/clothes/alex-shaw-__AThUMXbUw-unsplash.jpg"); 
@@ -1075,21 +1095,8 @@ form a {
   border-bottom:2px solid var(red);
 }
 
-.search-box {
-  position:relative;
-  left:41.5%;
-}
-
-.filter-box{
-  position:absolute;
-  left:39%;
-  top:150px;
-}
-
-
-
-.filterbtn1{
-  font-size:1.4rem;
+.filterbtn{
+  font-size:20px;
   text-decoration:none;
   color:white;
   background-color:palevioletred;
@@ -1097,55 +1104,10 @@ form a {
   display:inline-block;
   border-radius:5px;
   margin:6px;
-}
-
-.filterbtn1:hover{
   transition:all 0.5s ease;
-  opacity:50%;
-}
-.filterbtn2{
-  font-size:1.4rem;
-  text-decoration:none;
-  color:white;
-  background-color:palevioletred;
-  padding:7px;
-  display:inline-block;
-  border-radius:5px;
-  margin:6px;
 }
 
-.filterbtn2:hover{
-  transition:all 0.5s ease;
-  opacity:50%;
-}
-
-.filterbtn3{
-  font-size:1.4rem;
-  text-decoration:none;
-  color:white;
-  background-color:palevioletred;
-  padding:7px;
-  display:inline-block;
-  border-radius:5px;
-  margin:6px;
-}
-
-.filterbtn3:hover{
-  transition:all 0.5s ease;
-  opacity:50%;
-}
-.filterbtn4{
-  font-size:1.4rem;
-  text-decoration:none;
-  color:white;
-  background-color:palevioletred;
-  padding:7px;
-  display:inline-block;
-  border-radius:5px;
-  margin:6px;
-}
-
-.filterbtn4:hover{
+.filterbtn:hover{
   transition:all 0.5s ease;
   opacity:50%;
 }
@@ -1154,9 +1116,16 @@ form a {
   position:relative;
   background-color:rgba(128, 128, 128, 0.178);
   top:-600px;
+  width:1895px;
 }
 
-.whole-product h1{
-  position:relative;
-  left:43.5%;
+.search-box{
+  position:absolute;
+
 }
+
+
+
+
+
+

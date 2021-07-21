@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet">
     <title>Hamodis journey</title>
     <script src="https://kit.fontawesome.com/afd6aa68df.js" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset= "utf-8">
@@ -44,8 +45,8 @@
                             <div class="close-shopping">+</div>
                             <form action="modal-content animate">
                                 <div class="labels">
-                                    <p>Frakt:                   0:-</p>
-                                    <p>Summa:                   0:-</p>
+                                    <p>Shipping:                   0:-</p>
+                                    <p>Total:                   0:-</p>
                                 </div>
                                 <a href="#" class="checkOut">Proceed to checkout</a>
                             </form>
@@ -145,19 +146,24 @@
                 </form>
             </div>
 
-            <div class="filter-box">
-                <button class="filterbtn active" onclick="filterSelection('all')">Show all</a>
-                <button class="filterbtn" onclick="filterSelection('shoes')">Shoes</a>
-                <button class="filterbtn" onclick="filterSelection('shirts')">Shirts</a>
-                <button class="filterbtn" onclick="filterSelection('watches')">Watches</a>
-                <button class="filterbtn" onclick="filterSelection('accessories')">Accessories</a>
-            </div>
         </div>
-    
 
+
+        <div class="buttonz">
+            <button class="shoez">Shoes</a>
+            <button class="dress">Dress</a>
+            <button class="watches">Watches</a>
+            <button class="accessories">Accessories</a>
+        </div>
+
+        <button id="hide">Hide</button>
+        <button id="show">Show</button>
+
+        <p id="hej">hej</p>
 
         <div class="small-container-product">
-                <div class="col-p">
+            <div class="shoes">
+                <div class="col-p" id="sneakers">
                     <img src="ecommerce/images/product-7.jpg" width="370">
                     <h4>HRX Socks</h4>
                     <div class="rating">
@@ -167,8 +173,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p>$50.00</p>
+                    <p>$15.00</p>
                 </div>
+            </div>
+
+            <div class="shoes" data-category="shoes">
                 <div class="col-1p">
                     <img src="ecommerce/images/product-10.jpg" width="370">
                     <h4>HRX Comfort Sneakers</h4>
@@ -179,11 +188,13 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p>$50.00</p>
+                    <p>$60.00</p>
                 </div>
+            </div>
+            <div class="dress" data-category="dress">
                 <div class="col-2p">
-                    <img src="ecommerce/images/product-1.jpg" width="370">
-                    <h4>Red Tiger Puma Shirt</h4>
+                    <img src="ecommerce/img/clothes/ussama-azam-5IcEBmSOQq0-unsplash.jpg" width="378">
+                    <h4>Red Dress</h4>
                     <div class="rating">
                         <i class="fa fa-star" aria-hidden="false"></i>
                         <i class="fa fa-star"></i>
@@ -191,11 +202,13 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p>$50.00</p>
+                    <p>$90.00</p>
                 </div>
+            </div>
+            <div class="shoes" data-category="shoes">
              <div class="col-3p">
-                    <img src="ecommerce/images/product-4.jpg" width="370">
-                    <h4>Navy Blue Puma Shirt</h4>
+                    <img src="ecommerce/img/clothes/ussama-azam-AcK5XQKUlZY-unsplash.jpg" width="330">
+                    <h4>Gold Dress</h4>
                     <div class="rating">
                         <i class="fa fa-star" aria-hidden="false"></i>
                         <i class="fa fa-star"></i>
@@ -203,11 +216,13 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p>$50.00</p>
+                    <p>$80.00</p>
                 </div>
+            </div>
+
                 <div class="col-4p">
-                    <img src="ecommerce/images/product-8.jpg" width="370">
-                    <h4>Fossil 32UG Black</h4>
+                    <img src="ecommerce/img/clothes/4.jpg" width="310">
+                    <h4>White Eye Shirt</h4>
                     <div class="rating">
                         <i class="fa fa-star" aria-hidden="false"></i>
                         <i class="fa fa-star"></i>
@@ -215,10 +230,49 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p>$50.00</p>
+                    <p>$30.00</p>
                 </div>
                 <div class="col-5p">
                     <img src="ecommerce/images/product-11.jpg" width="370">
+                    <h4>Pier One Comforts</h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="false"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>$50.00</p>
+                </div>
+
+                <div class="col-6p">
+                    <img src="ecommerce/img/shoes/7.jpg" width="370">
+                    <h4>Pier One Comforts</h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="false"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>$50.00</p>
+                </div>
+  
+                <div class="col-7p">
+                    <img src="ecommerce/img/shoes/6.jpg" width="370">
+                    <h4>Pier One Comforts</h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="false"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>$50.00</p>
+                </div>
+
+                <div class="col-8p">
+                    <img src="ecommerce/img/shoes/5.jpg" width="370">
                     <h4>Pier One Comforts</h4>
                     <div class="rating">
                         <i class="fa fa-star" aria-hidden="false"></i>
@@ -268,7 +322,7 @@
                     </div>
                 </div>
                 <hr>
-                <p class="copyright">Copyright 2021 - Hamodi Jaafary</p>
+                <p class="copyright">Copyright 2021 - eCommerce</p>
             </div>
         </div>
 
