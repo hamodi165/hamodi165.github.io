@@ -85,43 +85,8 @@ body{
   top: 60px;
 }
 
-.sales {
-  position: absolute;
-  left: 19%;
-  top: 25.1%;
-  background-color: pink;
-  width: 1200px;
-  height: 300px;
-}
 
-.sales-2 {
-  position: absolute;
-  left: 18.9%;
-  top: 25.1%;
-  background-color: burlywood;
-  height: 300px;
-  border: solid white;
-}
 
-.sales-2 .explore {
-  position: absolute;
-  left: 37%;
-}
-
-.sales-3 {
-  position: absolute;
-  left: 50.5%;
-  top: 25.1%;
-  background-color: grey;
-  border: solid white;
-  width: 600px;
-  height: 300px;
-}
-
-.sales-3 .explore {
-  position: absolute;
-  left: 40%;
-}
 
 #bigsale {
   color: white;
