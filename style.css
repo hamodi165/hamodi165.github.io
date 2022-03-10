@@ -85,6 +85,34 @@ body{
   top: 60px;
 }
 
+.sale-content{
+  position:relative;
+  top:215px;
+  width:10%;
+  left:354px;
+}
+
+.sale-content-1{
+  position:relative;
+  top:-189px;
+  width:10%;
+  left:959px;
+}
+
+.sale-content .ladysale{
+ position:relative;
+ top:-200px;
+ left:230px;
+ color:palevioletred;
+}
+
+.sale-content-1 .ladysales{
+  position:relative;
+  top:-200px;
+  left:230px;
+  color:palevioletred;
+ }
+
 
 
 
@@ -455,18 +483,6 @@ body{
   bottom: 85%;
 }
 
-.ladysale {
-  position: absolute;
-  left: 20%;
-  bottom: 40%;
-  color: white;
-}
-.ladysales {
-  position: absolute;
-  left: 28%;
-  bottom: 40%;
-  color: white;
-}
 
 /*----women products-----*/
 .col-p {
