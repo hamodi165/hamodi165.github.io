@@ -17,6 +17,7 @@ body{
 .dropdown{
   position: relative;
   display: inline-block;
+  width:0%;
   bottom:-205px;
   left:32%;
   margin-right:30px;
@@ -320,14 +321,16 @@ body{
 }
 
 .small-container-product {
-  position: absolute;
+  position: relative;
   bottom: -820px;
   left:45.5%;
+  width:0%;
 }
 .small-container {
-  position: absolute;
-  bottom: -1250px;
-  left:45.5%;
+  position: relative;
+  bottom:-2000px;
+  left:600px;
+  width:0%;
 }
 
 .featured-text {
