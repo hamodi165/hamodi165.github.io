@@ -1,0 +1,1115 @@
+/*-----navigation links------*/
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+body{
+  font-family: "Quicksand", sans-serif;
+}
+
+.rubrik{
+  position:absolute;
+  top:20px;
+  height:223px;
+  width:1885px;
+  background-color: palevioletred;
+}
+
+
+.dropdown{
+  position: relative;
+  display: inline-block;
+  width:0%;
+  bottom:-205px;
+  left:32%;
+  margin-right:30px;
+  font-family: "Quicksand", sans-serif;
+}
+
+
+#home{
+  position:relative;
+  display:inline-block;
+  left:40%;
+  text-decoration:none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  overflow:auto;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown-content a:hover{
+  background-color:pink;
+  transition: all 0.7s ease;
+}
+
+.links{
+  text-decoration:none;
+  color:white;
+}
+
+.links::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color:white;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .links:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+
+#eLogo {
+  position: relative;
+  left: 18.85%;
+  width:200px;
+  top: 60px;
+}
+
+.sale-content{
+  position:relative;
+  top:215px;
+  width:10%;
+  left:354px;
+}
+
+.sale-content-1{
+  position:relative;
+  top:-189px;
+  width:10%;
+  left:959px;
+}
+
+.sale-content .ladysale{
+ position:relative;
+ top:-200px;
+ left:230px;
+ color:palevioletred;
+}
+
+.sale-content-1 .ladysales{
+  position:relative;
+  top:-200px;
+  left:230px;
+  color:palevioletred;
+ }
+
+
+
+
+#bigsale {
+  color: white;
+  position: absolute;
+  left: 22%;
+  top: 30%;
+}
+
+#rea {
+  color: white;
+  position: absolute;
+  left: 24%;
+  top: 45%;
+  font-size: 80%;
+}
+
+.cole-1 {
+  position: absolute;
+  left: 19%;
+  bottom: -2800px;
+}
+
+
+.cole-1 img {
+  border-radius: 1000px;
+}
+
+.cole-1 i {
+  color: grey;
+}
+
+.cole-2 {
+  position: absolute;
+  left: 45%;
+  bottom: -2800px;
+}
+
+
+.cole-2 img {
+  border-radius: 1000px;
+}
+
+.cole-2 i {
+  color: orange;
+}
+
+.cole-3 {
+  position: absolute;
+  left: 70%;
+  bottom: -2800px;
+}
+
+
+.cole-3 img {
+  border-radius: 1000px;
+}
+
+.cole-3 i {
+  color: pink;
+}
+
+.testimonial {
+  position: absolute;
+}
+
+
+
+.explore {
+  position: absolute;
+  left: 44%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.explore:hover {
+  background-color: white;
+  transition: all 0.5s;
+}
+
+.pictures {
+  position: absolute;
+  left: 19%;
+  top: 60%;
+  background-color: pink;
+  width: 1200px;
+  height: 600px;
+}
+
+.pictures .explorelady {
+  position: absolute;
+  left: 70%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.pictures .exploremen {
+  position: absolute;
+  left: 20%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.pictures .explorelady:hover {
+  background-color: white;
+  transition: all 0.5s;
+}
+.pictures .exploremen:hover {
+  background-color: white;
+  transition: all 0.5s;
+}
+.pictures-1 {
+  position: absolute;
+  top: 126%;
+  left: 19%;
+  background-color: pink;
+  width: 1200px;
+  height: 600px;
+}
+
+.pictures-1 .exploreladdy {
+  position: absolute;
+  left: 19%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.pictures-1 .exploremenn {
+  position: absolute;
+  left: 72%;
+  top: 60%;
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em 0.6em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.pictures-1 .exploreladdy:hover {
+  background-color: white;
+  transition: all 0.5s;
+}
+.pictures-1 .exploremenn:hover {
+  background-color: white;
+  transition: all 0.5s;
+}
+
+.Slide img {
+  border: solid white;
+}
+
+.Slide-1 img {
+  border: solid white;
+}
+
+#secondimg {
+  position: absolute;
+  left: -2px;
+}
+#firstimg {
+  position: absolute;
+  left: 50%;
+}
+
+#fourthimg {
+  position: absolute;
+  left: 50%;
+}
+
+#fifthimg {
+  position: absolute;
+  left: -2px;
+}
+
+.small-container-product {
+  position: relative;
+  bottom: -820px;
+  left:45.5%;
+  width:0%;
+}
+.small-container {
+  position: relative;
+  bottom:-2000px;
+  left:600px;
+  width:0%;
+}
+
+.featured-text {
+  position: absolute;
+  left: 46%;
+  top: 190%;
+}
+
+.featuredtext{
+  position: absolute;
+  left: 46%;
+  top: 1%;
+}
+
+.col {
+  position: absolute;
+  left: 330px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col:hover {
+  transform: translateY(-5px);
+}
+.col-1 {
+  position: absolute;
+  left: -500px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col-1:hover {
+  transform: translateY(-5px);
+}
+
+.col-2 {
+  position: absolute;
+  left: -85px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col-2:hover {
+  transform: translateY(-5px);
+}
+
+.col-3 {
+  position: absolute;
+  left: -85px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-3:hover {
+  transform: translateY(-5px);
+}
+
+.col-4 {
+  position: absolute;
+  left: 330px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-4:hover {
+  transform: translateY(-5px);
+}
+
+.col-5 {
+  position: absolute;
+  left: -500px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-5:hover {
+  transform: translateY(-5px);
+}
+
+.middle {
+  transition: 1s ease;
+  opacity: 0;
+}
+
+.hed-class:hover img {
+  opacity: 0.7;
+}
+
+.featured-class:hover .middle {
+  opacity: 1;
+}
+
+.featured-class1:hover img {
+  opacity: 0.7;
+}
+
+.featured-class1:hover .middle {
+  opacity: 1;
+}
+.featured-class2:hover img {
+  opacity: 0.7;
+}
+
+.featured-class2:hover .middle {
+  opacity: 1;
+}
+.featured-class3:hover img {
+  opacity: 0.7;
+}
+
+.featured-class3:hover .middle {
+  opacity: 1;
+}
+.featured-class4:hover img {
+  opacity: 0.7;
+}
+
+.featured-class4:hover .middle {
+  opacity: 1;
+}
+
+.featured-text {
+  position: absolute;
+  bottom: -1370px;
+}
+
+.featuretext {
+  position: absolute;
+  bottom:-50%;
+  left:50%;
+
+}
+
+.featurehead::after {
+  content: "";
+  background: pink;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  left: 25%;
+  bottom: 85%;
+}
+
+.featureheaded::after {
+  content: "";
+  background: pink;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  left: 25%;
+  bottom: 85%;
+}
+
+
+/*----women products-----*/
+.col-p {
+  position: absolute;
+  left: 330px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col-p:hover {
+  transform: translateY(-5px);
+}
+.col-1p {
+  position: absolute;
+  left: -500px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col-1p:hover {
+  transform: translateY(-5px);
+}
+
+.col-2p {
+  position: absolute;
+  left: -85px;
+  bottom: -350px;
+  transition: transform 0.3s;
+}
+
+.col-2p:hover {
+  transform: translateY(-5px);
+}
+
+.col-3p {
+  position: absolute;
+  left: -60px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-3p:hover {
+  transform: translateY(-5px);
+}
+
+.col-4p {
+  position: absolute;
+  left: 355px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-4p:hover {
+  transform: translateY(-5px);
+}
+
+.col-5p {
+  position: absolute;
+  left: -500px;
+  bottom: -1050px;
+  transition: transform 0.3s;
+}
+
+.col-5p:hover {
+  transform: translateY(-5px);
+}
+
+.col-6p {
+  position: absolute;
+  left: -500px;
+  bottom: -1620px;
+  transition: transform 0.3s;
+}
+
+.col-6p:hover {
+  transform: translateY(-5px);
+}
+
+.col-7p {
+  position: absolute;
+  left: -60px;
+  bottom: -1620px;
+  transition: transform 0.3s;
+}
+
+.col-7p:hover {
+  transform: translateY(-5px);
+}
+
+.col-8p {
+  position: absolute;
+  left: 355px;
+  bottom: -1620px;
+  transition: transform 0.3s;
+}
+
+.col-8p:hover {
+  transform: translateY(-5px);
+}
+
+
+
+/*----search box-----*/
+
+.box {
+  position: absolute;
+  top: 23%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+.input {
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 4px solid white;
+  border-radius: 50px;
+  box-sizing: border-box;
+  font-size: 26px;
+  color: white;
+  outline: none;
+  transition: 0.5s;
+
+}
+.box:hover input {
+  width: 150px;
+  background: #272133;
+  border-radius: 10px;
+}
+.box i {
+  position: absolute;
+  top: 50%;
+  left: 43%;
+  right: 15px;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  color: white;
+  transition: 0.2s;
+  font-size: 20px;
+}
+
+.box:hover i {
+  opacity: 0;
+  z-index: -1;
+}
+
+
+
+
+/*-----footer------*/
+.footer {
+  position: absolute;
+  background: palevioletred;
+  width: 1885px;
+  height: 200px;
+  font-size: 14px;
+  bottom: -3100px;
+}
+
+.footer-col-2 {
+  position: absolute;
+  left: 35%;
+}
+
+.footer-col-2 img {
+  position: absolute;
+  bottom: 10%;
+  left: 30%;
+}
+
+.footer-col-4 h3 {
+  color: white;
+  position: absolute;
+  left: 19%;
+  bottom: 70%;
+}
+
+.footer-col-3 h3 {
+  color: white;
+  position: absolute;
+  left: 26%;
+  bottom: 70%;
+}
+
+.footer-col-4 {
+  position: absolute;
+  bottom: 10%;
+  left: 80%;
+  font-size: 15px;
+}
+.footer-col-3 {
+  position: absolute;
+  bottom: 10%;
+  left: 70%;
+  font-size: 15px;
+}
+
+.footer-col-3 ul {
+  list-style-type: none;
+}
+
+.footer-col-4 ul {
+  list-style-type: none;
+}
+
+.app-logo {
+  margin-top: 20px;
+}
+
+.app-logo img {
+  width: 140px;
+}
+
+.footer hr {
+  border: none;
+  background: #b5b5b5;
+  height: 1px;
+  margin: 15px 0;
+}
+
+.copyright {
+  text-align: center;
+}
+
+/*-----shopping-cart------*/
+
+#shoppingButton {
+  position: absolute;
+  left: 77%;
+  top: 21.65%;
+  font-size: 20px;
+  color: white;
+  transition: all 0.5s ease;
+}
+
+#shoppingButton:hover{
+  transition:all 0.2s ease;
+  color:black;
+}
+
+.checkOut {
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  width:200px;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+  position:relative;
+  bottom:-120px;
+}
+
+.checkOut:hover{
+  transition: all 0.5s ease;
+  background-color: green;
+}
+
+.shopping-cart{
+  background-color: rgba(0, 0, 0, 0.8);
+	width: 99%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: none;
+  animation-name:exampled;
+  animation-duration:.5s;
+  z-index: 1;
+  display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes exampled{
+  from {background-color: rgba(0, 0, 0, 0.0);}
+  to {background-color: rgba(0, 0, 0, 0.8);}
+}
+
+.shopping-content{
+  width:350px;
+  height:350px;
+  background-color: white;
+  border-radius:15px;
+  text-align:center;
+  padding:20px;
+  position:relative;
+}
+
+.shopping-content input {
+  position:relative;
+  bottom:-115px;
+  width:75%;
+  display:block;
+  margin: 15px auto;
+}
+
+.close-shopping{
+  position:absolute;
+  top:0;
+  right:14px;
+  font-size:42px;
+  transform:rotate(45deg);
+  cursor:pointer;
+}
+
+.labels{
+  position:relative;
+  bottom:-100px;
+  left:74px;
+  width:200px;
+  background-color: palevioletred;
+  opacity:0.6;
+}
+
+
+
+
+/*-----account-page------*/
+#loginButton{
+  position:absolute;
+  left:79%;
+  top:21.7%;
+  font-size:20px;
+  color:white;
+  transition: all 0.5s ease;
+}
+
+#loginButton:hover{
+  color:black;
+  transition:all 0.2s ease;
+}
+
+.forgot{
+  position:absolute;
+  left:16%;
+  bottom:38%;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.forgot:hover{
+  transition:all 0.4s ease;
+  color:palevioletred;
+}
+
+.login {
+  display: inline-block;
+  background-color: pink;
+  padding: 0.5em 1.5em;
+  width:200px;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.login:hover{
+  transition: all 0.5s ease;
+  background-color: green;
+}
+
+.bg-modal{
+  background-color: rgba(0, 0, 0, 0.8);
+	width: 99%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: none;
+  animation-name:example;
+  animation-duration:.5s;
+  z-index: 1;
+  display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes example{
+  from {background-color: rgba(0, 0, 0, 0.0);}
+  to {background-color: rgba(0, 0, 0, 0.8);}
+}
+
+.modal-content{
+  width:280px;
+  height:280px;
+  background-color: white;
+  border-radius:15px;
+  text-align:center;
+  padding:20px;
+  position:relative;
+}
+
+.modal-content input {
+  width:50%;
+  display:block;
+  margin: 15px auto;
+}
+
+.close{
+  position:absolute;
+  top:0;
+  right:14px;
+  font-size:42px;
+  transform:rotate(45deg);
+  cursor:pointer;
+  transition:all 0.5s ease;
+}
+
+.form-container {
+  background: #fff;
+  width: 360px;
+  height: 400px;
+  position: relative;
+  left: 500px;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.form-container span {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #555;
+  cursor: pointer;
+  width: 100px;
+  display: inline-block;
+}
+
+.form-btn {
+  display: inline-block;
+}
+
+.form-container form {
+  max-width: 300px;
+  padding: 0 20px;
+  position: absolute;
+  top: 130px;
+  transition: transform 1s;
+}
+
+form input {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+}
+
+form .btn {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+form .btn:focus {
+  outline: none;
+}
+
+#loginForm {
+  left: -300px;
+}
+
+#registerForm {
+  left: 0;
+}
+
+form a {
+  font-size: 15px;
+}
+
+/*----------slideshow women products----------*/
+
+.slideshow {
+  list-style-type: none;
+}
+
+/** SLIDESHOW **/
+.slideshow,
+.slideshow:after { 
+    top: 226.5px; /*Not sure why I needed this fix*/
+		position: absolute;
+    width:600px;
+    height:1200px;
+    z-index: 0; 
+}
+
+.slideshow li span { 
+		position: absolute;
+    width:700px;
+    height:900px;
+   
+    top: 0px;
+    left: 95%;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 30s linear infinite 0s; 
+}
+
+.slideshow li:nth-child(1) span { 
+    background-image: url("ecommerce/img/clothes/alex-shaw-__AThUMXbUw-unsplash.jpg"); 
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url("ecommerce/img/clothes/ussama-azam-AcK5XQKUlZY-unsplash.jpg");
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url("ecommerce/img/clothes/felipe-galvan-AhfrA5VQNpM-unsplash.jpg");
+    animation-delay: 12s; 
+}
+.slideshow li:nth-child(4) span { 
+    background-image: url("ecommerce/img/clothes/ussama-azam-5IcEBmSOQq0-unsplash.jpg");   
+    animation-delay: 18s; 
+}
+.slideshow li:nth-child(5) span { 
+    background-image: url("ecommerce/img/clothes/brooke-cagle-z1B9f48F5dc-unsplash.jpg");
+    animation-delay: 24s; 
+}
+
+
+
+@keyframes imageAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+
+@keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+
+.no-cssanimations .cb-slideshow li span {
+	opacity: 1;
+}
+
+.sidepicwomen{
+  position:relative;
+  top:215px;
+  width:607.5px;
+  height:900px;
+}
+
+.side-text{
+  color:palevioletred;
+}
+
+.womensale{
+  position:absolute;
+  top:50%;
+  left:20%;
+  font-size:20px;
+}
+.sidepicwomenright{
+  position:relative;
+  top:-685px;
+  width:607.5px;
+  height:900px;
+  left:1277px;
+}
+
+.side-text-right{
+  color:palevioletred;
+}
+
+.womensale-right{
+  position:absolute;
+  top:50%;
+  left:20%;
+  font-size:20px;
+}
+
+.search-box form input{
+  width:20rem;
+  padding:7px;
+  border:none;
+  outline:none;
+  font-size:1.4rem;
+  border-radius:5px;
+  border-bottom:2px solid var(red);
+}
+
+.filterbtn{
+  font-size:20px;
+  text-decoration:none;
+  color:white;
+  background-color:palevioletred;
+  padding:7px;
+  display:inline-block;
+  border-radius:5px;
+  margin:6px;
+  transition:all 0.5s ease;
+}
+
+.filterbtn:hover{
+  transition:all 0.5s ease;
+  opacity:50%;
+}
+
+.whole-product{
+  position:relative;
+  background-color:rgba(128, 128, 128, 0.178);
+  top:-600px;
+  width:1895px;
+}
+
+.search-box{
+  position:absolute;
+
+}
+
+
+
+
+
+
