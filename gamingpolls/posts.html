@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome-free-5.15.1/css/all.css">
+    <title>Search</title>
+  <script src="https://kit.fontawesome.com/afd6aa68df.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -32,17 +35,16 @@
 
 
         <!--SearchBox Section-->
-        <div class="search-box">
-            <div>
-                <select name="" id="">
-                    <option value="Everything">Everything</option>
-                    <option value="Titles">Titles</option>
-                    <option value="Descriptions">Descriptions</option>
-                </select>
-                <input type="text" name="q" placeholder="search ...">
-                <button><i class="fa fa-search"></i></button>
-            </div>
+        <div class="box">
+            <form name="search">
+                <input type="text" class="input" name="txt" placeholder="Search and press enter..." 
+                onmouseout="document.search.txt.value = ''">
+                <i class="fas fa-search"></i>
+            </form>           
         </div>
+
+
+
     </header>
     <div class="container">
         <!--Navigation-->
