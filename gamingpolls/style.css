@@ -144,13 +144,33 @@ header{
   margin-inline: 10px;
 }
 /* Nav Bar styles */
+
+@media screen and (max-width: 600px) {
+  .navMenu{
+    float: none;
+    display: block;
+  }
+  
+  .dropdown a{
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
 .dropdown{
-  display: flex;
-  align-items:center;
-  margin-right:20px;
-  font-family: "Quicksand", sans-serif;
+  display:flex;
   justify-content: center;
 }
+
+.dropdown a{
+  background-color: grey;
+}
+
+
+
+
 
 .close-icon i{
   font-size:60px;
