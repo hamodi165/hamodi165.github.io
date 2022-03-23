@@ -25,7 +25,7 @@
         <!--Menu Section-->
         <div class="navMenu">
             <div class="dropdown">
-                <a href="home.html" class="links">Home</a>
+                <a href="home.html" class="links">ee</a>
                 <a href="comments.html" class="links">eee</a>
                 <a href="detail.html" class="links">awdawda</a>
                 <div class="dropdown-content">
