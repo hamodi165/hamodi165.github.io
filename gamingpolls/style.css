@@ -145,32 +145,140 @@ header{
 }
 /* Nav Bar styles */
 
+.navMenu a{
+  float:left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navMenu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navMenu a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.navMenu .search-container {
+  float: right;
+}
+
+.navMenu .search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.navMenu input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 16px;
+  border-radius: 100px;
+  border: 1px solid #ccc;
+}
+
+.navMenu .search-container button:hover {
+  background: #ccc;
+}
+
 @media screen and (max-width: 600px) {
-  .navMenu{
+  .navMenu .search-container {
     float: none;
-    display: block;
   }
-  
-  .dropdown a{
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
+    .navMenu input[type=text]{
+    float:none;
+  }
+
+  .navMenu .search-container button{
+    float:right;
+  }
+  .navMenu input[type=text] {
+    border: 1px solid #ccc;  
   }
 }
 
-.dropdown{
-  display:flex;
+
+/*login and register buttons*/
+
+.navMenu .loginDetails{
+  float:right;
+}
+
+
+/*LOGIN AND REGISTER PAGES*/
+
+.container-register-login {
+  padding: 16px;
+  background-color: white;
+}
+
+#formm{
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.dropdown a{
-  background-color: grey;
+/* Full-width input fields LOGIN AND REGISTER INPUTS */
+.container-register-login input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  
 }
 
+.container-register-login input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+  
+}
 
+/* Overwrite default styles of hr */
+.container-register-login hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+  
+}
 
+/* Set a style for the submit button */
+.container-register-login .registerbtn {
+  background-color: blueviolet;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
 
+.container-register-login .registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+.container-register-login a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.container-register-login .signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+/*other*/
 
 .close-icon i{
   font-size:60px;
@@ -217,107 +325,6 @@ header{
   font-size:60px;
   display: inline-block;
   font-family:aquire;
-}
-
-/*Navbar for the smartphones*/
-@media screen and (max-width: 460px){
-  .navigation{
-      max-height: auto;
-  }
-  
-  .close-icon i{
-      font-size:30px;
-  }
-  
-  .nav-item a{
-      float:left;
-      display:inline;
-      margin-inline: 3px;
-      font-size: 10px;
-      padding: 5px;
-  }
-  
-  
-  .bar-icon{
-      font-size: 30px;
-  }
-
-  .brand{
-      font-size:20px;
-  }
-}
-
-/* Search Box styles */
-.search-box{
-  border: solid 1px #52057b;
-  margin-top: 20px;
-  padding: 40px;
-  display:flex;
-  justify-content: center;
-  box-shadow:1px 2px 3px #52057b;
-}
-
-.search-box select{
-  padding: 10px;
-}
-
-.search-box input{
-  padding: 10px;
-}
-
-.search-box button{
-  padding: 10px;
-  background-color:#fff;
-  color:#000000;
-}
-
-.search-box button:hover{
-  background-color: #000000;
-  color: #fff;
-  box-shadow: 1px 2px 3px #fff;
-}
-
-/* search box for smrtphones */
-@media screen and (max-width: 460px){
-  .search input, .search button, .search select{
-      min-width: 300px;
-      margin-top: 5px;
-  }    
-
-}
-
-.box{
-  float:right;
-}
-.input {
-  padding: 10px;
-  width: 50px;
-  height: 50px;
-  background: none;
-  border: 4px solid white;
-  border-radius: 50px;
-  box-sizing: border-box;
-  font-family: Comic Sans MS;
-  font-size: 26px;
-  color: white;
-  outline: none;
-  transition: .5s;
-}
-.box:hover input{
-  width: 350px;
-  background: white;
-  border-radius: 10px;
-}
-.box i{
-  position:relative;
-  left:-50%;
-  font-size: 26px;
-  color: white;
-  transition: .2s;
-}
-.box:hover i{
-  opacity: 0;
-  z-index: -1;
 }
 
 

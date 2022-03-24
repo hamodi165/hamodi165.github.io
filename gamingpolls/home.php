@@ -17,37 +17,28 @@
     <header>
 
         <div class="headLogo">
-            <a href="home.html" id="elLogo" accesskey="1"><img src="testbild.png" alt="Votality"></a>
+            <a href="home.php" id="elLogo" accesskey="1"><img src="testbild.png" alt="Votality"></a>
         </div>
-        
-
+            
 
         <!--Menu Section-->
         <div class="navMenu">
-            <div class="dropdown">
-                <a href="home.html" class="links">ee</a>
-                <a href="comments.html" class="links">eee</a>
-                <a href="detail.html" class="links">awdawda</a>
-                <div class="dropdown-content">
-                    <a href="#">About eCommerce</a>
-                    <a href="#">Carrier</a>
-                    <a href="#">Investors</a>
-                    <a href="#">Sustainability</a>
-                </div>
+            <a href="home.html" class="links">Home</a>
+            <a href="comments.html" class="links">Weekly polls</a>
+            <a href="detail.html" class="links">Companies</a>
+            <a href="detail.html" class="links">History</a>
+            <div class="search-container">
+            <form action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
             </div>
-
+            <div class="loginDetails">
+            <a href="login.php">Login</a>
+            <a href="register.php">Register</a>
+        </div>
         </div>
 
-    
-        
-        <!--SearchBox Section-->
-        <div class="box">
-            <form name="search">
-                <input type="text" class="input" name="txt" placeholder="Search and press enter..." 
-                onmouseout="document.search.txt.value = ''">
-                <i class="fas fa-search"></i>
-            </form>           
-        </div>
 
     </header>
 
@@ -62,7 +53,7 @@
                     <i class="fa fa-car center"></i>
                 </div>
                 <div class="subforum-description subforum-column">
-                    <h4><a href="posts.html">Admin news</a></h4>
+                    <h4><a href="posts.php">Admin news</a></h4>
                     <p>New changes to the polls...</p>
                 </div>
                 <div class="subforum-stats subforum-column center">
@@ -226,6 +217,7 @@
     <footer>
         <span>&copy;  Gamingpolls | All Rights Reserved</span>
     </footer>
+
     <script src="main.js"></script>
 </body>
 </html>

@@ -16,31 +16,21 @@
 <body>
     <header>
       <!--Menu Section-->
-      <div class="dropdown">
-        <a href="home.html">Home</a>
+      <div class="navMenu">
+            <a href="home.html" class="links">Home</a>
+            <a href="comments.html" class="links">Weekly polls</a>
+            <a href="detail.html" class="links">Companies</a>
+            <a href="detail.html" class="links">History</a>
+            <div class="search-container">
+            <form action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            </div>
+            <div class="loginDetails">
+            <a href="login.php">Login</a>
+            <a href="register.php">Register</a>
         </div>
-      </div>
-
-    <div class="dropdown">
-        <a href="women.html">News</a>
-        <div class="dropdown-content">
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <a href="detail.html">Popular</a>
-        <div class="dropdown-content">
-        </div>
-      </div>
-
-
-        <!--SearchBox Section-->
-        <div class="box">
-            <form name="search">
-                <input type="text" class="input" name="txt" placeholder="Search and press enter..." 
-                onmouseout="document.search.txt.value = ''">
-                <i class="fas fa-search"></i>
-            </form>           
         </div>
 
 
@@ -62,7 +52,7 @@
             <div class="table-row">
                 <div class="status"><i class="fa fa-fire"></i></div>
                 <div class="subjects">
-                    <a href="comments.html">Is learning Python on 2021 worth it?</a>
+                    <a href="comments.php">Is learning Python on 2021 worth it?</a>
                     <br>
                     <span>Started by <b><a href="">User</a></b> .</span>
                 </div>
