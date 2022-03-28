@@ -8,14 +8,14 @@
 html{
   font-size: 14px;
   font-family: 'Titillium Web', sans-serif;
-  background-color:rgb(0,0,0);
+  background-color:black;
   color:white;
 }
 
 a{
-  color:#FF0042;
   font-weight: bolder;
   text-decoration: none;
+  color:white;
 }
 
 h1{
@@ -145,23 +145,29 @@ header{
 }
 /* Nav Bar styles */
 
+.navMenu {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
 .navMenu a{
-  float:left;
+  float: left;
   display: block;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 17px;
+}
+
+.navMenu .loginDetails{
+  float:right;
+  background-color: #2196F3;
 }
 
 .navMenu a:hover {
-  background-color: #ddd;
+  background-color: green;
   color: black;
-}
-
-.navMenu a.active {
-  background-color: #2196F3;
-  color: white;
 }
 
 .navMenu .search-container {
@@ -181,7 +187,7 @@ header{
 .navMenu input[type=text] {
   padding: 6px;
   margin-top: 8px;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 100px;
   border: 1px solid #ccc;
 }
@@ -190,27 +196,64 @@ header{
   background: #ccc;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
+
+
+  .navMenu .loginDetails{
+    
+  }
+
+  .navMenu a{
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 12px;
+  }
+
   .navMenu .search-container {
-    float: none;
+   
   }
     .navMenu input[type=text]{
     float:none;
   }
 
   .navMenu .search-container button{
-    float:right;
+    
   }
   .navMenu input[type=text] {
     border: 1px solid #ccc;  
   }
+
 }
 
+@media screen and (max-width: 1000px) {
 
-/*login and register buttons*/
 
-.navMenu .loginDetails{
-  float:right;
+  .navMenu .loginDetails{
+    
+  }
+
+  .navMenu a{
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  .navMenu .search-container {
+   
+  }
+    .navMenu input[type=text]{
+    float:none;
+  }
+
+  .navMenu .search-container button{
+    
+  }
+  .navMenu input[type=text] {
+    border: 1px solid #ccc;  
+  }
+
 }
 
 
@@ -222,13 +265,27 @@ header{
 }
 
 #formm{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: relative; 
+    top:0;
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    width:350px;
+    margin: auto; 
+    
+}
+
+@media screen and (max-width: 1000px) {
+
+  #formm{
+    min-width: 0;
+    display: table;
+    
+  }
 }
 
 /* Full-width input fields LOGIN AND REGISTER INPUTS */
-.container-register-login input[type=text], input[type=password] {
+.container-register-login input[type=text], input[type=password], input[type=repeatpassword] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -238,7 +295,7 @@ header{
   
 }
 
-.container-register-login input[type=text]:focus, input[type=password]:focus {
+.container-register-login input[type=text]:focus, input[type=password]:focus, input[type=repeatpassword]:focus {
   background-color: #ddd;
   outline: none;
   
@@ -252,8 +309,8 @@ header{
 }
 
 /* Set a style for the submit button */
-.container-register-login .registerbtn {
-  background-color: blueviolet;
+.container-register-login .registerbtn, .container-register-login .loginbtn {
+  background-color: green;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -267,14 +324,9 @@ header{
   opacity: 1;
 }
 
-/* Add a blue text color to links */
-.container-register-login a {
-  color: dodgerblue;
-}
 
 /* Set a grey background color and center the text of the "sign in" section */
-.container-register-login .signin {
-  background-color: #f1f1f1;
+.container-signin{
   text-align: center;
 }
 
@@ -343,7 +395,7 @@ header{
 footer{
   margin-top: 20px;
   padding: 20px;
-  background-color:  #52057b;
+  background-color: #e9e9e9;
   display: block;
   text-align: center;
 }
@@ -540,7 +592,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     line-height: 1.4;
     color: white;
-    background-color: black;
+    background-color: grey;
 
 }
 button {

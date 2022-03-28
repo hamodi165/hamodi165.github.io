@@ -11,20 +11,18 @@
     <link rel="stylesheet" href="fontawesome-free-5.15.1/css/all.css">
     <title>Search</title>
   <script src="https://kit.fontawesome.com/afd6aa68df.js" crossorigin="anonymous"></script>
-  <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
     <header>
-
         <div class="headLogo">
             <a href="home.php" id="elLogo" accesskey="1"><img src="testbild.png" alt="Votality"></a>
         </div>
         
         
 
-        <!--Menu Section-->
-        <div class="navMenu">
+       <!--Menu Section-->
+       <div class="navMenu">
             <a href="home.php">Home</a>
             <a href="comments.php">Weekly polls</a>
             <a href="detail.php">Companies</a>
@@ -38,27 +36,21 @@
             </form>
             </div>
     </div>
+    
 
 
     </header>
-    
+
     <!--Login Section-->
-    <form action="/action_page.php" id="formm">
+    <form action="#" id="formm">
     <div class="container-register-login">
 
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter username" name="username" id="username" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-
-    <button type="submit" class="loginbtn">Login</button>
-    <div class="container-signin">
-    <p>Don't have an account? <a href="register.php">Register here</a>.</p>
-  </div>
+        Welcome <?php echo $_POST["username"]; ?><br>
+        We have sent you an verification to your emailadress: <?php echo $_POST["email"]; ?>
+        <p>Please make sure that you verify in order to access the forums</p>
   </div>
   </form>
-
+    
     <!-- Forum Info -->
     <footer>
         <span>&copy;  Gamingpolls | All Rights Reserved</span>

@@ -23,21 +23,19 @@
 
         <!--Menu Section-->
         <div class="navMenu">
-            <a href="home.html" class="links">Home</a>
-            <a href="comments.html" class="links">Weekly polls</a>
-            <a href="detail.html" class="links">Companies</a>
-            <a href="detail.html" class="links">History</a>
+            <a href="home.php">Home</a>
+            <a href="comments.php">Weekly polls</a>
+            <a href="detail.php">Companies</a>
+            <a href="detail.php">History</a>          
+            <a href="login.php" class="loginDetails">Login</a>
+            <a href="register.php" class="loginDetails">Register</a>
             <div class="search-container">
             <form action="/action_page.php">
             <input type="text" placeholder="Search.." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
             </form>
             </div>
-            <div class="loginDetails">
-            <a href="login.php">Login</a>
-            <a href="register.php">Register</a>
-        </div>
-        </div>
+    </div>
 
 
     </header>

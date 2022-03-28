@@ -15,83 +15,102 @@
 
 <body>
     <header>
-
-    <div class="loginDetails">
-            <a href="login.php">Login</a>
-    </div>
-
-    <div class="registerDetails">
-            <a href="register.php">Register</a>
-    </div>
-
         <div class="headLogo">
             <a href="home.php" id="elLogo" accesskey="1"><img src="testbild.png" alt="Votality"></a>
         </div>
         
         
 
-        <!--Menu Section-->
-        <div class="navMenu">
-            <a href="home.html" class="links">Home</a>
-            <a href="comments.html" class="links">Weekly polls</a>
-            <a href="detail.html" class="links">Companies</a>
-            <a href="detail.html" class="links">History</a>
+       <!--Menu Section-->
+       <div class="navMenu">
+            <a href="home.php">Home</a>
+            <a href="comments.php">Weekly polls</a>
+            <a href="detail.php">Companies</a>
+            <a href="detail.php">History</a>          
+            <a href="login.php" class="loginDetails">Login</a>
+            <a href="register.php" class="loginDetails">Register</a>
             <div class="search-container">
             <form action="/action_page.php">
             <input type="text" placeholder="Search.." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
             </form>
             </div>
-            <div class="loginDetails">
-            <a href="login.php">Login</a>
-            <a href="register.php">Register</a>
-        </div>
-        </div>
+    </div>
     
 
 
     </header>
-    
+    <?php
+// define variables and set to empty values
+$usernameErr = $emailErr = $passwordErr = $repeatpasswordErr = "";
+$username = $email = $password = $repeatpassword = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["username"])) {
+    $usernameErr = "Username is required";
+  } else {
+    $username = test_input($_POST["username"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$username)) {
+        $usernameErr = "Only letters and white space allowed";
+        }
+    }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErr = "Invalid email format";
+        }
+    }
+
+  if (empty($_POST["password"])) {
+    $passwordErr = "Password is required";
+  } else {
+    $password = test_input($_POST["password"]);
+  }
+
+  if (empty($_POST["repeatpassword"])) {
+    $repeatpasswordErr = "Repeating password is required";
+  } else {
+    $repeatpassword = test_input($_POST["repeatpassword"]);
+  }
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+?>
+
     <!--Login Section-->
-    <form action="/action_page.php">
-  <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="container-register-login" id="formm"> 
 
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter username" name="username" id="username" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-    <hr>
+    * Name: <input type="text" placeholder="Enter Username" name="username" id="username" value="<?php echo $username;?>" required>
+    <span class="error"> <?php echo $usernameErr;?></span>
+    <br><br>
+    * Email: <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $email;?>" required>
+    <span class="error"> <?php echo $emailErr;?></span>
+    <br><br>
+    * Password: <input type="password" placeholder="Enter Password" name="password" id="password" value="<?php echo $password;?>" required>
+    <span class="error"> <?php echo $passwordErr;?></span>
+    <br><br>
+    * Repeat Password: <input type="repeatpassword" placeholder="Repeat Password" name="repeatpassword" id="repeatpassword" value="<?php echo $repeatpassword;?>" required>
+    <span class="error"><?php echo $repeatpasswordErr;?></span>
+    <br><br>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
     <button type="submit" class="registerbtn">Register</button>
+    
+    <div class="container-signin">
+    <p>Already have an account? <a href="login.php">Login here</a>.</p>
   </div>
-  
-  <div class="container signin">
-    <p>Already have an account? <a href="login.php">Sign in</a>.</p>
-  </div>
-</form>
-
-
+  </form>
+    
     <!-- Forum Info -->
-    <div class="forum-info">
-        <div class="chart">
-            MyForum - Stats &nbsp;<i class="fa fa-bar-chart"></i>
-        </div>
-        <span><u>5,369</u> Posts in <u>48</u> Topics by <u>8,124</u> Members.</span><br>
-        <span>Latest post: <b><a href="">Random post</a></b> on Dec 15 2021 By <a href="">RandomUser</a></span>.<br>
-        <span>Check <a href="">the latest posts</a> .</span><br>
-    </div>
-
     <footer>
         <span>&copy;  Gamingpolls | All Rights Reserved</span>
     </footer>
