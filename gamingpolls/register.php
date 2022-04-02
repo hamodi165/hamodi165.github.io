@@ -40,56 +40,10 @@
 
 
     </header>
-    <?php
-// define variables and set to empty values
-$usernameErr = $emailErr = $passwordErr = $repeatpasswordErr = "";
-$username = $email = $password = $repeatpassword = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["username"])) {
-    $usernameErr = "Username is required";
-  } else {
-    $username = test_input($_POST["username"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$username)) {
-        $usernameErr = "Only letters and white space allowed";
-        }
-    }
-
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-  // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $emailErr = "Invalid email format";
-        }
-    }
-
-  if (empty($_POST["password"])) {
-    $passwordErr = "Password is required";
-  } else {
-    $password = test_input($_POST["password"]);
-  }
-
-  if (empty($_POST["repeatpassword"])) {
-    $repeatpasswordErr = "Repeating password is required";
-  } else {
-    $repeatpassword = test_input($_POST["repeatpassword"]);
-  }
-}
-
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
-?>
 
     <!--Login Section-->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="container-register-login" id="formm"> 
-
+    <?php include 'registererror.php';?>
     * Name: <input type="text" placeholder="Enter Username" name="username" id="username" value="<?php echo $username;?>" required>
     <span class="error"> <?php echo $usernameErr;?></span>
     <br><br>
