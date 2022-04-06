@@ -15,6 +15,7 @@
 
 <body>
     <header>
+    <?php include 'config.php';?>
         <div class="headLogo">
             <a href="home.php" id="elLogo" accesskey="1"><img src="testbild.png" alt="Votality"></a>
         </div>
@@ -42,7 +43,7 @@
     </header>
 
     <!--Login Section-->
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="container-register-login" id="formm"> 
+    <form method="post" action="<?php echo htmlspecialchars("includes/signup.inc.php");?>" class="container-register-login" id="formm"> 
     <?php include 'registererror.php';?>
     * Name: <input type="text" placeholder="Enter Username" name="username" id="username" value="<?php echo $username;?>" required>
     <span class="error"> <?php echo $usernameErr;?></span>
@@ -57,7 +58,7 @@
     <span class="error"><?php echo $repeatpasswordErr;?></span>
     <br><br>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn" value="submit">Register</button>
     
     <div class="container-signin">
     <p>Already have an account? <a href="login.php">Login here</a>.</p>

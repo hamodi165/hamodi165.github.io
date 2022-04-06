@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($_POST["repeatpassword"])) {
-    $repeatpasswordErr = "Repeating password is required";
+    $repeatpasswordErr = "Password is not the same!";
   } else {
     $repeatpassword = test_input($_POST["repeatpassword"]);
   }
