@@ -44,24 +44,43 @@
     <!--Login Section-->
     <form action="<?php echo htmlspecialchars("includes/signup.inc.php");?>" class="container-register-login" id="formm" method="post"> 
     * Name: <input type="text" placeholder="Enter Username" name="username" id="username" required>
-    
-    <br><br>
     * Email: <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-    <br><br>
     * Password: <input type="password" placeholder="Enter Password" name="password" id="password" required>
-   
-    <br><br>
     * Repeat Password: <input type="password" placeholder="Repeat Password" name="repeatpassword" id="repeatpassword" required>
-
-    <br><br>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn" name="submit">Register</button>
     
     <div class="container-signin">
     <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    <?php
+    if(isset($_GET["error"])){
+      if ($_GET["error"] == "emptyinput"){
+        echo"<p>Fill in all fields!</p>";
+      } 
+      else if($_GET["error"] == "invalidUid"){
+        echo"<p>Choose a proper username!</p>";
+      } 
+      else if($_GET["error"] == "passworddontmatch"){
+        echo"<p>Passwords doesn't match!</p>";
+      } 
+      else if($_GET["error"] == "stmtfailed"){
+        echo"<p>Something went wrong, try again!</p>";
+      } 
+      else if($_GET["error"] == "invalidEmail"){
+        echo"<p>Choose a proper email!</p>";
+      } 
+      else if($_GET["error"] == "usernameoremailtaken"){
+        echo"<p>Username or email already taken!</p>";
+      } 
+      else if($_GET["error"] == "none"){
+        echo"<p>You have successfully created an account!</p>";
+      }
+    }
+  ?>
   </div>
   </form>
+
+
     
     <!-- Forum Info -->
     <footer>

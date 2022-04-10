@@ -1,29 +1,43 @@
 <?php
 
-
 if(isset($_POST["submit"])){
-
-    // Grabbing the data
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $repeatpassword = $_POST["repeatpassword"];
 
-    //Instantiate SignupContr class
+    require_once 'dbh.inc.php';
+    require_once 'functions.inc.php';
 
-    include "../classes/dbh.classes.php";
-    include "../classes/signup.classes.php";
-    include "../classes/signup-contr.classes.php";
+    if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
+        header("location: ../register.php?error=emptyinput");
+        exit();
+    }
 
-    $signup = new SignupContr($username, $email, $password, $repeatpassword);
+    if(invalidUid($username) !== false){
+        header("location: ../register.php?error=invalidUid");
+        exit();
+    }
 
+    if(invalidEmail($email) !== false){
+        header("location: ../register.php?error=invalidEmail");
+        exit();
+    }
+ 
 
-    //Running error handlers and user signup
-    $signup->signupUser();
+    if(pwdMatch($password, $repeatpassword) !== false){
+        header("location: ../register.php?error=passworddontmatch");
+        exit();
+    }
 
+    if(uidExists($conn, $username, $email) !== false){
+        header("location: ../register.php?error=usernameoremailtaken");
+        exit();
+    }
 
-    // Going to back to front page
-    header("location: ../gamingpolls/home.php?error=none");
+    createUser($conn, $username, $email, $password);
 
+} else {
+    header("location: ../register.php");
+    exit();
 }
-?>
