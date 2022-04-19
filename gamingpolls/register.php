@@ -15,29 +15,11 @@
 
 <body>
     <header>
-        <div class="headLogo">
-            <a href="home.php" id="elLogo" accesskey="1"><img src="testbild.png" alt="Votality"></a>
-        </div>
-        
-        
 
-       <!--Menu Section-->
-       <div class="navMenu">
-            <a href="home.php">Home</a>
-            <a href="comments.php">Weekly polls</a>
-            <a href="detail.php">Companies</a>
-            <a href="detail.php">History</a>          
-            <a href="login.php" class="loginDetails">Login</a>
-            <a href="register.php" class="loginDetails">Register</a>
-            <div class="search-container">
-            <form action="/action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-            </div>
-    </div>
+        <?php
+      include_once 'header.php';
     
-
+     ?>
 
     </header>
 

@@ -18,7 +18,7 @@
     include_once 'header.php';
     
   ?>
-    <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["useruid"]); ?></b>. Welcome to our site.</h1>
+    
 
     <!--Categories-->
     <div class="container">
