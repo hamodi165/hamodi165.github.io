@@ -1,6 +1,6 @@
 {
-    "php.validate.executablePath": "c:\\xampp\\php\\php.exe",
-    "phpserver.phpConfigPath": "c:\\xampp\\php\\php.exe",
-    "phpserver.phpPath": "c:\\xampp\\php\\php.exe"
+    "php.validate.executablePath": "c:/xampp/php/php.exe",
+    "phpserver.phpConfigPath": "c:/xampp/php/php.exe",
+    "phpserver.phpPath": "c:/xampp/php/php.exe"
     
 }
