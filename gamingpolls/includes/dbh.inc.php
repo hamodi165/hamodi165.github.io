@@ -1,5 +1,5 @@
 <?php
-$servername = "MySQL:3308";
+$servername = "localhost";
 $username = "root";
 $password = "";
 
