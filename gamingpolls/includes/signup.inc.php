@@ -1,43 +1,27 @@
 <?php
 
-if(isset($_POST["submit"])){
+
+if(isset($_POST["submit"]))
+{
+
+    //grabbing the data
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $repeatpassword = $_POST["repeatpassword"];
 
-    require_once 'dbh.inc.php';
-    require_once 'functions.inc.php';
 
-    if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
-        header("location: ../register.php?error=emptyinput");
-        exit();
-    }
+    // instantiate signupcontr class
 
-    if(invalidUid($username) !== false){
-        header("location: ../register.php?error=invalidUid");
-        exit();
-    }
+    include "../classes/dbh.classes.php";
+    include "../classes/signup.classes.php";
+    include "../classes/signup-contr.classes.php";
+    $signup = new SignupContr($username, $email, $password, $repeatpassword);
 
-    if(invalidEmail($email) !== false){
-        header("location: ../register.php?error=invalidEmail");
-        exit();
-    }
- 
+    //running error handlers and user signup
 
-    if(pwdMatch($password, $repeatpassword) !== false){
-        header("location: ../register.php?error=passworddontmatch");
-        exit();
-    }
+    $signup->signupUser();
 
-    if(uidExists($conn, $username, $email) !== false){
-        header("location: ../register.php?error=usernameoremailtaken");
-        exit();
-    }
-
-    createUser($conn, $username, $email, $password);
-
-} else {
-    header("location: ../register.php");
-    exit();
+    //going back to front page
+    header("location: ../index.php?error=none");
 }
