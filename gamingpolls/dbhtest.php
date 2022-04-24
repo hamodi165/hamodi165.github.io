@@ -1,7 +1,4 @@
 <?php
-
-class Dbh {
-    protected function connect(){
       $servername = "localhost";
       $username = "root";
       $password = "";
@@ -14,5 +11,3 @@ class Dbh {
       } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
       }
-    }
-}

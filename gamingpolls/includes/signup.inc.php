@@ -23,5 +23,5 @@ if(isset($_POST["submit"]))
     $signup->signupUser();
 
     //going back to front page
-    header("location: ../index.php?error=none");
+    header("location: ../register.php?error=none");
 }

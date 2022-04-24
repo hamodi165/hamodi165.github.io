@@ -1,6 +1,5 @@
 <?php
-
-class SignupContr {
+class SignupContr extends Signup{
 
     private $username;
     private $email;
@@ -16,34 +15,34 @@ class SignupContr {
     }
 
 
-    private function signupUser(){
-        if($this->emptyInput() == false){
+    public function signupUser(){
+        if($this->emptyInput() === false){
             // echo empty input
-            header("location: ../index.php?error=emptyinput");
+            header("location: ../register.php?error=emptyinput");
             exit();
         }
 
         if($this->invalidUid() == false){
             // echo empty input
-            header("location: ../index.php?error=username");
+            header("location: ../register.php?error=username");
             exit();
         }
 
         if($this->invalidEmail() == false){
             // echo empty input
-            header("location: ../index.php?error=email");
+            header("location: ../register.php?error=email");
             exit();
         }
 
         if($this->pwdMatch() == false){
             // echo empty input
-            header("location: ../index.php?error=passwordmatch");
+            header("location: ../register.php?error=passwordmatch");
             exit();
         }
 
         if($this->uidTakenCheck() == false){
             // echo empty input
-            header("location: ../index.php?error=usernameoremailtaken");
+            header("location: ../register.php?error=usernameoremailtaken");
             exit();
         }
 
@@ -53,7 +52,7 @@ class SignupContr {
 
     private function emptyInput(){
         $result;
-        if(empty($this->username) || empty($this->email) || empty($this->password) || empty($this->repeatpassword)){
+        if(empty($this->username) or empty($this->email) or empty($this->password) or empty($this->repeatpassword)){
             $result = false;
 
         } else {

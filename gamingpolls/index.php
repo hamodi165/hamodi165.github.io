@@ -17,11 +17,6 @@
 <body>
 
 
-<?php
-        if(isset($_SESSION["useruid"])){
-            echo "<p>Hello there " . htmlspecialchars($_SESSION["usersuid"]) . "</p>";
-        }
-        
-    ?>
+
 </body>
 </html>
