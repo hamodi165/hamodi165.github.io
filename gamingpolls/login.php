@@ -43,28 +43,18 @@
     </header>
     
     <!--Login Section-->
-    <form action="<?php echo htmlspecialchars("includes/login.inc.php");?>" id="formm" method="post">
+    <form action="/action_page.php" id="formm">
     <div class="container-register-login">
 
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter username" name="username" id="username" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" id="password" required>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-    <button type="submit" class="loginbtn" name="submit">Login</button>
+    <button type="submit" class="loginbtn">Login</button>
     <div class="container-signin">
     <p>Don't have an account? <a href="register.php">Register here</a>.</p>
-    <?php
-    if(isset($_GET["error"])){
-      if ($_GET["error"] == "emptyinput"){
-        echo"<p>Fill in all fields!</p>";
-      } 
-      else if($_GET["error"] == "wronglogin"){
-        echo"<p>Incorrect username or password!</p>";
-      }     
-    }
-    ?>
   </div>
   </div>
   </form>

@@ -14,11 +14,39 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   <?php
     include_once 'header.php';
     
   ?>
     
+=======
+    <header>
+
+        <div class="headLogo">
+            <a href="home.php" id="elLogo" accesskey="1"><img src="testbild.png" alt="Votality"></a>
+        </div>
+            
+
+        <!--Menu Section-->
+        <div class="navMenu">
+            <a href="home.php">Home</a>
+            <a href="comments.php">Weekly polls</a>
+            <a href="detail.php">Companies</a>
+            <a href="detail.php">History</a>          
+            <a href="login.php" class="loginDetails">Login</a>
+            <a href="register.php" class="loginDetails">Register</a>
+            <div class="search-container">
+            <form action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            </div>
+    </div>
+
+
+    </header>
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 
     <!--Categories-->
     <div class="container">
@@ -181,7 +209,21 @@
         </div>
         
     </div>
-    <?php
-    require_once 'footer.php';
-    ?>
-    
+
+    <!-- Forum Info -->
+    <div class="forum-info">
+        <div class="chart">
+            MyForum - Stats &nbsp;<i class="fa fa-bar-chart"></i>
+        </div>
+        <span><u>5,369</u> Posts in <u>48</u> Topics by <u>8,124</u> Members.</span><br>
+        <span>Latest post: <b><a href="">Random post</a></b> on Dec 15 2021 By <a href="">RandomUser</a></span>.<br>
+        <span>Check <a href="">the latest posts</a> .</span><br>
+    </div>
+
+    <footer>
+        <span>&copy;  Gamingpolls | All Rights Reserved</span>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
