@@ -1,5 +1,6 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 class Signup extends Dbh {
 
     protected function setUser($username, $password, $email){
@@ -9,6 +10,8 @@ class Signup extends Dbh {
 
         if(!$stmt->execute(array($username, $hashedPwd, $email))){
 =======
+=======
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 
 class Signup extends dbh {
 
@@ -19,11 +22,15 @@ class Signup extends dbh {
 
 
         if(!$stmt->execute(array($username, $email, $hashedpassword))){
+<<<<<<< HEAD
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
+=======
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
             $stmt = null;
             header("location: ../register.php?error=stmtfailed");
             exit();
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
         
         $stmt = null;
@@ -33,6 +40,8 @@ class Signup extends dbh {
         $stmt = $this->connect()->prepare('SELECT users_username FROM users WHERE users_username = ? OR users_email = ?;');
 
 =======
+=======
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 
         $stmt = null;
     }
@@ -41,6 +50,9 @@ class Signup extends dbh {
     protected function checkUser($username, $email){
         $stmt = $this->connect()->prepare('SELECT users_username FROM users WHERE users_username = ? OR users_email = ?;');
         
+<<<<<<< HEAD
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
+=======
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
         if(!$stmt->execute(array($username, $email))){
             $stmt = null;
@@ -48,6 +60,10 @@ class Signup extends dbh {
             exit();
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 =======
 
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
@@ -62,8 +78,13 @@ class Signup extends dbh {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 }
+=======
+}
+?>
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 =======
 }
 ?>

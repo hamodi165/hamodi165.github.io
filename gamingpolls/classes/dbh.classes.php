@@ -2,6 +2,7 @@
 
 class Dbh {
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected function connect(){
       $servername = "localhost";
       $username = "root";
@@ -18,6 +19,8 @@ class Dbh {
     }
 }
 =======
+=======
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 
     protected function connect() {
         /* Database credentials. Assuming you are running MySQL
@@ -40,5 +43,9 @@ class Dbh {
         }
 
   }
+<<<<<<< HEAD
+?>
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
+=======
 ?>
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)

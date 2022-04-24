@@ -15,12 +15,15 @@
 
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <?php
     include_once 'header.php';
     
   ?>
     
 =======
+=======
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
     <header>
 
         <div class="headLogo">
@@ -46,6 +49,9 @@
 
 
     </header>
+<<<<<<< HEAD
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
+=======
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
 
     <!--Categories-->

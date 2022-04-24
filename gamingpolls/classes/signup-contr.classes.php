@@ -1,5 +1,6 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 class SignupContr extends Signup{
 
     private $username;
@@ -12,6 +13,8 @@ class SignupContr extends Signup{
         $this->username = $username;
         $this->email = $email;
 =======
+=======
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 
 class SignupContr extends Signup {
 
@@ -23,11 +26,15 @@ class SignupContr extends Signup {
     public function _construct($username, $email, $password, $repeatpassword){
         $this->username = $username;
         $this->password = $email;
+<<<<<<< HEAD
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
+=======
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
         $this->password = $password;
         $this->repeatpassword = $repeatpassword;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     public function signupUser(){
@@ -71,6 +78,8 @@ class SignupContr extends Signup {
             $result = false;
 
 =======
+=======
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
     public function signupUser() {
        if($this->emptyInput() == false){
         //echo "empty input!";
@@ -112,6 +121,9 @@ class SignupContr extends Signup {
 
         if(empty($this->username ) || empty($this->email) || ($this->password) || empty($this->repeatpassword)){
             $result = false;
+<<<<<<< HEAD
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
+=======
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
         } else {
             $result = true;
@@ -120,16 +132,22 @@ class SignupContr extends Signup {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private function invalidUid(){
         $result;
         if(!preg_match("/^[a-zA-Z0-9]*$/", $this->username)){
             $result = false;
 
 =======
+=======
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
     private function invalidUsername(){
         $result;
         if (!preg_match("/^[a-zA-Z0-9]*$/", $this->username)){
             $result = false;
+<<<<<<< HEAD
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
+=======
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
         } else {
             $result = true;
@@ -140,7 +158,11 @@ class SignupContr extends Signup {
     private function invalidEmail(){
         $result;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+=======
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 =======
         if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
@@ -152,9 +174,15 @@ class SignupContr extends Signup {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private function pwdMatch(){
         $result;
         if($this->password !== $this->repeatpassword){
+=======
+    private function passwordMatch(){
+        $result;
+        if ($this->password !== $this->repeatpassword){
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 =======
     private function passwordMatch(){
         $result;
@@ -168,9 +196,15 @@ class SignupContr extends Signup {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private function uidTakenCheck(){
         $result;
         if(!$this->checkUser($this->username, $this->email)){
+=======
+    private function usernameTakenCheck(){
+        $result;
+        if (!$this->checkUser($this->username, $this->email)){
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 =======
     private function usernameTakenCheck(){
         $result;
@@ -185,6 +219,10 @@ class SignupContr extends Signup {
 
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+?>
+>>>>>>> parent of 70d99ae (har fixat registrering och login system)
 =======
 ?>
 >>>>>>> parent of 70d99ae (har fixat registrering och login system)
