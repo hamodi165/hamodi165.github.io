@@ -16,13 +16,6 @@
 
 <body>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-
-=======
->>>>>>> parent of 70d99ae (har fixat registrering och login system)
-=======
->>>>>>> parent of 70d99ae (har fixat registrering och login system)
 </body>
 </html>

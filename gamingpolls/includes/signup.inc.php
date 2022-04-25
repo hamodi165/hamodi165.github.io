@@ -1,81 +1,41 @@
 <?php
 
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-if(isset($_POST["submit"]))
-{
-
-    //grabbing the data
-=======
 if(isset($_POST["submit"])){
-
-    // Grabbing the data
->>>>>>> parent of 70d99ae (har fixat registrering och login system)
-=======
-if(isset($_POST["submit"])){
-
-    // Grabbing the data
->>>>>>> parent of 70d99ae (har fixat registrering och login system)
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $repeatpassword = $_POST["repeatpassword"];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+    require_once 'dbh.inc.php';
+    require_once 'functions.inc.php';
 
-    // instantiate signupcontr class
+    if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
+        header("location: ../register.php?error=emptyinput");
+        exit();
+    }
 
-    include "../classes/dbh.classes.php";
-    include "../classes/signup.classes.php";
-    include "../classes/signup-contr.classes.php";
-    $signup = new SignupContr($username, $email, $password, $repeatpassword);
+    if(invalidUid($username) !== false){
+        header("location: ../register.php?error=invalidusername");
+        exit();
+    }
 
-    //running error handlers and user signup
+    if(invalidEmail($email) !== false){
+        header("location: ../register.php?error=invalidemail");
+        exit();
+    }
 
-    $signup->signupUser();
+    if(pwdMatch($password, $repeatpassword) !== false){
+        header("location: ../register.php?error=passwordsdontmatch");
+        exit();
+    }
 
-    //going back to front page
-    header("location: ../register.php?error=none");
+    if(uidExists($conn, $username, $email) !== false){
+        header("location: ../register.php?error=usernameoremailtaken");
+        exit();
+    }
+
+    createUser($conn, $username, $email, $password);
+
+} else {
+    header("location: ../register.php");
 }
-=======
-    //Instantiate SignupContr class
-
-    include "../classes/dbh.classes.php";
-    include "../classes/signup.classes.php";
-    include "../classes/signup-contr.classes.php";
-
-    $signup = new SignupContr($username, $email, $password, $repeatpassword);
-
-
-    //Running error handlers and user signup
-    $signup->signupUser();
-
-
-    // Going to back to front page
-    header("location: ../gamingpolls/home.php?error=none");
-
-}
-?>
->>>>>>> parent of 70d99ae (har fixat registrering och login system)
-=======
-    //Instantiate SignupContr class
-
-    include "../classes/dbh.classes.php";
-    include "../classes/signup.classes.php";
-    include "../classes/signup-contr.classes.php";
-
-    $signup = new SignupContr($username, $email, $password, $repeatpassword);
-
-
-    //Running error handlers and user signup
-    $signup->signupUser();
-
-
-    // Going to back to front page
-    header("location: ../gamingpolls/home.php?error=none");
-
-}
-?>
->>>>>>> parent of 70d99ae (har fixat registrering och login system)
