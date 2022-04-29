@@ -42,6 +42,26 @@
     
     <div class="container-signin">
     <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    <?php
+    if(isset($_GET["error"])){
+      if($_GET["error"] == "emptyinput"){
+        echo"<p>Fill in all fields!</p>";
+      }
+      if($_GET["error"] == "invalidusername"){
+        echo"<p>Choose a valid username!</p>";
+      }
+      if($_GET["error"] == "invalidemail"){
+        echo"<p>Choose a valid email!</p>";
+      }
+      if($_GET["error"] == "passwordsdontmatch"){
+        echo"<p>Password does not match!</p>";
+      }
+
+      if($_GET["error"] == "usernameoremailtaken"){
+        echo"<p>Email or username taken!</p>";
+      }
+    }
+    ?>
   </div>
   </form>
     

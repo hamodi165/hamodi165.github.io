@@ -69,7 +69,7 @@ function uidExists($conn, $username, $email) {
 }
 
 function createUser($conn, $username, $email, $password) {
-    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime) VALUES (?, ?, ?, ?);";
+    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role) VALUES (?, ?, ?, ?, ?);";
  
     $stmt = mysqli_stmt_init($conn);
  
@@ -80,12 +80,48 @@ function createUser($conn, $username, $email, $password) {
  
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
     $mysqltime = date ('Y-m-d H:i:s', $phptime);
+    $userRole = array("User", "Community Members", "Moderators", "Super Moderators", "Admin");
+    
 
-    mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPwd, $mysqltime);
+    mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0]);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../register.php?error=none");
      exit();
  }
+
+ function emptyInputLogin($username, $password) {
+    $result;
+    if(empty($username) || empty($password)){
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function loginUser($conn, $username, $password){
+    $uidExists = uidExists($conn, $username, $username);
+
+    if($uidExists === false){
+        header("location: ../login.php?error=wrongusername");
+        exit();
+    }
+
+    $passwordHashed = $uidExists["users_password"];
+    $checkPwd = password_verify($password, $passwordHashed);
+
+    if($checkPwd === false){
+        header("location: ../login.php?error=wrongpassword");
+        exit();
+    } else if ($checkPwd === true){
+        session_start();
+        $_SESSION["userid"] = $uidExists["users_id"];
+        $_SESSION["username"] = $uidExists["users_username"];
+        $_SESSION["role"] = $uidExists["users_role"];
+        header("location: ../index.php");
+        exit();
+    }
+}
 
 

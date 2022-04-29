@@ -1,10 +1,16 @@
+<?php
+    include 'header.php';  
+    if(!isset($_SESSION["username"])){header("location: login.php");}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming polls</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Gaming Polls</title>
+    <link rel="stylesheet" href="htmlcssjs/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
@@ -14,18 +20,12 @@
 </head>
 
 <body>
-<?php
-    include_once 'header.php';
-  ?>
-   
-    </header>
 
     
-
     <div class="container">
         <!--Navigation-->
         <div class="navigate">
-            <span><a href="">MyForum - Forums</a> >> <a href="">random subforum</a></span>
+            <span>Your profile</span>
         </div>
      
         <!--Topic Section-->
@@ -34,13 +34,22 @@
             <div class="head">
                 <div class="authors">Author</div>
                 <div class="content">Topic: random topic (Read 1325 Times)</div>
+                
             </div>
 
             <div class="body">
                 <div class="authors">
-                    <div class="username"><a href="">Username</a></div>
-                    <div>Role</div>
+                <?php
+                    if(isset ($_SESSION["username"])){
+                        echo "<h3>" . $_SESSION["username"] . "</h3>";
+                    }
+                ?>
                     <img src="https://cdn.pixabay.com/photo/2015/11/06/13/27/ninja-1027877_960_720.jpg" alt="">
+                    <?php
+                    if(isset ($_SESSION["role"])){
+                        echo "<h4>" . $_SESSION["role"] . "</h4>";
+                    }
+                    ?>
                     <div>Posts: <u>45</u></div>
                     <div>Points: <u>4586</u></div>
                 </div>
@@ -75,36 +84,7 @@
         </div>
 
         <!--Comments Section-->
-        <div class="comments-container">
-            <div class="body">
-                <div class="authors">
-                    <div class="username"><a href="">AnotherUser</a></div>
-                    <div>Role</div>
-                    <img src="https://cdn.pixabay.com/photo/2015/11/06/13/27/ninja-1027877_960_720.jpg" alt="">
-                    <div>Posts: <u>455</u></div>
-                    <div>Points: <u>4586</u></div>
-                </div>
-                <div class="content">
-                    Just a comment of the above random topic.
-                    <br>To see how it looks like.
-                    <br><br>
-                    Nothing more and nothing less.
-                    <br>
-                    <br>
-                    <div class="comment">
-                        <button onclick="replyFunction()">Reply</button>
-                    </div>
-                    <button type="button">
-                        <span aria-hidden="true">&#9650;</span>
-                        <span class="sr-only">Vote up</span>
-                    </button>
-                    <button type="button">
-                        <span aria-hidden="true">&#9660;</span>
-                        <span class="sr-only">Vote down</span>
-                    </button>
-                </div>
-            </div>
-        </div>
+        
         <!--Reply Area-->
         <div class="comment-area hide" id="reply-area">
             <textarea name="reply" id="" placeholder="Reply"></textarea>
@@ -114,9 +94,8 @@
         <!-- Comment 1 end -->
     
 
-    <footer>
-        <span>&copy;  Gaming Polls | All Rights Reserved</span>
-    </footer>
-    <script src="main.js"></script>
+    <?php
+        include "footer.php";
+    ?>
 </body>
 </html>

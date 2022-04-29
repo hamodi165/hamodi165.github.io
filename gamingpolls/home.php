@@ -1,10 +1,15 @@
+<?php
+    include 'header.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaming Polls</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="htmlcssjs/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
@@ -15,10 +20,14 @@
 
 <body>
 
-  <?php
-    include_once 'header.php';
-  ?>
     
+
+    <?php
+        if(isset ($_SESSION["username"])){
+            echo "<p>Hello there " . $_SESSION["username"] . "</p>";
+    
+        }
+    ?>
 
     <!--Categories-->
     <div class="container">
@@ -182,20 +191,8 @@
         
     </div>
 
-    <!-- Forum Info -->
-    <div class="forum-info">
-        <div class="chart">
-            MyForum - Stats &nbsp;<i class="fa fa-bar-chart"></i>
-        </div>
-        <span><u>5,369</u> Posts in <u>48</u> Topics by <u>8,124</u> Members.</span><br>
-        <span>Latest post: <b><a href="">Random post</a></b> on Dec 15 2021 By <a href="">RandomUser</a></span>.<br>
-        <span>Check <a href="">the latest posts</a> .</span><br>
-    </div>
-
-    <footer>
-        <span>&copy;  Gamingpolls | All Rights Reserved</span>
-    </footer>
-
-    <script src="main.js"></script>
+    <?php
+        include "footer.php";
+    ?>
 </body>
 </html>

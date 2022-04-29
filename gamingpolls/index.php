@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="htmlcssjs/style.css">
     <title>Hamodis journey</title>
 <meta charset="utf-8">
 <meta http-equiv="refresh" content="30">

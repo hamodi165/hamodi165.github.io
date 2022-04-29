@@ -1,10 +1,15 @@
+<?php
+    session_start(); 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaming Polls</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="htmlcssjs/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
@@ -16,7 +21,7 @@
 <header>
 
 <div class="headLogo">
-    <a href="home.php" id="elLogo" accesskey="1"><img src="testbild.png" alt="Votality"></a>
+    <a href="home.php" id="elLogo" accesskey="1"><img src="pictures/headlogo.png" alt="Votality"></a>
 </div>
     
 
@@ -27,7 +32,7 @@
     <a href="detail.php">Companies</a>
     <a href="detail.php">History</a>     
     <?php
-        if(isset ($_SESSION["usersuid"])){
+        if(isset ($_SESSION["username"])){
             echo "<a href='includes/logout.inc.php' class='loginDetails'>Log out</a>";
             echo "<a href='profile.php' class='loginDetails'>Profile</a>";
             
