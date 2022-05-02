@@ -48,7 +48,7 @@ function uidExists($conn, $username, $email) {
    $stmt = mysqli_stmt_init($conn);
 
    if (!mysqli_stmt_prepare($stmt, $sql)){
-    header("location: ../register.php?error=stmtfailed");
+    header("location: ../home.php?error=stmtfailed");
     exit();
    }
 
@@ -74,7 +74,7 @@ function createUser($conn, $username, $email, $password) {
     $stmt = mysqli_stmt_init($conn);
  
     if (!mysqli_stmt_prepare($stmt, $sql)){
-     header("location: ../register.php?error=stmtfailed");
+     header("location: ../home.php?error=stmtfailed");
      exit();
     }
  
@@ -86,7 +86,7 @@ function createUser($conn, $username, $email, $password) {
     mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0]);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../register.php?error=none");
+    header("location: ../home.php?error=none");
      exit();
  }
 
@@ -104,7 +104,7 @@ function loginUser($conn, $username, $password){
     $uidExists = uidExists($conn, $username, $username);
 
     if($uidExists === false){
-        header("location: ../login.php?error=wrongusername");
+        header("location: ../home.php?error=wrongusername");
         exit();
     }
 
@@ -112,14 +112,14 @@ function loginUser($conn, $username, $password){
     $checkPwd = password_verify($password, $passwordHashed);
 
     if($checkPwd === false){
-        header("location: ../login.php?error=wrongpassword");
+        header("location: ../home.php?error=wrongpassword");
         exit();
     } else if ($checkPwd === true){
         session_start();
         $_SESSION["userid"] = $uidExists["users_id"];
         $_SESSION["username"] = $uidExists["users_username"];
         $_SESSION["role"] = $uidExists["users_role"];
-        header("location: ../index.php");
+        header("location: ../home.php");
         exit();
     }
 }

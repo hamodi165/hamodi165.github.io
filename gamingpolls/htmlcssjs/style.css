@@ -44,8 +44,7 @@ h1{
 }
 
 .subforum-row{
-  display: grid;
-  grid-template-columns: 7% 60% 13% 20%;
+ 
 }
 
 .subforum-column{
@@ -125,12 +124,6 @@ h1{
 }
 /*   Header Section    */
 
-.headLogo{
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center
-}
 
 
 @media screen and (max-width: 979px) {
@@ -139,44 +132,155 @@ h1{
   }
 }
 
-
-header{
-  margin-inline: 10px;
-}
-/* Nav Bar styles */
-
-.navMenu {
+.topnav {
   overflow: hidden;
-  background-color: #e9e9e9;
+  background-color: #333;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:50px;
+  right:0;
 }
 
-.navMenu a{
+.topnav a {
   float: left;
   display: block;
-  color: black;
+  color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 5px 16px;
   text-decoration: none;
   font-size: 17px;
 }
 
-.navMenu .loginDetails{
+.topnav .loginDetails{
   float:right;
-  background-color: #2196F3;
+  padding: 12px 30px;
+  text-decoration: none;
 }
 
-.navMenu a:hover {
-  background-color: green;
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 30px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  top:5.1%;
+  background-color: #f9f9f9;
+  min-width: 121px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition-delay: 0.3;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
   color: black;
 }
 
-.navMenu .search-container {
-  float: right;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.navMenu .search-container button {
-  padding: 6px 10px;
-  margin-top: 8px;
+@media screen and (max-width: 600px) {
+
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+    padding: 16px 16px;
+    
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    display:none;
+  }
+
+  .topnav {
+    height:7%;
+  }
+}
+.topnav .search-container {
+  position:fixed;
+  top: 2%; left: 50%; transform: translate(-50%, -50%)
+}
+
+.topnav input[type=text] {
+  padding: 7px;
+  margin-top: 16px;
+  font-size: 17px;
+  border: none;
+  width:500px;
+}
+
+#searchbutton {
+  float: right;
+  padding: 7px 10px;
+  margin-top: 16px;
   margin-right: 16px;
   background: #ddd;
   font-size: 17px;
@@ -184,151 +288,164 @@ header{
   cursor: pointer;
 }
 
-.navMenu input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 14px;
-  border-radius: 100px;
-  border: 1px solid #ccc;
-}
-
-.navMenu .search-container button:hover {
+.topnav .search-container button:hover {
   background: #ccc;
 }
 
-@media screen and (max-width: 1000px) {
-
-
-  .navMenu .loginDetails{
-    
-  }
-
-  .navMenu a{
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-    font-size: 12px;
-  }
-
-  .navMenu .search-container {
-   
-  }
-    .navMenu input[type=text]{
-    float:none;
-  }
-
-  .navMenu .search-container button{
-    
-  }
-  .navMenu input[type=text] {
-    border: 1px solid #ccc;  
-  }
-
-}
-
-@media screen and (max-width: 1000px) {
-
-
-  .navMenu .loginDetails{
-    
-  }
-
-  .navMenu a{
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-    font-size: 12px;
-  }
-
-  .navMenu .search-container {
-   
-  }
-    .navMenu input[type=text]{
-    float:none;
-  }
-
-  .navMenu .search-container button{
-    
-  }
-  .navMenu input[type=text] {
-    border: 1px solid #ccc;  
-  }
-
-}
-
-
 /*LOGIN AND REGISTER PAGES*/
 
-.container-register-login {
-  padding: 16px;
+/* Button used to open the contact form - fixed at the bottom of the page */
+
+/* The popup form - hidden by default */
+.open-button {
+  background-color: grey;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+.loginbtn {
+background-color: green;
+color: white;
+border: none;
+cursor: pointer;
+padding: 16px 20px;
+width: 280px;
+right: 28px;
+}
+
+.registerbtn {
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 16px 20px;
+  width: 280px;
+  right: 28px;
+  }
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
   background-color: white;
 }
 
-#formm{
-    position: relative; 
-    top:0;
-    bottom: 0; 
-    left: 0; 
-    right: 0; 
-    width:350px;
-    margin: auto; 
-    
-}
-
-@media screen and (max-width: 1000px) {
-
-  #formm{
-    min-width: 0;
-    display: table;
-    
-  }
-}
-
-/* Full-width input fields LOGIN AND REGISTER INPUTS */
-.container-register-login input[type=text], input[type=password], input[type=repeatpassword] {
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
-  display: inline-block;
   border: none;
   background: #f1f1f1;
-  
 }
 
-.container-register-login input[type=text]:focus, input[type=password]:focus, input[type=repeatpassword]:focus {
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
   background-color: #ddd;
   outline: none;
-  
 }
 
-/* Overwrite default styles of hr */
-.container-register-login hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-  
-}
-
-/* Set a style for the submit button */
-.container-register-login .registerbtn, .container-register-login .loginbtn {
-  background-color: green;
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
-  opacity: 0.9;
+  margin-bottom:10px;
+  opacity: 0.8;
 }
 
-.container-register-login .registerbtn:hover {
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: grey;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+/* The popup form - hidden by default */
+.form-popup-2 {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container-2 {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container-2 input[type=text], .form-container-2 input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container-2 input[type=text]:focus, .form-container-2 input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container-2 .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container-2 .cancel {
+  background-color: grey;
+}
+
+/* Add some hover effects to buttons */
+.form-container-2 .btn:hover, .open-button:hover {
   opacity: 1;
 }
 
 
-/* Set a grey background color and center the text of the "sign in" section */
-.container-signin{
-  text-align: center;
+@media screen and (max-width: 1000px) {
+
+  #formm{
+    
+  }
 }
+
 
 /*other*/
 
@@ -338,45 +455,13 @@ header{
   cursor: pointer;
 }
 
-.nav-list{
-  list-style-type:none;
-}
-
-.nav-item a{
-  float: right;
-  display:block;
-  text-align: center;
-  margin-inline: 20px;
-  font-size: 20px;
-  padding: 10px;
-  color:#fff;
-}
-
-.nav-item a:hover{
-  background-color: rgb(0,0,0,0.1);
-}
-
 .hide{
   display: none;
-}
-
-.bar-icon{
-  font-size: 60px;
-  display: inline-block;
-  margin-right:10px;
-  color: #fff;
-  cursor: pointer;
 }
 
 @font-face {
   font-family:aquire;
   src:url(aquire.otf);
-}
-
-.brand{
-  font-size:60px;
-  display: inline-block;
-  font-family:aquire;
 }
 
 
@@ -386,10 +471,7 @@ header{
   background-color: #111314;
 }
 
-.chart{
-  font-size:20px;
-  font-weight:bold;
-}
+
 /* Footer Styling */
 
 footer{
