@@ -20,14 +20,6 @@
 
 <body>
 
-    
-
-    <?php
-        if(isset ($_SESSION["username"])){
-            echo "<p>Hello there " . $_SESSION["username"] . "</p>";
-    
-        }
-    ?>
 
     <!--Categories-->
     <div class="container">

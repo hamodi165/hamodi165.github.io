@@ -48,7 +48,7 @@ function uidExists($conn, $username, $email) {
    $stmt = mysqli_stmt_init($conn);
 
    if (!mysqli_stmt_prepare($stmt, $sql)){
-    header("location: ../home.php?error=stmtfailed");
+    header("location: ../register.php?error=stmtfailed");
     exit();
    }
 
@@ -69,24 +69,27 @@ function uidExists($conn, $username, $email) {
 }
 
 function createUser($conn, $username, $email, $password) {
-    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role) VALUES (?, ?, ?, ?, ?);";
- 
+    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role, gender) VALUES (?, ?, ?, ?, ?, ?);";
+
     $stmt = mysqli_stmt_init($conn);
  
     if (!mysqli_stmt_prepare($stmt, $sql)){
-     header("location: ../home.php?error=stmtfailed");
+     header("location: ../register.php?error=stmtfailed");
      exit();
     }
  
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
     $mysqltime = date ('Y-m-d H:i:s', $phptime);
     $userRole = array("User", "Community Members", "Moderators", "Super Moderators", "Admin");
+    $gender = array("Male", "Female", "Other", "Unknown");
+    
     
 
-    mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0]);
+    mysqli_stmt_bind_param($stmt, "ssssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0], $gender[3]);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../home.php?error=none");
+    header("location: ../register.php?error=none");
+    echo "You have successfully been registered!";
      exit();
  }
 
@@ -104,7 +107,7 @@ function loginUser($conn, $username, $password){
     $uidExists = uidExists($conn, $username, $username);
 
     if($uidExists === false){
-        header("location: ../home.php?error=wrongusername");
+        header("location: ../login.php?error=wrongusername");
         exit();
     }
 
@@ -112,7 +115,7 @@ function loginUser($conn, $username, $password){
     $checkPwd = password_verify($password, $passwordHashed);
 
     if($checkPwd === false){
-        header("location: ../home.php?error=wrongpassword");
+        header("location: ../login.php?error=wrongpassword");
         exit();
     } else if ($checkPwd === true){
         session_start();

@@ -10,31 +10,32 @@ if(isset($_POST["submit"])){
     require_once 'functions.inc.php';
 
     if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
-        header("location: ../home.php?error=emptyinput");
+        header("location: ../register.php?error=emptyinput");
         exit();
     }
 
     if(invalidUid($username) !== false){
-        header("location: ../home.php?error=invalidusername");
+        header("location: ../register.php?error=invalidusername");
         exit();
     }
 
     if(invalidEmail($email) !== false){
-        header("location: ../home.php?error=invalidemail");
+        header("location: ../register.php?error=invalidemail");
         exit();
     }
 
     if(pwdMatch($password, $repeatpassword) !== false){
-        header("location: ../index.php?error=passwordsdontmatch");
+        header("location: ../register.php?error=passwordsdontmatch");
         exit();
     }
 
     if(uidExists($conn, $username, $email) !== false){
-        header("location: ../home.php?error=usernameoremailtaken");
+        header("location: ../register.php?error=usernameoremailtaken");
         exit();
     }
 
     createUser($conn, $username, $email, $password);
+    
 
 } else {
     header("location: ../home.php");

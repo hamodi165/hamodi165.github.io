@@ -125,6 +125,7 @@ h1{
 /*   Header Section    */
 
 
+/* menu for home with dropdown links */
 
 @media screen and (max-width: 979px) {
 #elLogo{
@@ -150,13 +151,35 @@ h1{
   text-align: center;
   padding: 5px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
 }
 
-.topnav .loginDetails{
+.topnav .loginDetails, .topnav .registerDetails{
   float:right;
-  padding: 12px 30px;
+  padding: 14.3px 25px;
   text-decoration: none;
+}
+
+.topnav .profileDetails, .topnav .logoutDetails{
+  float:right;
+  padding: 14.3px 25px;
+  text-decoration: none;
+}
+
+.topnav .profileDetails i, .topnav .logoutDetails i{
+  font-size:17px;
+}
+
+.topnav .loginDetails i, .topnav .registerDetails i{
+  font-size:17px;
+}
+
+.loginDetails, .logoutDetails{
+  background-color:aquamarine;
+}
+
+.registerDetails, .profileDetails{
+  background-color: cornflowerblue;
 }
 
 .active {
@@ -311,7 +334,7 @@ h1{
 }
 
 .loginbtn {
-background-color: green;
+  background-color:aquamarine;
 color: white;
 border: none;
 cursor: pointer;
@@ -321,7 +344,7 @@ right: 28px;
 }
 
 .registerbtn {
-  background-color: green;
+  background-color: cornflowerblue;
   color: white;
   border: none;
   cursor: pointer;
@@ -602,36 +625,6 @@ footer{
   font-size: 15px;
 }
 
-.authors{
-  flex: 20%;
-}
-
-.content{
-  flex: 80%;
-}
-
-.body{
-  display: flex;
-  background-color: #131415;
-  padding: 10px;
-  margin-top: 5px;
-}
-
-.body .authors .username{
-  font-size: 20px;
-}
-
-.body .authors img{
-  max-width: 50px;
-  max-height: 80px;
-}
-
-.body .content .comment button{
-  padding:10px;
-  cursor: pointer;
-  float: right;
-  transition: all 1s ease;
-}
 
 /* comment section */
 .comment-area{
@@ -834,4 +827,141 @@ details.comment:not([open]) .comment-heading::after {
 }
 .d-none {
     display: none;
+}
+
+/*PROFILE SECTION FOR USER */
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  margin:50px;
+  margin-bottom: 100px;
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .tab{  
+    
+    margin:50px;
+    padding: 10px;
+    
+  }
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .tab button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 12px;
+  }
+}
+
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  margin:auto;
+  top:-100px;
+  position:relative;
+  width:30%;
+  margin-bottom: 200px;
+  -webkit-animation: fadeEffect 2s;
+  animation: fadeEffect 2s;
+}
+
+@media screen and (max-width: 600px) {
+
+  .tabcontent {
+    top:-50px;
+    margin:auto;
+    width:100%;
+  }
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* login page */
+
+.container-register-login {
+
+  margin: auto;
+  width: 305px;
+  border: 3px solid aquamarine;
+  padding: 10px;
+  margin-top: 50px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.container-register-login input[type=text], .container-register-login input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.container-register-login input[type=text]:focus, .container-register-login input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.container-register-login .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+
+/* Add some hover effects to buttons */
+.container-register-login .btn:hover, .open-button:hover {
+  opacity: 1;
 }
