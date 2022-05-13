@@ -33,7 +33,7 @@
 
 <div id="User Profile" class="tabcontent">
 <?php
-    echo '<img src="'.$_SESSION['profileimg'].'">';
+    echo '<img src="'.$target_file.'">';
    if(isset ($_SESSION["username"])){
    echo "<h3 id='username'>" . $_SESSION["username"] . "</h3>";
    
