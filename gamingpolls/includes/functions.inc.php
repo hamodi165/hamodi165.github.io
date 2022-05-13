@@ -89,7 +89,7 @@ function createUser($conn, $username, $email, $password) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../register.php?error=none");
-    echo "You have successfully been registered!";
+    echo "<h1> You have successfully been registered! </h1>";
      exit();
  }
 
