@@ -104,6 +104,7 @@ h1{
  width:30%;
  padding:100px;
  text-align: center;
+ border-radius:10px;
 }
 
 .posting{
@@ -112,12 +113,18 @@ h1{
   left:50%;
 }
 
-.thread input[type=text] {
+.thetitle input[type=text] {
     padding: 7px;
     margin-top: 16px;
     font-size: 17px;
     border: none;
-    width:600px;
+    width:831px;
+}
+
+.hl{
+border-left:yellow;
+margin:auto;
+width:100%;
 }
 
 .thread textarea{
@@ -126,7 +133,6 @@ h1{
     font-size: 17px;
     border: none;
     height:200px;
-    width:600px;
     resize: vertical;
 }
 
