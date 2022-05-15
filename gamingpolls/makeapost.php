@@ -6,12 +6,14 @@
 <body>
 
 <div class="thread">
-  <form action="/action_page.php">
-    <div class="thetitle">
-    <input type="text" class="posttitle" name="posttitle" placeholder="Title"> <br>
-  </div>
+<form action="<?php echo htmlspecialchars("home.php");?>"method="post">
+    <h3>Create a post </h3>
+    <hr></hr>
+    <input type="text" id="thetitle" name="posttitle" placeholder="Title"> <br>
     <textarea id="summernote" name="subject"></textarea>
-    <input type="submit" value="Submit">
+    <hr></hr>
+    <button type="submit" id="postbutton">Post</button>
+    
   </form>
 </div>
 
@@ -21,7 +23,7 @@
   $('#summernote').summernote({
         placeholder: 'Text (Optional)',
         tabsize: 2,
-        height: 160,
+        height: 160,     
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],
@@ -33,6 +35,8 @@
         ]
       });
 }); </script>
-
+ <?php
+        include "footer.php";
+    ?>
 </body>
 

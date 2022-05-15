@@ -97,44 +97,100 @@ h1{
 
 }
 
-
-
 .thread{
- margin:auto;
- width:30%;
- padding:100px;
- text-align: center;
- border-radius:10px;
-}
-
-.posting{
   position:relative;
-  top:100px;
-  left:50%;
+  width:20%;
+  top:200px;
+  left: 40%;
+  margin: -25px 0 0 -25px;
+  border:solid 1px #ff55aa;
 }
 
-.thetitle input[type=text] {
-    padding: 7px;
-    margin-top: 16px;
-    font-size: 17px;
-    border: none;
-    width:831px;
+.thread h3{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
-.hl{
-border-left:yellow;
-margin:auto;
-width:100%;
-}
-
-.thread textarea{
+#thetitle{
   padding: 7px;
-    margin-top: 16px;
-    font-size: 17px;
-    border: none;
-    height:200px;
-    resize: vertical;
+  margin-top: 16px;
+  font-size: 17px;
+  border: none;
+  width:685px;
+  background-color: white;
 }
+
+#postbutton{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+#postbutton {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+#postbutton {
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: green;
+	background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+	background-size: 200% 100%;
+	background-position: left;
+	background-repeat: no-repeat;
+	transition: 500ms;
+}
+
+#postbutton:before {
+	color: rgba(255,255,255,0.5);
+	font-size: 16px;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 140px;
+	height: 40px;
+	background-color: green;
+	background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%);
+	transition: 500ms;
+}
+
+#postbutton:hover {
+	background-position: right;
+}
+
+#postbutton:hover:before {
+	color: rgba(255,255,255,0.8);
+}
+
+#postbutton:focus {
+	outline: none;
+}
+.posting{
+  position:absolute;
+  left:50%;
+  top:300px;
+  padding:10px;
+}
+
 
 /* For the tablets */
 @media screen and (min-width: 460px) and (max-width: 1024px) {
@@ -511,6 +567,8 @@ right: 28px;
 
 /*other*/
 
+
+
 .close-icon i{
   font-size:60px;
   float: left;
@@ -527,11 +585,6 @@ right: 28px;
 }
 
 
-/* forum info Styling */
-.forum-info{
-  padding: 20px;
-  background-color: #111314;
-}
 
 
 /* Footer Styling */
@@ -540,168 +593,14 @@ footer{
   margin-top: 20px;
   padding: 20px;
   background-color: #e9e9e9;
-  display: block;
+  position:fixed;
+  bottom:0;
+  width:100%;
   text-align: center;
 }
 
-/* ########################################### */
-/*            posts.html                       */
-/* ########################################### */
-
-/* posts table's head  */
-.table-head{
-  display: flex;
-}
-
-.table-head div{
-  padding: 5px;
-  margin: 2px;
-  background-color: #2C2C2C;
-  font-weight: bold;
-}
-
-.table-head .status{
-  flex: 5%;
-}
-
-.table-head .subjects{
-  flex: 70%;
-}
-
-.table-head .replies{
-  flex: 10%;
-}
-
-.table-head .last-reply{
-  flex: 15%;
-}
-
-/* posts table's body  */
-
-.table-row{
-  display: flex;
-}
-
-.table-row .status, .table-row .subjects, .table-row .replies, .table-row .last-reply{
-  padding: 5px;
-  margin: 2px;
-  background-color: #131415;
-}
-
-.table-row .status{
-  flex: 5%;
-  font-size: 30px;
-  text-align: center;
-}
-
-.table-row .subjects{
-  flex: 70%;
-}
-
-.table-row .replies{
-  flex: 10%;
-}
-
-.table-row .last-reply{
-  flex: 15%;
-}
-
-/* navigation path*/
-.navigate{
-  margin-block: 20px;
-  font-weight: lighter;
-  font-size: 24px;
-}
-
-.navigate a{
-  color: #fff;
-}
-
-.navigate a:hover{
-  color:#FF0042;
-  font-weight: bolder;
-}
-
-/* Pagination*/
-
-.pagination{
-  padding: 20px;
-  font-size: 15px;
-}
-
-.pagination a{
-  color: #fff;
-  margin-inline: 5px;
-  padding: 5px 10px;
-  border: solid 0.5px #fff;
-}
-
-.pagination a:hover{
-  opacity: 0.5;
-}
-
-.note{
-  background-color:#111314;
-  padding: 20px;
-  display: block;
-}
-
-.note span{
-  font-size: 20px;
-  margin-block: 5px;
-}
 
 
-/* ########################################### */
-/*            detail.html                      */
-/* ########################################### */
-
-.head{
-  display: flex;
-  background-color: #2C2C2C;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-
-/* comment section */
-.comment-area{
-  margin-bottom:50px;
-}
-
-.comment-area textarea{
-  width: 100%;
-  min-height: 100px;
-  padding: 10px;
-  margin-block: 10px;
-  background-color: black;
-}
-
-.comment-area input{
-  float: right;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.comment-area input:hover{
-  border: solid 1px #000000;
-}
-
-/* All css for comment section */
-
-/* 
-    Body, button, comment-thread, and utilities
-
-    Notes:
-        - This section sets some basic styles. You can ignore this part and 
-        go directly to the comment styles.
-*/
-
-* {
-    box-sizing: border-box;
-}
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     line-height: 1.4;
@@ -709,164 +608,11 @@ body {
     background-color: grey;
 
 }
-button {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    font-size: 14px;
-    padding: 4px 8px;
-    color: rgba(0, 0, 0, 0.85);
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-}
-button:hover,
-button:focus,
-button:active {
-    cursor: pointer;
-    background-color: #ecf0f1;
-}
-.comment-thread {
-    width: 700px;
-    max-width: 100%;
-    margin: auto;
-    padding: 0 30px;
-    background-color: #fff;
-    border: 1px solid transparent; /* Removes margin collapse */
-}
-.m-0 {
-    margin: 0;
-}
-.sr-only {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
+
 
 /* Comment */
 
-.comment {
-    position: relative;
-    margin: 20px auto;
-}
-.comment-heading {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    font-size: 14px;
-}
-.comment-voting {
-    width: 20px;
-    height: 32px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-}
-.comment-voting button {
-    display: block;
-    width: 100%;
-    height: 50%;
-    padding: 0;
-    border: 0;
-    font-size: 10px;
-}
-.comment-info {
-    color: rgba(0, 0, 0, 0.5);
-    margin-left: 10px;
-}
-.comment-author {
-    color: rgba(0, 0, 0, 0.85);
-    font-weight: bold;
-    text-decoration: none;
-}
-.comment-author:hover {
-    text-decoration: underline;
-}
-.replies {
-    margin-left: 20px;
-}
 
-/* Adjustments for the comment border links */
-
-.comment-border-link {
-    display: block;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 12px;
-    height: calc(100% - 50px);
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    background-color: rgba(0, 0, 0, 0.1);
-    background-clip: padding-box;
-}
-.comment-border-link:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-.comment-body {
-    padding: 0 20px;
-    padding-left: 28px;
-}
-.replies {
-    margin-left: 28px;
-}
-
-/* Adjustments for toggleable comments */
-
-details.comment summary {
-    position: relative;
-    list-style: none;
-    cursor: pointer;
-}
-details.comment summary::-webkit-details-marker {
-    display: none;
-}
-details.comment:not([open]) .comment-heading {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-.comment-heading::after {
-    display: inline-block;
-    position: absolute;
-    right: 5px;
-    align-self: center;
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.55);
-}
-details.comment[open] .comment-heading::after {
-    content: "Click to hide";
-}
-details.comment:not([open]) .comment-heading::after {
-    content: "Click to show";
-}
-
-/* Adjustment for Internet Explorer */
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    /* Resets cursor, and removes prompt text on Internet Explorer */
-    .comment-heading {
-        cursor: default;
-    }
-    details.comment[open] .comment-heading::after,
-    details.comment:not([open]) .comment-heading::after {
-        content: " ";
-    }
-}
-
-/* Styling the reply to comment form */
-
-.reply-form textarea {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-.d-none {
-    display: none;
-}
 
 /*PROFILE SECTION FOR USER */
 

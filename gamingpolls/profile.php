@@ -55,12 +55,14 @@
     
   <div class="countryclass">
   <form action="/action_page.php">
-    <label for="fname">First Name</label>
+    <h3>Customize profile</h3>
+    <hr> </hr>
+    <label for="fname">Display name (Optional)</label> <br>
     <input type="text" id="fname" name="name" placeholder="Your name.."> <br>
-    <label for="lname">Last Name</label> 
+    <label for="lname">Last Name</label> <br>
     <input type="text" id="lname" name="lastname" placeholder="Your last name.."> <br>
 
-    <label for="country">Country</label>
+    <label for="country">Country</label> <br>
     <select id="country" name="country">
     <option value="Afganistan">Afghanistan</option>
    <option value="Albania">Albania</option>
@@ -309,7 +311,8 @@
    <option value="Zambia">Zambia</option>
    <option value="Zimbabwe">Zimbabwe</option>
     </select>
-    <button type="button" class="btn cancel" value="submit" name="submit">Submit</button>
+    <hr> </hr>
+    <button type="button" class="btn cancel" value="submit" name="submit">Save</button>
   </form>
 </div>
 </div>

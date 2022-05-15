@@ -2,7 +2,7 @@
 
 
     <footer>
-        <span>&copy;  Gamingpolls | All Rights Reserved</span>
+        <span>&copy;  Voteem | All Rights Reserved</span>
     </footer>
 
     <script src="main.js"></script>
