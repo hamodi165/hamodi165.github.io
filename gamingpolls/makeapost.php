@@ -7,7 +7,7 @@
 
 <div class="thread">
 <form action="<?php echo htmlspecialchars("home.php");?>"method="post">
-    <h3>Create a post </h3>
+    <h4>Create a post </h4>
     <hr></hr>
     <input type="text" id="thetitle" name="posttitle" placeholder="Title"> <br>
     <textarea id="summernote" name="subject"></textarea>
