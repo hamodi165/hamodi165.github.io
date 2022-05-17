@@ -6,7 +6,7 @@
 <body>
 
 <div class="thread">
-<form action="<?php echo htmlspecialchars("home.php");?>"method="post">
+<form action="<?php echo htmlspecialchars("post.inc.php");?>"method="post">
     <h4>Create a post </h4>
     <hr></hr>
     <input type="text" id="thetitle" name="posttitle" placeholder="Title"> <br>
@@ -31,10 +31,11 @@
           ['para', ['ul', 'ol', 'paragraph']],
           ['table', ['table']],
           ['insert', ['link', 'picture', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
+          ['view', ['fullscreen', 'codeview']]
         ]
       });
 }); </script>
+
  <?php
         include "footer.php";
     ?>

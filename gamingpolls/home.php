@@ -137,11 +137,8 @@
       </div>
       <div class="layout__right-sidebar-container">
         <div class="layout__right-sidebar">
-        <h4>Create a post </h4>
-            <hr> </hr>
             <a href="makeapost.php"> <input type=text id="postinput" placeholder="Create a post" readonly> </a>
-            <a href="makeapost.php" id="postbtn">Link Button</a>
-        
+            <a href="makeapost.php" id="postbtn">Post</a>
             </div>
           </div>
           

@@ -103,6 +103,16 @@ function createUser($conn, $username, $email, $password) {
     return $result;
 }
 
+function emptyPost($content, $users_id, $date){
+    $result;
+    if(empty($content) || empty($users_id) || empty($date)){
+        $result = true;
+    } else {
+        $return = false;
+    }
+    return $result;
+}
+
 function loginUser($conn, $username, $password){
     $uidExists = uidExists($conn, $username, $username);
 
@@ -126,5 +136,7 @@ function loginUser($conn, $username, $password){
         exit();
     }
 }
+
+
 
 
