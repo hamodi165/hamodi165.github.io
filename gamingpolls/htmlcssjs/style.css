@@ -1027,3 +1027,8 @@ overflow:hidden;
 .user-container div{
   float:left;
 }
+
+.comment-box img{
+  float:left;
+  width: 100px;
+}
