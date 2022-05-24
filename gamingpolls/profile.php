@@ -1,55 +1,50 @@
 <?php
     require 'header.php';
+    require 'upload.php';
+    require 'deleteprofile.php';
+    require 'includes/dbh.inc.php';
     if(!isset($_SESSION["username"])){header("location: login.php");}
     
 
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Polls</title>
-    <link rel="stylesheet" href="htmlcssjs/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="fontawesome-free-5.15.1/css/all.css">
-    <title>Search</title>
-  <script src="https://kit.fontawesome.com/afd6aa68df.js" crossorigin="anonymous"></script>
-</head>
-
 <body>
 
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'User Profile')" id="default">User Profile</button>
-  <button class="tablinks" onclick="openCity(event, 'Security')">Security & Privacy</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="openTab(event, 'User Profile')" id="default">User Profile</button>
+  <button class="tablinks" onclick="openTab(event, 'Security')">Security & Privacy</button>
+  <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo</button>
 </div>
 
 <div id="User Profile" class="tabcontent">
 <?php
-    echo '<img src="'.$target_file.'">';
-   if(isset ($_SESSION["username"])){
-   echo "<h3 id='username'>" . $_SESSION["username"] . "</h3>";
-   
-        }
+
+        $sqlImg = "SELECT * FROM users WHERE users_id='$id'";
+        $resultImg = mysqli_query($conn, $sqlImg);
+        while($row = mysqli_fetch_assoc($resultImg)){
+        $id = $row['users_id'];
+          echo"<div class ='user-container'>";
+          if($row['status'] == 0){
+            $filename = "uploads/profile".$id."*";
+            $fileinfo = glob($filename);
+            $fileext = explode(".", $fileinfo[0]);
+            $fileactualext = $fileext[1];
+            echo "<img src='uploads/profile".$id.".".$fileactualext."?".mt_rand()."'>";
+          } else {
+            echo "<img src='uploads/profiledefault.jpg'>";
+          }
+          echo "<h3 id='username'>" .$row["users_username"] . "</h3>";
+          echo "<h4>" .$row["users_role"] . "</h4>";
+          echo "</div>";
+        } 
     ?>
-      <?php
-        if(isset ($_SESSION["role"])){
-          echo "<h4>" . $_SESSION["role"] . "</h4>";
-            }
-            
-           
-          ?>
               <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
-              <input type="file" name="fileToUpload" id="fileToUpload">
-              <button type="submit" name="submit" value="Upload Image">Upload Image</button>
+              <input type="file" name="file"> <br>
+              <button type="submit" name="submit">Upload Image</button>
+              <button type="submit" name="delete">Reset Image</button>
               </form>
+              <br>
 
       
     
@@ -331,4 +326,3 @@
         include "footer.php";
     ?>
 </body>
-</html>

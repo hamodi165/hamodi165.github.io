@@ -802,6 +802,10 @@ footer{
 
 }
 
+.containerss{
+  position:relative;
+  top:100px;
+}
 #postinput{
   height:30px;
   font-size: 14px;
@@ -999,4 +1003,27 @@ footer{
 .who-to-follow__button:hover {
   background: rgba(29, 161, 242, 0.1);
   cursor: pointer;
+}
+
+
+/* comment text area */
+
+#commentarea{
+  visibility:none;
+}
+
+/* user profile photo role etc */
+.user-container{
+
+padding:10px;
+background-color:grey;
+margin:10px;
+overflow:hidden;
+}
+.user-container img{
+  float:left;
+  width: 100px;
+}
+.user-container div{
+  float:left;
 }

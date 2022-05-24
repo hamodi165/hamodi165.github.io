@@ -34,8 +34,11 @@ if(isset($_POST["submit"])){
         exit();
     }
 
+    if(botQuestion($botquestion) !== false){
+        header("location: ../register.php?error=wrongnumber");
+        exit();
+    }
     createUser($conn, $username, $email, $password);
-    
 
 } else {
     header("location: ../home.php");

@@ -19,6 +19,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> </script>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <!--Menu Section-->
@@ -99,6 +100,8 @@
     <br><br>
     * Repeat Password: <input type="password" placeholder="Repeat Password" name="repeatpassword" id="repeatpassword" required>
     <br><br>
+    * What is 9+2? <input type="text" placeholder="Enter number" name="botquestion" required>
+    <br><br>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn" name="submit">Register</button>
     <br></br>
@@ -123,6 +126,9 @@
 
       if($_GET["error"] == "usernameoremailtaken"){
         echo"<p>Email or username taken!</p>";
+      }
+      if($_GET["error"] == "wrongnumber"){
+        echo"<p>Wrong answer on bot question!</p>";
       }
       if($_GET["error"] == "none"){
         echo"<p>You have successfully been registered!</p>";

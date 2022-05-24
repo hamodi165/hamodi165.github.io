@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="fontawesome-free-5.15.1/css/all.css">
     <title>Search</title>
   <script src="https://kit.fontawesome.com/afd6aa68df.js" crossorigin="anonymous"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
@@ -34,6 +35,7 @@
     <br><br>
     * Repeat Password: <input type="password" placeholder="Repeat Password" name="repeatpassword" id="repeatpassword" required>
     <br><br>
+    * What is 9+2? <input type="text" placeholder="Enter number" name="botquestion" required>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn" name="submit">Register</button>
     <div class="container-signin">

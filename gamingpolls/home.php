@@ -1,5 +1,7 @@
 <?php
     include 'header.php';
+    include 'includes/dbh.inc.php';
+    include 'upload.php';
 ?>
 <body>
 <div class="layout">
@@ -63,14 +65,44 @@
               </div>
             </div>
             <div class="tweet__content">
-              One of my favorite things about the "ergonomics" of haskell is
-              being able to leave underscores in code that isn't finished yet,
-              and the type checker still works and provides useful information
-              about the incomplete code. ("holes" --
-              <a href="https://typeclasses.com/typed-holes"
-                >https://typeclasses.com/typed-holes</a
-              >)
-              <img class="tweet__image" src="./images/post-image-1.jpeg" />
+             <?php
+           				$query = mysqli_query($conn,"SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN users on users.users_id = post.users_id order by post_id DESC")or die(mysqli_error());
+                   while($post_row=mysqli_fetch_array($query)){
+                   $id = $post_row['post_id'];	
+                   $upid = $post_row['users_id'];	
+                   $posted_by = $post_row['users_id'];
+                  echo "<div class='comment-box'>";
+                  if($post_row['status'] == 0){
+                    $filename = "uploads/profile".$upid."*";
+                    $fileinfo = glob($filename);
+                    $fileext = explode(".", $fileinfo[0]);
+                    $fileactualext = $fileext[1];
+                    echo "<img src='uploads/profile".$upid.".".$fileactualext."?".mt_rand()."'>"; echo "<br>";
+                  } else {
+                    echo "<img src='uploads/profiledefault.jpg'>"; echo "<br>";
+                  }
+                  echo $post_row['title']."<br>";
+                  echo $post_row['date_created']."<br>";
+                  echo $post_row['users_username']."<br>";
+                  echo $post_row['content'];           
+                  echo "</p></div>";
+                  if(isset ($_SESSION["username"])){
+                    echo "<button type='button' id='postbtn' onclick='replyFunction()'>Reply</button>";
+                    include 'commentsection.php';      
+                  }
+             
+                }
+              
+            $sql = "SELECT * FROM comment LIMIT 1";
+            $result = $conn->query($sql);
+            while ($row = mysqli_fetch_assoc($result)){
+              echo "<div class='comment-box'>";
+              echo $row['date_posted']."<br>";
+              echo $row['users_id']."<br>";
+              echo $row['content']."<br>";           
+              echo "</p></div>";
+            }     
+              ?>
             </div>
           </div>
         </div>

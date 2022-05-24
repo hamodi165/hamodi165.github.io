@@ -1,4 +1,6 @@
+
 <?php
+include 'dbh.inc.php';
 
 function emptyInputSignup($username, $email, $password, $repeatpassword) {
     $result;
@@ -19,7 +21,7 @@ function invalidUid($username){
     }
     return $result;
 }
-    
+  
 
 function invalidEmail($email) {
     $result;
@@ -35,6 +37,16 @@ function invalidEmail($email) {
 function pwdMatch($password, $repeatpassword) {
     $result;
     if($password !== $repeatpassword){
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function botQuestion($botquestion) {
+    $result;
+    if($botquestion === 11){
         $result = true;
     } else {
         $result = false;
@@ -69,29 +81,28 @@ function uidExists($conn, $username, $email) {
 }
 
 function createUser($conn, $username, $email, $password) {
-    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role, gender) VALUES (?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role, gender, status) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
     $stmt = mysqli_stmt_init($conn);
- 
-    if (!mysqli_stmt_prepare($stmt, $sql)){
-     header("location: ../register.php?error=stmtfailed");
-     exit();
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../signup.php?error=sqlerror");
+        exit();
     }
  
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-    $mysqltime = date ('Y-m-d H:i:s', $phptime);
+    $mysqltime = date ('Y-m-d H:i:s');
     $userRole = array("User", "Community Members", "Moderators", "Super Moderators", "Admin");
     $gender = array("Male", "Female", "Other", "Unknown");
-    
-    
+    $status = 1;
 
-    mysqli_stmt_bind_param($stmt, "ssssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0], $gender[3]);
+    mysqli_stmt_bind_param($stmt, "sssssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0], $gender[3], $status);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../register.php?error=none");
     echo "<h1> You have successfully been registered! </h1>";
      exit();
  }
+
 
  function emptyInputLogin($username, $password) {
     $result;
