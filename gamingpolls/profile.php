@@ -1,11 +1,6 @@
 <?php
-    require 'header.php';
-    require 'upload.php';
-    require 'deleteprofile.php';
-    require 'includes/dbh.inc.php';
-    if(!isset($_SESSION["username"])){header("location: login.php");}
-    
-
+    include 'session.php';
+    include 'homeheader.php';  
 ?>
 <body>
 
@@ -19,11 +14,11 @@
 
 <div id="User Profile" class="tabcontent">
 <?php
-
+        require_once 'includes/dbh.inc.php';
+        $id = $_SESSION["userid"];
         $sqlImg = "SELECT * FROM users WHERE users_id='$id'";
         $resultImg = mysqli_query($conn, $sqlImg);
         while($row = mysqli_fetch_assoc($resultImg)){
-        $id = $row['users_id'];
           echo"<div class ='user-container'>";
           if($row['status'] == 0){
             $filename = "uploads/profile".$id."*";
@@ -34,17 +29,19 @@
           } else {
             echo "<img src='uploads/profiledefault.jpg'>";
           }
-          echo "<h3 id='username'>" .$row["users_username"] . "</h3>";
+          echo "<h3 id='usernamepost'>" .$row["users_username"] . "</h3>";
           echo "<h4>" .$row["users_role"] . "</h4>";
           echo "</div>";
         } 
     ?>
-              <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+              <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data">
               <input type="file" name="file"> <br>
               <button type="submit" name="submit">Upload Image</button>
-              <button type="submit" name="delete">Reset Image</button>
               </form>
               <br>
+              <form method="post" action="<?php echo htmlspecialchars("deleteprofile.php");?>">
+              <button type="submit" name="delete">Reset Image</button>
+              </form>
 
       
     

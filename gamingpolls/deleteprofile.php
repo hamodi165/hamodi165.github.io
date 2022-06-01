@@ -1,8 +1,9 @@
 <?php
+session_start();
 include_once 'includes/dbh.inc.php';
-include_once 'header.php';
+$id = $_SESSION["userid"];
 if(isset($_POST["delete"])){
-    $id = $_SESSION["userid"];
+
 $filename = "uploads/profile".$id."*";
 $fileinfo = glob($filename);
 $fileext = explode(".", $fileinfo[0]);
@@ -18,4 +19,5 @@ if(!unlink($file)){
 
 $sql = "UPDATE users SET status=1 WHERE users_id='$id';";
 mysqli_query($conn, $sql);
+header("location: profile.php?deletesuccess");
 }

@@ -1,8 +1,6 @@
 <?php
-    require 'header.php';
-    require 'includes/dbh.inc.php';
-    require 'includes/posts.inc.php';
-    if(!isset($_SESSION["username"])){header("location: login.php");}
+    include 'session.php';
+    include 'homeheader.php';
 ?>
 
 <body>
@@ -17,11 +15,22 @@
     <input type="hidden"  name="date_created"> <br>
     <textarea id="summernote" name="content"></textarea>
     <hr></hr>
-    <button type="submit" id="postbutton" name="submit">Post</button>
+    <button type="submit" id="postbutton" name="submitPost" >Post</button>
     
   </form>
 </div>
 
+<?php
+    if(isset($_GET["error"])){
+    if($_GET["error"] == "emptycontentinput"){
+      echo '<script>alert("You need to write some content before posting!")</script>';
+    }
+
+    if($_GET["error"] == "emptytitleinput"){
+      echo '<script>alert("You need to write a title before posting!")</script>';
+    }
+  }
+?>
 
 
 <script> $(document).ready(function() {

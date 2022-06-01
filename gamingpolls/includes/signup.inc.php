@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST["submit"])){
     $username = $_POST["username"];
     $email = $_POST["email"];
@@ -10,32 +9,32 @@ if(isset($_POST["submit"])){
     require_once 'functions.inc.php';
 
     if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
-        header("location: ../register.php?error=emptyinput");
+        header("location: ../home.php?error=emptyinput");
         exit();
     }
 
     if(invalidUid($username) !== false){
-        header("location: ../register.php?error=invalidusername");
+        header("location: ../home.php?error=invalidusername");
         exit();
     }
 
     if(invalidEmail($email) !== false){
-        header("location: ../register.php?error=invalidemail");
+        header("location: ../home.php?error=invalidemail");
         exit();
     }
 
     if(pwdMatch($password, $repeatpassword) !== false){
-        header("location: ../register.php?error=passwordsdontmatch");
+        header("location: ../home.php?error=passwordsdontmatch");
         exit();
     }
 
     if(uidExists($conn, $username, $email) !== false){
-        header("location: ../register.php?error=usernameoremailtaken");
+        header("location: ../home.php?error=usernameoremailtaken");
         exit();
     }
 
     if(botQuestion($botquestion) !== false){
-        header("location: ../register.php?error=wrongnumber");
+        header("location: ../home.php?error=wrongnumber");
         exit();
     }
     createUser($conn, $username, $email, $password);

@@ -1,10 +1,9 @@
 <?php
+session_start();
 include_once 'includes/dbh.inc.php';
-
 $id = $_SESSION["userid"];
 if(isset($_POST["submit"])){
   $file = $_FILES['file'];
-
   $fileName = $_FILES['file'] ['name'];
   $fileTmpName = $_FILES['file'] ['tmp_name'];
   $fileSize = $_FILES['file'] ['size'];

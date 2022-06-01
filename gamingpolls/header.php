@@ -1,27 +1,7 @@
 <?php
-    session_start(); 
+    session_start();
+    include 'tags.php';
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Polls</title>
-    <link rel="stylesheet" href="htmlcssjs/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://kit.fontawesome.com/afd6aa68df.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="htmlcssjs/main.js"></script>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"> </script>
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<script src="https://www.google.com/recaptcha/api.js"></script>
-</head>
-
 <!--Menu Section-->
 
 <header>
@@ -53,8 +33,11 @@
         }
 
         ?>
-  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    <a href="javascript:void(0);" class="icon" onclick="mobileFunction()"><i class="fa fa-bars"></i>
+  </a>
 </div>
+
+</header>
 
 <!--LOGIN BUTTON-->
 
@@ -74,15 +57,19 @@
     if(isset($_GET["error"])){
       if($_GET["error"] == "emptyinput"){
         echo"<p>Fill in all fields!</p>";
+        echo '<script>alert("Fill in all the fields!")</script>';
       }
       if($_GET["error"] == "wrongusername"){
         echo"<p>Incorrect username!</p>";
+        echo '<script>alert("Incorrect username!")</script>';
       }
 
       if($_GET["error"] == "wrongpassword"){
         echo"<p>Incorrect password!</p>";
+        echo '<script>alert("Incorrect password!")</script>';
       }
     }
+
     ?>
   </form>
 </div>
@@ -108,33 +95,44 @@
     <button type="button" class="btn cancel" onclick="closeFormRegister()">Close</button>
     <div class="container-signin">
     <p>Already have an account? <a href="#" onclick="openFormLogin()">Login here</a>.</p>
-    </div>
     <?php
     if(isset($_GET["error"])){
       if($_GET["error"] == "emptyinput"){
         echo"<p>Fill in all fields!</p>";
+        echo '<script>alert("Fill in all the fields!")</script>';
       }
       if($_GET["error"] == "invalidusername"){
         echo"<p>Choose a valid username!</p>";
+        echo '<script>alert("Choose a valid username!")</script>';
       }
       if($_GET["error"] == "invalidemail"){
         echo"<p>Choose a valid email!</p>";
+        echo '<script>alert("Choose a valid email!")</script>';
       }
       if($_GET["error"] == "passwordsdontmatch"){
         echo"<p>Password does not match!</p>";
+        echo '<script>alert("Password does not match!")</script>';
       }
 
       if($_GET["error"] == "usernameoremailtaken"){
         echo"<p>Email or username taken!</p>";
+        echo '<script>alert("Email or username taken!")</script>';
       }
       if($_GET["error"] == "wrongnumber"){
         echo"<p>Wrong answer on bot question!</p>";
+        echo '<script>alert("Wrong answer on bot question!")</script>';
       }
       if($_GET["error"] == "none"){
         echo"<p>You have successfully been registered!</p>";
+        echo '<script>alert("You have successfully been registered!")</script>';
       }
+
+      if($_GET["error"] == "noerroronpost"){
+        echo '<script>alert("Congratulations, you just created a post!")</script>';
+      }
+
     } 
     ?>
+    </div>
   </form>
 </div>
-</header>

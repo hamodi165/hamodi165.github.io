@@ -1,6 +1,6 @@
 //Comment
 
-function myFunction() {
+function mobileFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
@@ -47,6 +47,7 @@ function commentFunction() {
     document.getElementById("myForm-2").style.display = "block";
     if(document.getElementById("myForm").style.display = "block"){
       document.getElementById("myForm").style.display = "none";
+
     }
   }
   
@@ -57,6 +58,7 @@ function commentFunction() {
   function closeFormRegister() {
     document.getElementById("myForm-2").style.display = "none";
   }
+
 
 
   //switching tabs in profile page

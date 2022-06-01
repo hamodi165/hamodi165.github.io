@@ -1,0 +1,91 @@
+/* layout for the post input and button on homepage */
+/* make a post php */
+.thread{
+    position:relative;
+    width:20%;
+    top:200px;
+    left: 40%;
+    margin: -25px 0 0 -25px;
+    border:solid 1px #ff55aa;
+  }
+  
+  .thread h4{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  
+  #thetitle{
+    padding: 7px;
+    margin-top: 14px;
+    font-size: 16px;
+    border: none;
+    width:382px;
+    background-color: grey;
+  }
+  
+
+#postbtn{
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    list-style: none;
+    outline: none;
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  #postbtn:active{
+    background-color: red;
+  }
+  
+  #postbtn:hover{
+    background-color: green;
+  }
+  
+  #postinput{
+    height:29px;
+    font-size: 14px;
+    border: none;
+    width: 300px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  #postinput:hover {
+    text-decoration: none;
+  }
+  
+  .making-post{
+    position:fixed;
+    top:20px;
+    right:0;
+    box-sizing: border-box;
+    padding: 6px 15px;
+    background-color: grey;
+    border-radius: 5px;
+    margin: 50px 250px;
+    text-decoration: none;
+  }
+  
+  @media screen and (max-width: 979px) {
+    .making-post{
+        margin:0 auto;
+        width:100px;
+        top:400px;
+      }
+    }
+  
+  .making-post img{
+    position:relative;
+    left:-5px;
+    width: 45px;
+    border-radius: 40px;
+  }

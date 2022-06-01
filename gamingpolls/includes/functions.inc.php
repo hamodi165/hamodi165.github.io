@@ -1,6 +1,5 @@
 
 <?php
-include 'dbh.inc.php';
 
 function emptyInputSignup($username, $email, $password, $repeatpassword) {
     $result;
@@ -15,6 +14,26 @@ function emptyInputSignup($username, $email, $password, $repeatpassword) {
 function invalidUid($username){
     $result;
     if(!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function emptyInputContent($content){
+    $result;
+    if(empty($content) || empty($content)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function emptyInputTitle($title){
+    $result;
+    if(empty($title) || empty($title)) {
         $result = true;
     } else {
         $result = false;
@@ -60,7 +79,7 @@ function uidExists($conn, $username, $email) {
    $stmt = mysqli_stmt_init($conn);
 
    if (!mysqli_stmt_prepare($stmt, $sql)){
-    header("location: ../register.php?error=stmtfailed");
+    header("location: ../home.php?error=stmtfailed");
     exit();
    }
 
@@ -85,7 +104,7 @@ function createUser($conn, $username, $email, $password) {
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signup.php?error=sqlerror");
+        header("location: ../home.php?error=sqlerror");
         exit();
     }
  
@@ -98,8 +117,27 @@ function createUser($conn, $username, $email, $password) {
     mysqli_stmt_bind_param($stmt, "sssssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0], $gender[3], $status);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../register.php?error=none");
+    header("location: ../home.php?error=none");
     echo "<h1> You have successfully been registered! </h1>";
+     exit();
+ }
+
+ function createPost($conn, $content, $title, $users_id, $date_created){
+    $sql = "INSERT INTO post (title, users_id, content, date_created) VALUES (?,?,?,?);";
+
+    $stmt = mysqli_stmt_init($conn);
+ 
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+     header("location: ../home.php?error=stmtfailed");
+     exit();
+    }
+
+    $mysqltime = date ('Y-m-d H:i:s');
+
+    mysqli_stmt_bind_param($stmt, "ssss", $title, $users_id, $content, $mysqltime);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../home.php?error=noerroronpost");
      exit();
  }
 
@@ -128,7 +166,7 @@ function loginUser($conn, $username, $password){
     $uidExists = uidExists($conn, $username, $username);
 
     if($uidExists === false){
-        header("location: ../login.php?error=wrongusername");
+        header("location: ../home.php?error=wrongusername");
         exit();
     }
 
@@ -136,7 +174,7 @@ function loginUser($conn, $username, $password){
     $checkPwd = password_verify($password, $passwordHashed);
 
     if($checkPwd === false){
-        header("location: ../login.php?error=wrongpassword");
+        header("location: ../home.php?error=wrongpassword");
         exit();
     } else if ($checkPwd === true){
         session_start();
