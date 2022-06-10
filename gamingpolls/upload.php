@@ -24,9 +24,20 @@ if(isset($_POST["submit"])){
           unlink($match);
         }
         move_uploaded_file($fileTmpName, $fileDestination);
-        $sql = "UPDATE users SET status=0 WHERE users_id = '$id';";
-        $result = mysqli_query($conn, $sql);
+        $sql = "UPDATE users SET status = ? WHERE users_id = ?;";
+        $stmt = mysqli_stmt_init($conn);
+
+        if (!mysqli_stmt_prepare($stmt, $sql)){
+         header("location: ../home.php?error=stmtfailed");
+         exit();
+        }   
+        $status = 0;
+        
+        mysqli_stmt_bind_param($stmt, "ss", $status, $id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
         header("Location: profile.php?uploadsuccess");
+         exit();
       } else {
         echo "Your file is too big!";
       }

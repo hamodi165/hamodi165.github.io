@@ -1,22 +1,20 @@
 <?php
+require_once 'dbh.inc.php';
+require_once 'functions.inc.php';
 
-if (isset($_POST["submitPost"])){
-    $title = $_POST["title"];
-    $users_id = $_POST["users_id"];
-    $content = $_POST["content"];
-    $date_created = $_POST["date_created"];
-    $mysqltime = date ('Y-m-d H:i:s');
+if (isset($_POST["submitHot"])){
+    $title = $conn->real_escape_string($_POST["title"]);
+    $users_id = $conn->real_escape_string($_POST["users_id"]);
+    $content = $conn->real_escape_string($_POST["content"]);
+    $date_created = $conn->real_escape_string($_POST["date_created"]);
 
-    require_once 'dbh.inc.php';
-    require_once 'functions.inc.php';
-
-    if(emptyInputTitle($title) !== false){
-        header("location: ../makeapost.php?error=emptytitleinput");
+    if(emptyInputTitleOrContent($content, $title) !== false){
+        header("location: ../makeapost.php?error=emptycontentortitle");
         exit();
     }
 
-    if(emptyInputContent($content) !== false){
-        header("location: ../makeapost.php?error=emptycontentinput");
+    if(getTitleType($title) === false){
+        header("location: ../makeapost.php?error=nostringontitle");
         exit();
     }
 

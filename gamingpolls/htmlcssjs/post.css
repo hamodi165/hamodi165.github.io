@@ -54,7 +54,7 @@
     height:29px;
     font-size: 14px;
     border: none;
-    width: 300px;
+    width: 200px;
     border-radius: 4px;
     text-decoration: none;
   }
@@ -78,9 +78,17 @@
   @media screen and (max-width: 979px) {
     .making-post{
         margin:0 auto;
-        width:100px;
-        top:400px;
+        width:100%;
+        top:50px;
       }
+
+      #postinput{
+      }
+      #postbtn{
+        display:none;
+        padding:5px 5px;
+      }
+
     }
   
   .making-post img{
@@ -89,3 +97,22 @@
     width: 45px;
     border-radius: 40px;
   }
+
+  .makingapost-container{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top:80px;
+    height:55px;
+    left: 0;
+    right: 0;
+    background-color: grey;
+    width:30%;
+    padding: 6px 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+
+  

@@ -1,4 +1,5 @@
-//Comment
+
+//mobile navigation menu
 
 function mobileFunction() {
   var x = document.getElementById("myTopnav");
@@ -9,16 +10,7 @@ function mobileFunction() {
   }
 }
 
-
-function commentFunction() {
-    var x = document.getElementById("comment-area");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-
+//comment area
   function replyFunction() {
     var x = document.getElementById("commentarea");
     var y = document.getElementById("replyButton");
@@ -80,11 +72,45 @@ function commentFunction() {
     document.getElementById("default").click();
  }  
 
+ //switching tabs in homepage, hot poll review etc
+ function openTopic(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("hotcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("hotlinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+
+}
+
+
+//switching tabs to make a post such a review, poll etc in makeapost.php
+function openPost(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("postcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("makinglinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+
+}
+
+
+//for recaptcha registering bot
   var onloadCallback = function() {
         grecaptcha.enterprise.render('html_element', {
           'sitekey' : ' 6LfPeRMgAAAAABc9QUnfXNGyrRbSBc-gdsBl8GQH',
         });
       };
 
-
- 
+   

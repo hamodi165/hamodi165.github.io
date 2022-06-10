@@ -1,11 +1,12 @@
 <?php
+ require_once 'dbh.inc.php';
+ require_once 'functions.inc.php';
 
 if (isset($_POST ["submit"])){
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $username = $conn->real_escape_string($_POST["username"]);
+    $password = $conn->real_escape_string($_POST["password"]);
 
-    require_once 'dbh.inc.php';
-    require_once 'functions.inc.php';
+   
 
     if(emptyInputLogin($username, $password) !== false){
         header("location: ../home.php?error=emptyinput");

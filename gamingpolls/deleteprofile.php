@@ -17,7 +17,17 @@ if(!unlink($file)){
     echo"file was deleted";
 }
 
-$sql = "UPDATE users SET status=1 WHERE users_id='$id';";
-mysqli_query($conn, $sql);
+$sql = "UPDATE users SET status=? WHERE users_id=?;";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)){
+ header("location: ../home.php?error=stmtfailed");
+ exit();
+}   
+$status = 1;
+
+mysqli_stmt_bind_param($stmt, "ss", $status, $id);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
 header("location: profile.php?deletesuccess");
+ exit();
 }

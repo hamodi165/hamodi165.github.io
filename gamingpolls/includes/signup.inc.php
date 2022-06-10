@@ -1,12 +1,12 @@
 <?php
+ require_once 'dbh.inc.php';
+ require_once 'functions.inc.php';
 if(isset($_POST["submit"])){
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $repeatpassword = $_POST["repeatpassword"];
-
-    require_once 'dbh.inc.php';
-    require_once 'functions.inc.php';
+    $username = $conn->real_escape_string($_POST["username"]);
+    $email = $conn->real_escape_string($_POST["email"]);
+    $password = $conn->real_escape_string($_POST["password"]);
+    $repeatpassword = $conn->real_escape_string($_POST["repeatpassword"]);
+    $bottest = $conn->real_escape_string($_POST["bottest"]);
 
     if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
         header("location: ../home.php?error=emptyinput");
@@ -28,16 +28,17 @@ if(isset($_POST["submit"])){
         exit();
     }
 
+    if(passwordCharacter($password) !== false){
+        header("location: ../home.php?error=passwordnotstrong");
+        exit();
+    }
+
     if(uidExists($conn, $username, $email) !== false){
         header("location: ../home.php?error=usernameoremailtaken");
         exit();
     }
 
-    if(botQuestion($botquestion) !== false){
-        header("location: ../home.php?error=wrongnumber");
-        exit();
-    }
-    createUser($conn, $username, $email, $password);
+    createUser($conn, $username, $email, $password, $bottest);
 
 } else {
     header("location: ../home.php");

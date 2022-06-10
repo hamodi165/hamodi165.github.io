@@ -21,9 +21,9 @@ function invalidUid($username){
     return $result;
 }
 
-function emptyInputContent($content){
+function emptyInputTitleOrContent($content, $title){
     $result;
-    if(empty($content) || empty($content)) {
+    if(empty($content) || empty($title)) {
         $result = true;
     } else {
         $result = false;
@@ -31,9 +31,10 @@ function emptyInputContent($content){
     return $result;
 }
 
-function emptyInputTitle($title){
+
+function getTitleType($title){
     $result;
-    if(empty($title) || empty($title)) {
+    if(gettype($title) === "string"){
         $result = true;
     } else {
         $result = false;
@@ -63,15 +64,16 @@ function pwdMatch($password, $repeatpassword) {
     return $result;
 }
 
-function botQuestion($botquestion) {
+function passwordCharacter($password) {
     $result;
-    if($botquestion === 11){
+    if(!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $password)){
         $result = true;
     } else {
         $result = false;
     }
     return $result;
 }
+
 
 function uidExists($conn, $username, $email) {
    $sql = "SELECT * FROM users WHERE users_username = ? OR users_email = ?;";
@@ -99,8 +101,8 @@ function uidExists($conn, $username, $email) {
    mysqli_stmt_close($stmt);
 }
 
-function createUser($conn, $username, $email, $password) {
-    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role, gender, status) VALUES (?, ?, ?, ?, ?, ?, ?);";
+function createUser($conn, $username, $email, $password, $bottest) {
+    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role, gender, status, bottest) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -114,7 +116,7 @@ function createUser($conn, $username, $email, $password) {
     $gender = array("Male", "Female", "Other", "Unknown");
     $status = 1;
 
-    mysqli_stmt_bind_param($stmt, "sssssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0], $gender[3], $status);
+    mysqli_stmt_bind_param($stmt, "ssssssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0], $gender[3], $status, $bottest);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../home.php?error=none");
@@ -122,6 +124,7 @@ function createUser($conn, $username, $email, $password) {
      exit();
  }
 
+ //hot
  function createPost($conn, $content, $title, $users_id, $date_created){
     $sql = "INSERT INTO post (title, users_id, content, date_created) VALUES (?,?,?,?);";
 
@@ -140,6 +143,48 @@ function createUser($conn, $username, $email, $password) {
     header("location: ../home.php?error=noerroronpost");
      exit();
  }
+
+
+ //polls
+ function createPoll($conn, $content, $title, $users_id, $date_created){
+    $sql = "INSERT INTO poll (title, users_id, content, date_created) VALUES (?,?,?,?);";
+
+    $stmt = mysqli_stmt_init($conn);
+ 
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+     header("location: ../home.php?error=stmtfailed");
+     exit();
+    }
+
+    $mysqltime = date ('Y-m-d H:i:s');
+
+    mysqli_stmt_bind_param($stmt, "ssss", $title, $users_id, $content, $mysqltime);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../home.php?error=noerroronpost");
+     exit();
+ }
+
+ //reviews
+ function createReview($conn, $content, $title, $users_id, $date_created){
+    $sql = "INSERT INTO review (title, users_id, content, date_created) VALUES (?,?,?,?);";
+
+    $stmt = mysqli_stmt_init($conn);
+ 
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+     header("location: ../home.php?error=stmtfailed");
+     exit();
+    }
+
+    $mysqltime = date ('Y-m-d H:i:s');
+
+    mysqli_stmt_bind_param($stmt, "ssss", $title, $users_id, $content, $mysqltime);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../home.php?error=noerroronpost");
+     exit();
+ }
+ 
 
 
  function emptyInputLogin($username, $password) {

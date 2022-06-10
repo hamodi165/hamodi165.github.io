@@ -16,9 +16,11 @@
 <?php
         require_once 'includes/dbh.inc.php';
         $id = $_SESSION["userid"];
-        $sqlImg = "SELECT * FROM users WHERE users_id='$id'";
-        $resultImg = mysqli_query($conn, $sqlImg);
-        while($row = mysqli_fetch_assoc($resultImg)){
+        $stmt = $conn->prepare('SELECT * FROM users WHERE users_id = ?');
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while($row = $result->fetch_assoc()){
           echo"<div class ='user-container'>";
           if($row['status'] == 0){
             $filename = "uploads/profile".$id."*";
@@ -33,6 +35,7 @@
           echo "<h4>" .$row["users_role"] . "</h4>";
           echo "</div>";
         } 
+        $stmt->close();
     ?>
               <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data">
               <input type="file" name="file"> <br>

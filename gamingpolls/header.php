@@ -87,7 +87,7 @@
     <br><br>
     * Repeat Password: <input type="password" placeholder="Repeat Password" name="repeatpassword" id="repeatpassword" required>
     <br><br>
-    * What is 9+2? <input type="text" placeholder="Enter number" name="botquestion" required>
+    <input type="text" placeholder="Enter answer" name="bottest" id="bottest" style="display:none">
     <br><br>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn" name="submit">Register</button>
@@ -114,19 +114,24 @@
         echo '<script>alert("Password does not match!")</script>';
       }
 
+      if($_GET["error"] == "passwordnotstrong"){
+        echo"<p>Password not strong enough!</p>";
+        echo '<script>alert("Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character!")</script>';
+      }
+
       if($_GET["error"] == "usernameoremailtaken"){
         echo"<p>Email or username taken!</p>";
         echo '<script>alert("Email or username taken!")</script>';
       }
-      if($_GET["error"] == "wrongnumber"){
-        echo"<p>Wrong answer on bot question!</p>";
-        echo '<script>alert("Wrong answer on bot question!")</script>';
+      if($_GET["error"] == "wronganswer"){
+        echo"<p>Wrong answer!</p>";
+        echo '<script>alert("Wrong answer!")</script>';
       }
       if($_GET["error"] == "none"){
         echo"<p>You have successfully been registered!</p>";
         echo '<script>alert("You have successfully been registered!")</script>';
       }
-
+      
       if($_GET["error"] == "noerroronpost"){
         echo '<script>alert("Congratulations, you just created a post!")</script>';
       }
