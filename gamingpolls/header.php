@@ -27,8 +27,8 @@
             echo "<a href='profile.php' class='profileDetails'><i class='far fa-address-card'></i> Profile</a>";
             
         } else {
-            echo "<a href='#' class='loginDetails' onclick='openFormLogin()'><i class='far fa-user-circle'></i> Login</a>";
-            echo "<a href='#' class='registerDetails' onclick='openFormRegister()'><i class='far fa-smile'></i> Register</a>";
+            echo "<a href='#' class='loginDetails' onclick='loginBox()'><i class='far fa-smile'></i> Login</a>";
+            echo "<a href='#' class='registerDetails' onclick='registerBox()'><i class='far fa-smile'></i> Register</a>";
             
         }
 
@@ -39,7 +39,88 @@
 
 </header>
 
+<div id="registerForm" class="modal">
+<form action="<?php echo htmlspecialchars("includes/signup.inc.php");?>" class="modal-content animate" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('registerForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img alt="Voteem" src="pictures/logo-transparent.png">
+    </div>
+    <p id="termsofservice">By creating a Voteem account you agree to our <a href="#">Terms & Privacy</a>.</p> 
+
+    <div class="container">
+
+    <div class="input-container">
+		<input type="text"  name="username" id="regusername" onKeyUp="function(character);" required>
+    <p>Username</p>	
+    <div id="character-strength-status"></div>		
+	</div>  
+
+  <div class="input-container">
+    <input type="text"  name="email" id="regemail" onKeyUp="checkCharacterStrength();" required>
+    <p>Email</p>	
+    <div id="character-strength-status"></div>	
+    </div>
+
+    <div class="input-container">
+    <input type="password"  name="password" id="regpassword" class="passwordclass" onKeyUp="checkCharacterStrength();" required>
+    <p>Password</p>
+    <div id="character-strength-status"></div>	
+    </div>
+     
+    <div class="input-container">
+    <input type="password" name="repeatpassword" id="regrepeatpassword" onKeyUp="checkCharacterStrength();" required>
+    <p>Repeat password</p>
+    <div id="character-strength-status"></div>	
+    </div>
+
+    <div class="input-container"> 
+    <input type="text"  name="botquestion" id="regbotquestion" onKeyUp="checkCharacterStrength();" required>
+    <p>The name of this platform?</p>
+    <div id="character-strength-status"></div>	
+    </div>
+
+    <input type="text"  name="bottest" id="bottest" style="display:none">
+    <button type="submit" name="submit" id="submitreg">Register</button>
+    <br></br>
+
+    <p id="alreadyaccount">Already have an account? <a href="#" onclick="loginBox()">Login here</a>.</p>
+    </div>
+  </form>
+</div>
+
+
 <!--LOGIN BUTTON-->
+
+<div id="loginForm" class="modal">
+<form action="<?php echo htmlspecialchars("includes/login.inc.php");?>" class="modal-content animate" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('loginForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img alt="Voteem" src="pictures/logo-transparent.png">
+    </div>
+    <p id="termsofservice">By continuing to Voteem, you agree to our <a href="#">Terms & Privacy</a>.</p> 
+
+    <div class="container">
+
+    <div class="input-container">
+		<input type="text"  name="username" id="regusername" onKeyUp="function(character);" required>
+    <p>Username</p>	
+    <div id="character-strength-status"></div>		
+	</div>  
+
+    <div class="input-container">
+    <input type="password"  name="password" id="regpassword" class="passwordclass" onKeyUp="checkCharacterStrength();" required>
+    <p>Password</p>
+    <div id="character-strength-status"></div>	
+    </div>
+ 
+    <button type="submit" name="submit" id="submitreg">Login</button>
+    <br></br>
+
+    <p id="alreadyaccount">Are you new to Voteem? <a href="#" onclick="registerBox()">Signup here!</a></p>
+    </div>
+  </form>
+</div>
+
 
 <div class="form-popup" id="myForm">
 <form action="<?php echo htmlspecialchars("includes/login.inc.php");?>" id="formm" class="form-container" method="post">
@@ -77,67 +158,6 @@
 <!--REGISTER BUTTON-->
 
 
-<div class="form-popup-2" id="myForm-2">
-<form action="<?php echo htmlspecialchars("includes/signup.inc.php");?>" class="form-container-2" id="formm" method="post"> 
-    * Name: <input type="text" placeholder="Enter Username" name="username" id="username" required>
-    <br><br>
-    * Email: <input type="text" placeholder="Enter Email" name="email" id="email" required>
-    <br><br>
-    * Password: <input type="password" placeholder="Enter Password" name="password" id="password" required>
-    <br><br>
-    * Repeat Password: <input type="password" placeholder="Repeat Password" name="repeatpassword" id="repeatpassword" required>
-    <br><br>
-    <input type="text" placeholder="Enter answer" name="bottest" id="bottest" style="display:none">
-    <br><br>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn" name="submit">Register</button>
-    <br></br>
-    <button type="button" class="btn cancel" onclick="closeFormRegister()">Close</button>
-    <div class="container-signin">
-    <p>Already have an account? <a href="#" onclick="openFormLogin()">Login here</a>.</p>
-    <?php
-    if(isset($_GET["error"])){
-      if($_GET["error"] == "emptyinput"){
-        echo"<p>Fill in all fields!</p>";
-        echo '<script>alert("Fill in all the fields!")</script>';
-      }
-      if($_GET["error"] == "invalidusername"){
-        echo"<p>Choose a valid username!</p>";
-        echo '<script>alert("Choose a valid username!")</script>';
-      }
-      if($_GET["error"] == "invalidemail"){
-        echo"<p>Choose a valid email!</p>";
-        echo '<script>alert("Choose a valid email!")</script>';
-      }
-      if($_GET["error"] == "passwordsdontmatch"){
-        echo"<p>Password does not match!</p>";
-        echo '<script>alert("Password does not match!")</script>';
-      }
 
-      if($_GET["error"] == "passwordnotstrong"){
-        echo"<p>Password not strong enough!</p>";
-        echo '<script>alert("Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character!")</script>';
-      }
 
-      if($_GET["error"] == "usernameoremailtaken"){
-        echo"<p>Email or username taken!</p>";
-        echo '<script>alert("Email or username taken!")</script>';
-      }
-      if($_GET["error"] == "wronganswer"){
-        echo"<p>Wrong answer!</p>";
-        echo '<script>alert("Wrong answer!")</script>';
-      }
-      if($_GET["error"] == "none"){
-        echo"<p>You have successfully been registered!</p>";
-        echo '<script>alert("You have successfully been registered!")</script>';
-      }
-      
-      if($_GET["error"] == "noerroronpost"){
-        echo '<script>alert("Congratulations, you just created a post!")</script>';
-      }
-
-    } 
-    ?>
-    </div>
-  </form>
-</div>
+	

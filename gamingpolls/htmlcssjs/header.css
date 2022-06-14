@@ -189,28 +189,54 @@
       background: #ccc;
     }
 
-    .loginbtn {
-        background-color:aquamarine;
-      color: white;
-      border: none;
-      cursor: pointer;
-      padding: 16px 20px;
-      width: 280px;
-      right: 28px;
-      }
-      
-      .registerbtn {
-        background-color: cornflowerblue;
-        color: white;
-        border: none;
-        cursor: pointer;
-        padding: 16px 20px;
-        width: 280px;
-        right: 28px;
-        }
+
+
+    
       
       /* comment text area */
       
       #commentarea{
         visibility:none;
       }
+
+      .errorjquery{
+        color:red;
+      }
+
+      .successjquery{
+        color:green;
+      }
+
+      #frmCheckPassword {
+        border-top: #F0F0F0 2px solid;
+        background: #808080;
+        padding: 10px;
+    }
+
+    .demoInputBox {
+        padding: 7px;
+        border: #F0F0F0 1px solid;
+        border-radius: 4px;
+    }
+
+    #character-strength-status {
+        padding: 5px 10px;
+        color: #FFFFFF;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+
+    .character-medium {
+        background-color: #b7d60a;
+        border: #BBB418 1px solid;
+    }
+
+    .character-weak {
+        background-color: #ce1d14;
+        border: #AA4502 1px solid;
+    }
+
+    .character-strong {
+        background-color: #12CC1A;
+        border: #0FA015 1px solid;
+    }

@@ -1,6 +1,158 @@
+/* Full-width input fields */
 
+.container{
+   
+}
 
+  .input-container{
+    position:relative;
+    left:170px;
+	
+    
+}
+.input-container p{
+    position:absolute;
+	top:15px;
+	left:5px;
+	color:#fff;	
+    pointer-event:none;
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+    width:200px;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background:transparent;
+}
+.input-container input:focus{ 
+ border-bottom:1px solid #e74c3c;	
+}
+.input-container input:focus ~ p,
+.input-container input:valid ~ p{
+	top:-10px;
+	font-size:12px;
+	
+}
+  
+  /* Set a style for all buttons */
+  #submitreg {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 0px 170px;
+    border: none;
+    cursor: pointer;
+    width:200px;
+  }
 
+  #termsofservice{
+    margin:auto;
+    width:70%;
+  }
 
-
-
+  #alreadyaccount{
+    margin: 0px 155px;
+    width:300px;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+    height:70%;
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 1s;
+    animation: animatezoom 1s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }

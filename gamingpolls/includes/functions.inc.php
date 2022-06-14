@@ -31,6 +31,16 @@ function emptyInputTitleOrContent($content, $title){
     return $result;
 }
 
+function botQuestion($botquestion){
+    $result;
+    if($botquestion === "voteem" || $botquestion === "Voteem") {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
 
 function getTitleType($title){
     $result;

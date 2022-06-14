@@ -24,33 +24,19 @@ function mobileFunction() {
   
   }
 
-    
-
-  //opening the register and login forms in home page
-  function openFormLogin() {
-    document.getElementById("myForm").style.display = "block";
-
-    if(document.getElementById("myForm-2").style.display = "block"){
-      document.getElementById("myForm-2").style.display = "none";
+  function registerBox() {
+    document.getElementById("registerForm").style.display = "block";
+    if(document.getElementById("loginForm").style.display = "block"){
+      document.getElementById("loginForm").style.display = "none";
     }
   }
 
-  function openFormRegister() {
-    document.getElementById("myForm-2").style.display = "block";
-    if(document.getElementById("myForm").style.display = "block"){
-      document.getElementById("myForm").style.display = "none";
-
+  function loginBox() {
+    document.getElementById("loginForm").style.display = "block";
+    if(document.getElementById("registerForm").style.display = "block"){
+      document.getElementById("registerForm").style.display = "none";
     }
   }
-  
-  function closeFormLogin() {
-    document.getElementById("myForm").style.display = "none";
-  }
-
-  function closeFormRegister() {
-    document.getElementById("myForm-2").style.display = "none";
-  }
-
 
 
   //switching tabs in profile page
@@ -113,4 +99,3 @@ function openPost(evt, tabName) {
         });
       };
 
-   

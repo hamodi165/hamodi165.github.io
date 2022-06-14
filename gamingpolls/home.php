@@ -241,8 +241,8 @@
         <?php
         if(!isset ($_SESSION["username"])){
             echo "<div class='making-post'>";
-            echo "<input type=text id='postinput' onclick='openFormLogin()' placeholder='Create a post' readonly> </a>";
-            echo "<a href='#' onclick='openFormLogin()' id='postbtn'>Post</a>";
+            echo "<input type=text id='postinput' placeholder='Create a post' readonly> </a>";
+            echo "<a href='#' id='postbtn'>Post</a>";
             echo "</div>"; 
             
         } else {

@@ -7,6 +7,7 @@ if(isset($_POST["submit"])){
     $password = $conn->real_escape_string($_POST["password"]);
     $repeatpassword = $conn->real_escape_string($_POST["repeatpassword"]);
     $bottest = $conn->real_escape_string($_POST["bottest"]);
+    $botquestion = $conn->real_escape_string($_POST["botquestion"]);
 
     if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
         header("location: ../home.php?error=emptyinput");
@@ -33,6 +34,11 @@ if(isset($_POST["submit"])){
         exit();
     }
 
+    if(botQuestion($botquestion) === false){
+        header("location: ../home.php?error=botquestion");
+        exit();
+    }
+
     if(uidExists($conn, $username, $email) !== false){
         header("location: ../home.php?error=usernameoremailtaken");
         exit();
@@ -43,3 +49,7 @@ if(isset($_POST["submit"])){
 } else {
     header("location: ../home.php");
 }
+?>
+
+
+
