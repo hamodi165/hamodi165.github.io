@@ -45,46 +45,53 @@
       <span onclick="document.getElementById('registerForm').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img alt="Voteem" src="pictures/logo-transparent.png">
     </div>
-    <p id="termsofservice">By creating a Voteem account you agree to our <a href="#">Terms & Privacy</a>.</p> 
-
-    <div class="container">
 
     <div class="input-container">
-		<input type="text"  name="username" id="regusername" onKeyUp="function(character);" required>
-    <p>Username</p>	
-    <div id="character-strength-status"></div>		
-	</div>  
+    <div id="uname_response" ></div>
+		<input type="text"  name="username" id="regusername" required>
+    <p class="regtext">Username</p>
+    <span class="errorMsg" id="errorusername">Username has to be between 5 and 15 characters!</span>
+    </div>
 
-  <div class="input-container">
-    <input type="text"  name="email" id="regemail" onKeyUp="checkCharacterStrength();" required>
-    <p>Email</p>	
-    <div id="character-strength-status"></div>	
+    <div class="input-container">  
+    <div id="uname_responsed" ></div>  
+    <input type="text"  name="email" id="regemail" required>
+    <p class="regtext">Email</p>	
+    <span class="errorMsg" id="erroremail">*Please provide a valid email-ID.</span>	
+    </div>
+    
+    <div class="input-container">
+    <input type="password"  name="password" id="regpassword" class="passwordclass" required>
+    <p class="regtext">Password</p>
+    <span class="errorMsg" id="errorpassword" >*Please provide the valid password.</span>
     </div>
 
     <div class="input-container">
-    <input type="password"  name="password" id="regpassword" class="passwordclass" onKeyUp="checkCharacterStrength();" required>
-    <p>Password</p>
-    <div id="character-strength-status"></div>	
+    <input type="password" name="repeatpassword" id="regrepeatpassword" required>
+    <p class="regtext">Repeat password</p>
+    <span class="errorMsg" id="errorrepeatpassword" >*Password does not match.</span>	
     </div>
      
     <div class="input-container">
-    <input type="password" name="repeatpassword" id="regrepeatpassword" onKeyUp="checkCharacterStrength();" required>
-    <p>Repeat password</p>
-    <div id="character-strength-status"></div>	
+    <input type="text"  name="botquestion" id="regbotquestion" required>
+    <p class="regtext">The name of this platform?</p>
+    <span class="errorMsg" id="errorbotquestion" >*Wrong answer!</span>	
     </div>
 
-    <div class="input-container"> 
-    <input type="text"  name="botquestion" id="regbotquestion" onKeyUp="checkCharacterStrength();" required>
-    <p>The name of this platform?</p>
-    <div id="character-strength-status"></div>	
-    </div>
+    <div class="termsofservice">
+    <input type="checkbox" id="termsofservice" name="termsofservice"> By creating a Voteem account you agree to our <a href="#">Terms & Privacy</a></input>
+    </div> 
 
     <input type="text"  name="bottest" id="bottest" style="display:none">
-    <button type="submit" name="submit" id="submitreg">Register</button>
-    <br></br>
+     
 
-    <p id="alreadyaccount">Already have an account? <a href="#" onclick="loginBox()">Login here</a>.</p>
-    </div>
+    <br>
+    <button type="submit" name="submit" id="submitreg">Register</button>
+
+    <div class="alreadyhaveaccount">
+    <p>Already have an account? <a href="#" onclick="loginBox()">Login here</a>.</p> 
+    </div> 
+
   </form>
 </div>
 
@@ -97,43 +104,36 @@
       <span onclick="document.getElementById('loginForm').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img alt="Voteem" src="pictures/logo-transparent.png">
     </div>
+
+    <div class="agreeofuse">
     <p id="termsofservice">By continuing to Voteem, you agree to our <a href="#">Terms & Privacy</a>.</p> 
-
-    <div class="container">
-
+    </div> 
+    
+    <br>
     <div class="input-container">
-		<input type="text"  name="username" id="regusername" onKeyUp="function(character);" required>
+		<input type="text"  name="logusername" id="logusername" required>
     <p>Username</p>	
-    <div id="character-strength-status"></div>		
+    <span id="availability"></span>	
 	</div>  
 
     <div class="input-container">
-    <input type="password"  name="password" id="regpassword" class="passwordclass" onKeyUp="checkCharacterStrength();" required>
+    <input type="password"  name="logpassword" id="logpassword" class="passwordclass" required>
     <p>Password</p>
-    <div id="character-strength-status"></div>	
+    <span id="availability"></span>
+    <span class="errorMsg" id="errorpassword" >*Please provide the valid password.</span>
     </div>
  
-    <button type="submit" name="submit" id="submitreg">Login</button>
+    <button type="submit" name="submit" id="submitlog">Login</button>
     <br></br>
 
+    <div class="newtovoteem">
     <p id="alreadyaccount">Are you new to Voteem? <a href="#" onclick="registerBox()">Signup here!</a></p>
+    </div> 
+
     </div>
   </form>
 </div>
 
-
-<div class="form-popup" id="myForm">
-<form action="<?php echo htmlspecialchars("includes/login.inc.php");?>" id="formm" class="form-container" method="post">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter username" name="username" id="username" required>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" id="password" required>
-    <button type="submit" class="loginbtn" name="submit">Login</button>
-    <br></br>
-    <button type="button" class="btn cancel" onclick="closeFormLogin()">Close</button>
-    <div class="container-signin">
-    <p>Don't have an account? <a href="#" onclick="openFormRegister()">Register here</a>.</p>
-    </div>
     <?php
     if(isset($_GET["error"])){
       if($_GET["error"] == "emptyinput"){
@@ -141,8 +141,7 @@
         echo '<script>alert("Fill in all the fields!")</script>';
       }
       if($_GET["error"] == "wrongusername"){
-        echo"<p>Incorrect username!</p>";
-        echo '<script>alert("Incorrect username!")</script>';
+        echo"<span style='color: green;'>Available.</span>";
       }
 
       if($_GET["error"] == "wrongpassword"){
@@ -152,8 +151,6 @@
     }
 
     ?>
-  </form>
-</div>
 
 <!--REGISTER BUTTON-->
 

@@ -2,11 +2,12 @@
 require_once 'dbh.inc.php';
 require_once 'functions.inc.php';
 
-if (isset($_POST["submitHot"])){
-    $title = $conn->real_escape_string($_POST["title"]);
-    $users_id = $conn->real_escape_string($_POST["users_id"]);
-    $content = $conn->real_escape_string($_POST["content"]);
-    $date_created = $conn->real_escape_string($_POST["date_created"]);
+if (isset($_POST["submit"])){
+    $title = $_POST["title"];
+    $users_id = $_POST["users_id"];
+    $content = $_POST["content"];
+    $date_created = $_POST["date_created"];
+    $type = $_POST["type"];
 
     if(emptyInputTitleOrContent($content, $title) !== false){
         header("location: ../makeapost.php?error=emptycontentortitle");
@@ -19,5 +20,6 @@ if (isset($_POST["submitHot"])){
     }
 
 
-    createPost($conn, $content, $title, $users_id, $date_created);
+    createPost($conn, $content, $title, $users_id, $date_created, $type);
 }
+

@@ -1,8 +1,9 @@
 <?php
 session_start();
 include_once 'includes/dbh.inc.php';
+require_once 'includes/functions.inc.php';
 $id = $_SESSION["userid"];
-if(isset($_POST["submit"])){
+
   $file = $_FILES['file'];
   $fileName = $_FILES['file'] ['name'];
   $fileTmpName = $_FILES['file'] ['tmp_name'];
@@ -24,27 +25,21 @@ if(isset($_POST["submit"])){
           unlink($match);
         }
         move_uploaded_file($fileTmpName, $fileDestination);
-        $sql = "UPDATE users SET status = ? WHERE users_id = ?;";
-        $stmt = mysqli_stmt_init($conn);
-
-        if (!mysqli_stmt_prepare($stmt, $sql)){
-         header("location: ../home.php?error=stmtfailed");
-         exit();
-        }   
-        $status = 0;
-        
-        mysqli_stmt_bind_param($stmt, "ss", $status, $id);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        header("Location: profile.php?uploadsuccess");
-         exit();
+        profileStatus($conn, $id);
+        echo "<script>window.location.href='profile.php';</script>";
       } else {
-        echo "Your file is too big!";
+        echo '<script>alert("File is too big!")</script>';
+        echo "<script>window.location.href='profile.php';</script>";
+        exit;
       }
     } else {
-      echo "There was an error uploading your file!";
+      echo '<script>alert("There was an error uploading your file!")</script>';
+      echo "<script>window.location.href='profile.php';</script>";
+      exit;
     }
-  } else {
-    echo "You cannot upload files of this type!";
+  } else { 
+    echo '<script>alert("Wrong type of file!")</script>';
+    echo "<script>window.location.href='profile.php';</script>";
+    exit;
   }
-}
+

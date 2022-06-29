@@ -107,3 +107,20 @@
 .user-container div{
   float:left;
 }
+
+#labelprofile{
+  position: relative; 
+  left: 50%;
+  top:-28px;
+  transform: translateX(-50%);
+  cursor:pointer;
+  text-align:center;
+}
+
+#labelprofile i{
+  font-size:30px
+}
+
+#labelprofile input{
+  display:none;
+}

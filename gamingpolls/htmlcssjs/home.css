@@ -1,115 +1,10 @@
-/* The popup form - hidden by default */
-.form-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-  }
-  
-  /* Add styles to the form container */
-  .form-container {
-    max-width: 300px;
-    padding: 10px;
-    background-color: white;
-  }
-  
-  /* Full-width input fields */
-  .form-container input[type=text], .form-container input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-  /* When the inputs get focus, do something */
-  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  /* Set a style for the submit/login button */
-  .form-container .btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
-  }
-  
-  /* Add a red background color to the cancel button */
-  .form-container .cancel {
-    background-color: grey;
-  }
-  
-  /* Add some hover effects to buttons */
-  .form-container .btn:hover, .open-button:hover {
-    opacity: 1;
-  }
-  /* The popup form - hidden by default */
-  .form-popup-2 {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-  }
-  
-  /* Add styles to the form container */
-  .form-container-2 {
-    max-width: 300px;
-    padding: 10px;
-    background-color: white;
-  }
-  
-  /* Full-width input fields */
-  .form-container-2 input[type=text], .form-container-2 input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-  /* When the inputs get focus, do something */
-  .form-container-2 input[type=text]:focus, .form-container-2 input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  /* Set a style for the submit/login button */
-  .form-container-2 .btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
-  }
-  
-  /* Add a red background color to the cancel button */
-  .form-container-2 .cancel {
-    background-color: grey;
-  }
-  
-  /* Add some hover effects to buttons */
-  .form-container-2 .btn:hover, .open-button:hover {
-    opacity: 1;
-  }
-
-
-
-
 
 /* Footer Styling */
+
+body {
+  
+}
+
 
 footer{
     margin-top: 20px;
@@ -125,46 +20,146 @@ footer{
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    top:80px;
+    top:70px;
     height:55px;
     left: 0;
     right: 0;
-    background-color: grey;
+    background-color: #ccc;
     width:30%;
     padding: 6px 15px;
     border-radius: 5px;
-    overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
-
+    text-align: center;
+    text-decoration: none;
   }
   .topic-container i{
-    position:relative;
-    top:5px;
-    left:-5px;
     
   }
 
+  .topic-container p{
+    background-color: black;
+  }
+
   .topic-container a{
-    position:relative;
-    left:20px;
-    top:5px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: grey;
+    transition: 0.3s;
+    font-size: 15px;
+    margin:auto;
+    display: inline-block;
+    overflow: hidden;
+    padding:10px 10px;
     text-decoration: none;
+  }
+
+  .topic-container a:hover{
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+
+  .topic-container a:active{
+    background-color: white;
+    text-decoration: none;
+    
+  }
+
+  .topic-container a:link{
+    text-decoration: none;
+    color: white;
+  }
+
+  .topic-container a:visited{
+    text-decoration: none;
+    color: #ccc;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   }
 
   .hotcontent{
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     margin:auto;
     position:relative;
     top:100px;
     width:30%;
-    margin-bottom: 200px;
     -webkit-animation: fadeEffect 2s;
     animation: fadeEffect 2s;
   }
 
-.post-container img{
-  width:50px;
+.post-container {
+  border: 1px solid #ccc;
 }
+  
+.post-container-title-with-img{
+  
+}
+
+.post-container-title{
+  border: 1px solid #ccc;
+  height:42px;
+}
+
+
+#post-container-content{
+  word-wrap: break-word;
+}
+
+#profileimghome{
+ width:40px;
+}
+
+#usernameinpost{
+  position: relative;
+font-family: Tahoma, sans-serif;
+left:110px;
+top:-59px;
+font-size: 13px;
+}
+
+#titleinpost{
+  border: 1px solid #ccc;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-width: 551;
+}
+
+#postedby{
+  position: relative;
+  font-family: Tahoma, sans-serif;
+  left:50px;
+  top:-30px;
+  font-size: 13px;
+}
+
+#postedingenre{
+  position: relative;
+  font-family: Tahoma, sans-serif;
+  left:300px;
+  top:-18px;
+  font-size: 13px;
+}
+
+#timeforpost{
+  position: relative;
+  font-family: Tahoma, sans-serif;
+  left:150px;
+  top:-106px;
+  font-size: 13px;
+}
+
+#rating{
+ position:relative;
+ left:490px;
+ top:-139px;
+ border-radius:50%;
+ background-color: brown;
+ color:white;
+ padding:8px;
+ font-size:20px;
+}
+
+ 

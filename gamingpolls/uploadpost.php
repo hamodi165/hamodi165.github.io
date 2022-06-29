@@ -8,6 +8,8 @@ if(isset($_POST["submitimgvid"])){
   $users_id = $_POST["users_id"];
   $content = $_POST["content"];
   $date_created = $_POST["date_created"];
+  $type = $_POST["type"];
+  $imagepath = $_POST["imagepath"];
 
   $file = $_FILES['file'];
   $fileName = $_FILES['file'] ['name'];
@@ -27,16 +29,17 @@ if(isset($_POST["submitimgvid"])){
     if($fileError === 0){
       if($fileSize < 50000000){
         move_uploaded_file($fileTmpName, $fileDestination);
-        $sql = "INSERT INTO media (title, users_id, content, date_created, imagepath) VALUES (?,?,?,?,?);";
+        $sql = "INSERT INTO post (title, users_id, content, date_created, type, imagepath) VALUES (?,?,?,?,?,?);";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)){
          header("location: ../home.php?error=stmtfailed");
          exit();
         }
         
+        $type = 3;
         $mysqltime = date ('Y-m-d H:i:s');
     
-        mysqli_stmt_bind_param($stmt, "sssss", $title, $id, $content, $mysqltime, $fileDestination);
+        mysqli_stmt_bind_param($stmt, "ssssss", $title, $id, $content, $mysqltime, $type, $fileDestination);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         header("location: home.php?error=noerroronpost");

@@ -54,7 +54,7 @@
     height:29px;
     font-size: 14px;
     border: none;
-    width: 200px;
+    width:425px;
     border-radius: 4px;
     text-decoration: none;
   }
@@ -64,16 +64,32 @@
   }
   
   .making-post{
-    position:fixed;
-    top:20px;
-    right:0;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top:85px;
+    height:55px;
+    width:30%;
     box-sizing: border-box;
     padding: 6px 15px;
-    background-color: grey;
+    background-color: #ccc;
     border-radius: 5px;
-    margin: 50px 250px;
     text-decoration: none;
   }
+
+  .making-post:active{
+    text-decoration: none;
+  }
+
+  .making-post:hover{
+    text-decoration: none;
+  }
+
+.button-42:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
   
   @media screen and (max-width: 979px) {
     .making-post{
@@ -115,4 +131,3 @@
     background-color: #f1f1f1;
   }
 
-  

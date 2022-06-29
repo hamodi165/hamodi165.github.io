@@ -2,12 +2,12 @@
  require_once 'dbh.inc.php';
  require_once 'functions.inc.php';
 if(isset($_POST["submit"])){
-    $username = $conn->real_escape_string($_POST["username"]);
-    $email = $conn->real_escape_string($_POST["email"]);
-    $password = $conn->real_escape_string($_POST["password"]);
-    $repeatpassword = $conn->real_escape_string($_POST["repeatpassword"]);
-    $bottest = $conn->real_escape_string($_POST["bottest"]);
-    $botquestion = $conn->real_escape_string($_POST["botquestion"]);
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $repeatpassword = $_POST["repeatpassword"];
+    $bottest = $_POST["bottest"];
+    $botquestion = $_POST["botquestion"];
 
     if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
         header("location: ../home.php?error=emptyinput");

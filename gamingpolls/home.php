@@ -3,246 +3,20 @@
     include 'header.php';
     include 'includes/dbh.inc.php';
 ?>
+<html>
 <body>
 <div class="topic-container">
-  <button class="hotlinks" onclick="openTopic(event, 'Hot')" id="default">Hot</button>
-  <button class="hotlinks" onclick="openTopic(event, 'Poll')">Poll</button>
-  <button class="hotlinks" onclick="openTopic(event, 'Review')">Review</button>
-  <button class="hotlinks" onclick="openTopic(event, 'Media')">Media</button>
+<a href="#hot" onclick="openTopic(event, 'Hot')" id="default" class="tablinks"> <i class='fas fa-award'></i> Hot</a>
+<a href="#polls" onclick="openTopic(event, 'Poll')" class="hotlinks"> <i class='fas fa-poll-h'></i> Poll</a>
+<a href="#reviews" onclick="openTopic(event, 'Review')" class="hotlinks"><i class='fas fa-edit'></i> Review</a>
 </div>
 
-    <!-- for the hot content -->
-    <div id="Hot" class="hotcontent">
-             <?php
-           				$query = mysqli_query($conn,"SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN users on users.users_id = post.users_id order by post_id DESC")or die(mysqli_error());
-                   while($post_row=mysqli_fetch_array($query)){
-
-                   $id = $post_row['post_id'];	
-                   $upid = $post_row['users_id'];	
-                   $posted_by = $post_row['users_id'];
-                   echo"<div class ='post-container'>";
-                  if($post_row['status'] == 0){ 
-                    $filename = "uploads/profile".$upid."*";
-                    $fileinfo = glob($filename);
-                    $fileext = explode(".", $fileinfo[0]);
-                    $fileactualext = $fileext[1];
-                    echo "<img src='uploads/profile".$upid.".".$fileactualext."?".mt_rand()."'>"; echo "<br>";
-                  } else {
-                    echo "<img src='uploads/profiledefault.jpg'>"; echo "<br>";
-                  }
-                  echo $post_row['users_username']."<br>";
-                  echo $post_row['title']."<br>";
-                  echo $post_row['content']."<br>";           
-                  echo $post_row['date_created']."<br>";
-                  
-                  if(isset ($_SESSION["username"])){
-                    echo "<button type='button' id='postbtn' onclick='replyFunction()'>Reply</button>";
-                    include 'commentsection.php';      
-                  }
-             
-                }
-                echo"</div";
-              
-            $sql = "SELECT * FROM comment LIMIT 1";
-            $result = $conn->query($sql);
-            while ($row = mysqli_fetch_assoc($result)){
-              echo "<div class='comment-box'>";
-              echo $row['date_posted']."<br>";
-              echo $row['users_id']."<br>";
-              echo $row['content']."<br>";           
-              echo "</p></div>";
-            }     
-              ?>
-            </div>
-          </div>
-        </div>
-          </div>
-
-
-          <div id="Media" class="hotcontent">
-             <?php
-                   $stmt = $conn->prepare('SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from media LEFT JOIN users on users.users_id = ? order by media_id DESC') or die(mysqli_error());
-                   $id = $_SESSION["userid"];
-                   $stmt->bind_param('s', $id); // 's' specifies the variable type => 'string'
-                   $stmt->execute();
- 
-                   $result = $stmt->get_result();
-                   while ($media_row = $result->fetch_assoc()){
-                   $id = $media_row['media_id'];	
-                   $upid = $media_row['users_id'];	
-                   $imagepath = $media_row['imagepath'];
-
-                   //The profile image of the user
-                   echo"<div class ='post-container'>";
-                  if($media_row['status'] == 0){ 
-                    $filename = "uploads/profile".$upid."*";
-                    $fileinfo = glob($filename);
-                    $fileext = explode(".", $fileinfo[0]);
-                    $fileactualext = $fileext[1];
-                    echo "<img src='uploads/profile".$upid.".".$fileactualext."?".mt_rand()."'>"; echo "<br>";
-                  } else {
-                    echo "<img src='uploads/profiledefault.jpg'>"; echo "<br>";
-                  }
-                  //The image or video that has been uploaded
-                  $filedest = $imagepath;
-                  $fileinfo = glob($filedest);
-                  foreach($fileinfo as $media) {
-                    $mime = mime_content_type($filedest);
-                      if(strstr($mime, "video/")){
-                        echo "<video width='320' height='240' controls>";
-                        echo '<source src="'.$media.'" /><br />';
-                        echo "</video>";
-                      }else if(strstr($mime, "image/")){
-                        echo '<img src="'.$media.'" /><br />';
-                      }
-                   }
-                   echo "<br>";
-                  echo $media_row['users_username']."<br>";
-                  echo $media_row['title']."<br>";
-                  echo $media_row['date_created']."<br>";
-        
-                 
-                  if(isset ($_SESSION["username"])){
-                    echo "<button type='button' id='postbtn' onclick='replyFunction()'>Reply</button>";
-                    include 'commentsection.php';      
-                  }
-             
-                }
-                echo"</div";
-              
-            $sql = "SELECT * FROM comment LIMIT 1";
-            $result = $conn->query($sql);
-            while ($row = mysqli_fetch_assoc($result)){
-              echo "<div class='comment-box'>";
-              echo $row['date_posted']."<br>";
-              echo $row['users_id']."<br>";
-              echo $row['content']."<br>";           
-              echo "</p></div>";
-            }     
-              ?>
-            </div>
-          </div>
-        </div>
-          </div>
-
-           				
-                  
-
-
-          <!-- for the review content -->
-          <div id="Review" class="hotcontent">
-             <?php        	
-                  $stmt = $conn->prepare('SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from review LEFT JOIN users on users.users_id = ? order by review_id DESC') or die(mysqli_error());
-                  $stmt->bind_param('s', $_SESSION['userid']); // 's' specifies the variable type => 'string'
-                  $stmt->execute();
-
-                  $result = $stmt->get_result();
-                  while ($review_row = $result->fetch_assoc()){
-                   $id = $review_row['review_id'];	
-                   $upid = $review_row['users_id'];	
-                   $posted_by = $review_row['users_id'];
-                   echo"<div class ='post-container'>";
-                  if($review_row['status'] == 0){ 
-                    $filename = "uploads/profile".$upid."*";
-                    $fileinfo = glob($filename);
-                    $fileext = explode(".", $fileinfo[0]);
-                    $fileactualext = $fileext[1];
-                    echo "<img src='uploads/profile".$upid.".".$fileactualext."?".mt_rand()."'>"; echo "<br>";
-                  } else {
-                    echo "<img src='uploads/profiledefault.jpg'>"; echo "<br>";
-                  }
-                  echo $review_row['users_username']."<br>";
-                  echo $review_row['title']."<br>";
-                  echo $review_row['content']."<br>";          
-                  echo $review_row['date_created']."<br>";
-                  
-                  if(isset ($_SESSION["username"])){
-                    echo "<button type='button' id='postbtn' onclick='replyFunction()'>Reply</button>";
-                    include 'commentsection.php';      
-                  }
-             
-                }
-                echo"</div";
-                $stmt->close();
-
-            $sql = "SELECT * FROM comment LIMIT 1";
-            $result = $conn->query($sql);
-            while ($row = mysqli_fetch_assoc($result)){
-              echo "<div class='comment-box'>";
-              echo $row['date_posted']."<br>";
-              echo $row['users_id']."<br>";
-              echo $row['content']."<br>";           
-              echo "</p></div>";
-            }     
-              ?>
-            </div>
-          </div>
-        </div>
-          </div>
-
-
-          <!-- for the poll content -->
-          <div id="Poll" class="hotcontent">
-             <?php
-                  $id = $_SESSION["userid"];	
-                  $stmt = $conn->prepare('SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from poll LEFT JOIN users on users.users_id = ? order by poll_id DESC') or die(mysqli_error());
-                  $stmt->bind_param('s', $id); // 's' specifies the variable type => 'string'
-                  $stmt->execute();
-                  
-                  $result = $stmt->get_result();
-                  while ($poll_row = $result->fetch_assoc()) {
-                    $id = $poll_row['poll_id'];
-                    $upid = $poll_row['users_id'];	
-                    $posted_by = $poll_row['users_id'];
-                    echo"<div class ='post-container'>";
-                    if($poll_row['status'] == 0){ 
-                      $filename = "uploads/profile".$upid."*";
-                      $fileinfo = glob($filename);
-                      $fileext = explode(".", $fileinfo[0]);
-                      $fileactualext = $fileext[1];
-                      echo "<img src='uploads/profile".$upid.".".$fileactualext."?".mt_rand()."'>"; echo "<br>";
-                    } else {
-                      echo "<img src='uploads/profiledefault.jpg'>"; echo "<br>";
-                    }
-                    echo $poll_row['users_username']."<br>";
-                    echo $poll_row['title']."<br>";
-                    echo $poll_row['content']."<br>";         
-                    echo $poll_row['date_created']."<br>";
-                    
-                    if(isset ($_SESSION["username"])){
-                      echo "<button type='button' id='postbtn' onclick='replyFunction()'>Reply</button>";
-                      include 'commentsection.php';      
-                    }
-               
-                  }
-                  echo"</div";
-                  $stmt->close();
-
-              $sql = "SELECT * FROM comment LIMIT 1";
-              $result = $conn->query($sql);
-              while ($row = mysqli_fetch_assoc($result)){
-                echo "<div class='comment-box'>";
-                echo $row['date_posted']."<br>";
-                echo $row['users_id']."<br>";
-                echo $row['content']."<br>";           
-                echo "</p></div>";
-              }     
-                ?>
-              </div>
-            </div>
-          </div>
-
- 
-
-
-        
-
-
-        <?php
+<?php
+//The interface to make a post as user
         if(!isset ($_SESSION["username"])){
             echo "<div class='making-post'>";
-            echo "<input type=text id='postinput' placeholder='Create a post' readonly> </a>";
-            echo "<a href='#' id='postbtn'>Post</a>";
+            echo "<input type=text id='postinput' onclick='loginBox()' placeholder='Create a post' readonly> </a>";
+            echo "<a href='#' onclick='loginBox()' id='postbtn'>Post</a>";
             echo "</div>"; 
             
         } else {
@@ -265,11 +39,155 @@
             echo "<a href='makeapost.php' id='postbtn'>Post</a>";
             echo "</div>";
         }
-
         ?>
 
+    <!-- for the hot content -->
+    <div id="Hot" class="hotcontent">
+             <?php
+           				$query = mysqli_query($conn,"SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN users on users.users_id = post.users_id order by post_id DESC")or die(mysqli_error());
+                   while($post_row=mysqli_fetch_array($query)){
+                   $id = $post_row['post_id'];	
+                   $upid = $post_row['users_id'];	
+                   $posted_by = $post_row['users_id'];
+                   $imagepath = $post_row['imagepath'];
+                   echo"<div class ='post-container'>";
+                   echo"<div class ='post-container-title'>";
+                  if($post_row['status'] == 0){ 
+                    
+                    $filename = "uploads/profile".$upid."*";
+                    $fileinfo = glob($filename);
+                    $fileext = explode(".", $fileinfo[0]);
+                    $fileactualext = $fileext[1];
+                     
+                    echo "<img src='uploads/profile".$upid.".".$fileactualext."?".mt_rand()."' id='profileimghome'>"; echo "<br>";                
+                  } else {
+                    echo "<img src='uploads/profiledefault.jpg' id='profileimghome'>"; echo "<br>";      
+                  }
+                  
+                  echo "<p id='postedby'> Posted by </p>";
+                  
+                  echo "<a href='makeapost.php' id='usernameinpost'>";
+                  echo $post_row['users_username'];
+                  echo "</a>";
 
-    <?php
-        include "footer.php";
-    ?>
+                  echo "<a href='makeapost.php' id='usernameinpost'>";
+                  echo "<p id='postedingenre'>/MMORPG</p>";
+                  echo "</a>";
+
+                  echo "<p id='timeforpost'>";
+                  $mysqltime = $post_row['date_created'];
+                  if ($mysqltime >= 31536000) {
+                    echo "" . intval($mysqltime / 31536000) . " years ago";
+                } elseif ($mysqltime >= 2419200) {
+                    echo "" . intval($mysqltime / 2419200) . " months ago";
+                } elseif ($mysqltime >= 86400) {
+                    echo "" . intval($mysqltime / 86400) . " days ago";
+                } elseif ($mysqltime >= 3600) {
+                    echo "" . intval($mysqltime / 3600) . " hours ago";
+                } elseif ($mysqltime >= 60) {
+                    echo "" . intval($mysqltime / 60) . " minutes ago";
+                } else {
+                    echo "Less than a minute ago";
+                }
+                  echo "</p>";
+                  echo "<span id='rating'>4.5</span>"; 
+                  echo "</div>";
+                  
+
+                  echo "<h3 id='titleinpost'>";
+                  echo $post_row['title'];
+                  echo "</h3>";
+
+                  if($post_row['type'] == 0){
+                    echo"<h5 id ='post-container-content'>";
+                    echo $post_row['content']."<br>";           
+                    echo"</h5>";
+                  } else if($post_row['type'] == 1){
+                    echo"<h4 id ='post-container-content'>";
+                    echo $post_row['content']."<br>";           
+                    echo"</h4>";
+                  } else if($post_row['type'] == 2){
+                    echo"<h4 id ='post-container-content'>";
+                    echo $post_row['content']."<br>";           
+                    echo"</h4>";
+                  } else if($post_row['type'] == 3){
+                    echo"<h4 id ='post-container-content'>";
+                      $filedest = $imagepath;
+                      $fileinfo = glob($filedest);
+                      foreach($fileinfo as $media) {
+                        $mime = mime_content_type($filedest);
+                          if(strstr($mime, "video/")){
+                            echo "<video width='541' height='300' controls>";
+                            echo '<source src="'.$media.'" /><br />';
+                            echo "</video>";
+                          }else if(strstr($mime, "image/")){
+                            echo '<img src="'.$media.'" width="543" height="300"/>';
+                          }
+                       }
+                       echo"</h4>";
+                  }
+             
+                }
+                
+                echo"</div>";
+            echo"</div>";
+              ?>
+            </div>
+
+
+          <div id="Review" class="hotcontent">
+             <?php
+                   
+                   $query = mysqli_query($conn,"SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN users on users.users_id = post.users_id order by post_id DESC")or die(mysqli_error());
+                   while($review_row=mysqli_fetch_array($query)){
+                   $review_id = $review_row['post_id'];	
+                   $upid = $review_row['users_id'];	
+                   $posted_by = $review_row['users_id'];
+
+                   //The profile image of the user
+                   echo"<div class ='post-container'>";
+                   if($review_row['type'] == 2){
+                  if($review_row['status'] == 0){ 
+                    $filename = "uploads/profile".$upid."*";
+                    $fileinfo = glob($filename);
+                    $fileext = explode(".", $fileinfo[0]);
+                    $fileactualext = $fileext[1];
+                    echo "<img src='uploads/profile".$upid.".".$fileactualext."?".mt_rand()."'>"; echo "<br>";
+                  } else {
+                    echo "<img src='uploads/profiledefault.jpg'>"; echo "<br>";
+                  }
+                    echo $review_row['users_username']."<br>";
+                    echo $review_row['title']."<br>";
+                    echo "<br>";   
+                    echo $review_row['content'];
+                    echo "<br>";         
+                    echo "<br>";
+                    echo $review_row['date_created']."<br>";
+
+                    if(isset ($_SESSION["username"])){
+                      echo "<button type='button' id='postbtn' onclick='replyFunction()'>Reply</button>";
+                      include 'commentsection.php';      
+                    }
+                  }
+            
+                }
+                echo"</div>";
+
+              
+            $sql = "SELECT * FROM comment LIMIT 1";
+            $result = $conn->query($sql);
+            while ($row = mysqli_fetch_assoc($result)){
+              echo "<div class='comment-box'>";
+              echo $row['date_posted']."<br>";
+              echo $row['users_id']."<br>";
+              echo $row['content']."<br>";           
+              echo "</p></div>";
+            }     
+              ?>
+            </div>
+          </div>
+        </div>
+          </div>
+
 </body>
+</html>

@@ -2,7 +2,7 @@
 session_start();
 include_once 'includes/dbh.inc.php';
 $id = $_SESSION["userid"];
-if(isset($_POST["delete"])){
+if(isset($_POST["deleteprof"])){
 
 $filename = "uploads/profile".$id."*";
 $fileinfo = glob($filename);

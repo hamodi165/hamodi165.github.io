@@ -28,8 +28,24 @@
             $fileext = explode(".", $fileinfo[0]);
             $fileactualext = $fileext[1];
             echo "<img src='uploads/profile".$id.".".$fileactualext."?".mt_rand()."'>";
+            ?>
+            <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data" id="profileform">
+              <label for="thefile" id="labelprofile">
+                <i class="fa fa-2x fa-camera"></i>
+                <input type="file" name="file" id="thefile" onchange="javascript:this.form.submit();">
+              </label>
+              </form>
+             <?php 
           } else {
             echo "<img src='uploads/profiledefault.jpg'>";
+            ?>
+            <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data" id="profileform">
+              <label for="thefile" id="labelprofile">
+              <i class="fa fa-plus-square"></i>
+                <input type="file" name="file" id="thefile" onchange="javascript:this.form.submit();">
+              </label>
+              </form>
+              <?php
           }
           echo "<h3 id='usernamepost'>" .$row["users_username"] . "</h3>";
           echo "<h4>" .$row["users_role"] . "</h4>";
@@ -37,16 +53,14 @@
         } 
         $stmt->close();
     ?>
-              <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data">
-              <input type="file" name="file"> <br>
-              <button type="submit" name="submit">Upload Image</button>
-              </form>
+
+              
               <br>
               <form method="post" action="<?php echo htmlspecialchars("deleteprofile.php");?>">
-              <button type="submit" name="delete">Reset Image</button>
+              <button type="submit" name="deleteprof">Reset Image</button>
+              <span class="errorMsg" id="errordeleteprofile">Username has to be between 5 and 15 characters!</span>
               </form>
 
-      
     
   <div class="countryclass">
   <form action="/action_page.php">
