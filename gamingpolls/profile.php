@@ -1,20 +1,24 @@
 <?php
     include 'session.php';
     include 'homeheader.php';  
+    require_once 'includes/dbh.inc.php';
 ?>
 <body>
 
-
+<!-- All the tabs! -->
+<h3 id="profilesettings">Profile settings</h3>
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'User Profile')" id="default">User Profile</button>
-  <button class="tablinks" onclick="openTab(event, 'Security')">Security & Privacy</button>
-  <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo</button>
-  <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="openTab(event, 'Account')">Account</button>
+  <button class="tablinks" href="home.php" value="home.php">Preview profile</button>
 </div>
 
+<hr id="lineinprofile">
+
+<!-- User profile! -->
 <div id="User Profile" class="tabcontent">
 <?php
-        require_once 'includes/dbh.inc.php';
+        
         $id = $_SESSION["userid"];
         $stmt = $conn->prepare('SELECT * FROM users WHERE users_id = ?');
         $stmt->bind_param('s', $id);
@@ -27,6 +31,11 @@
             $fileinfo = glob($filename);
             $fileext = explode(".", $fileinfo[0]);
             $fileactualext = $fileext[1];
+            ?>
+            <h4>Avatar image</h4>          
+            <hr id="avatarimage">
+            <p style="font-size:12px;">Images must be .png, .jpg or .jpeg format</p>
+            <?php
             echo "<img src='uploads/profile".$id.".".$fileactualext."?".mt_rand()."'>";
             ?>
             <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data" id="profileform">
@@ -35,8 +44,20 @@
                 <input type="file" name="file" id="thefile" onchange="javascript:this.form.submit();">
               </label>
               </form>
-             <?php 
+            
+              <form method="post" action="<?php echo htmlspecialchars("deleteprofile.php");?>">
+              <label for="resetimage" id="labelfordelete">
+              <button type="submit" name="deleteprof">Reset Image</button>
+              </label>
+              </form>
+
+             <?php
           } else {
+            ?>
+            <h4>Avatar image</h4>
+            <hr id="avatarimage">
+            <p style="font-size:12px;">Images must be .png, .jpg or .jpeg format</p>
+            <?php
             echo "<img src='uploads/profiledefault.jpg'>";
             ?>
             <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data" id="profileform">
@@ -45,31 +66,68 @@
                 <input type="file" name="file" id="thefile" onchange="javascript:this.form.submit();">
               </label>
               </form>
+
+              <form method="post" action="<?php echo htmlspecialchars("deleteprofile.php");?>">
+              <label for="resetimage" id="labelfordelete">
+              <button type="submit" name="deleteprof">Reset Image</button>
+              </label>
+              </form>
               <?php
           }
-          echo "<h3 id='usernamepost'>" .$row["users_username"] . "</h3>";
-          echo "<h4>" .$row["users_role"] . "</h4>";
           echo "</div>";
         } 
         $stmt->close();
     ?>
 
-              
-              <br>
-              <form method="post" action="<?php echo htmlspecialchars("deleteprofile.php");?>">
-              <button type="submit" name="deleteprof">Reset Image</button>
-              <span class="errorMsg" id="errordeleteprofile">Username has to be between 5 and 15 characters!</span>
-              </form>
+<br> <br>
+<h4>About</h4>
+<hr id="lineinabout">
 
-    
-  <div class="countryclass">
+<div class="aboutyou">
+<form action="<?php echo htmlspecialchars("includes/posts.inc.php");?>"method="post">
+<p style="font-size:12px;">This description will be displayed whenever someone is visiting your profile.</p>
+    <textarea id="description" name="about" placeholder="Write a brief description of yourself!"></textarea> <br> <br> <br>
+
+  </form>
+  </div>
+
+
+  <h4>Connect accounts</h4>
+<hr id="lineinabout">    
+
+<div class="connectaccount">
+<form action="<?php echo htmlspecialchars("includes/posts.inc.php");?>"method="post">
+<a href="#" id="connectsteam"> <i class="fa fa-steam"></i> Connect to Steam</a> 
+<p style="font-size:12px;">You can connect your steam account to show the amount of hours you've played a game.</p>
+
+
+  </form>
+  </div>
+
+
+</div>
+
+
+
+
+<!-- Account settings! -->
+<div id="Account" class="tabcontent">
+<div class="countryclass">
   <form action="/action_page.php">
-    <h3>Customize profile</h3>
+    <h4>Account preferences</h4>
+    
     <hr> </hr>
-    <label for="fname">Display name (Optional)</label> <br>
-    <input type="text" id="fname" name="name" placeholder="Your name.."> <br>
-    <label for="lname">Last Name</label> <br>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name.."> <br>
+
+
+
+
+    <label for="gender">Gender</label> <br>
+    <select id="gender" name="gender">
+    <option value="Man">Male</option>
+    <option value="Female">Female</option>  
+    <option value="Female">Other</option>    
+      </select>  <br> <br>
+
 
     <label for="country">Country</label> <br>
     <select id="country" name="country">
@@ -319,16 +377,53 @@
    <option value="Zaire">Zaire</option>
    <option value="Zambia">Zambia</option>
    <option value="Zimbabwe">Zimbabwe</option>
-    </select>
+    </select> <br> <br>
+
+
+    <button type="button" class="btn cancel" value="submit" name="submit" id="savesettings">Save</button>
+    <h4>Account settings</h4>
     <hr> </hr>
-    <button type="button" class="btn cancel" value="submit" name="submit">Save</button>
+     
+    <?php
+    $id = $_SESSION["userid"];   
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $stmt = $conn->prepare('SELECT * FROM users where users_id = ?;');
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while($row = $result->fetch_array()){
+          echo "<div class='userinfo'>";
+          ?>
+          <label for="username">Username: </label> <br>
+          <input type="text"  name="username" id="username" value="<?php echo  $row["users_username"] ?>" disabled> <br> <br> 
+          
+          <label for="registration">Registration date: </label> <br>
+          <input type="text"  name="registration" id="registration" value="<?php echo  $row["create_datetime"] ?>" disabled> <br> <br> 
+
+          <?php   
+        echo "</div>";
+    
+        }
+        $stmt->close();
+    ?>
+    <label for="regemail">Email adress</label> <br>
+    <input type="text"  name="email" id="regemail" value="<?php echo  $_SESSION["email"] ?>" disabled>
+    <button type="button" class="btn cancel" value="submit" name="submit" id="changeemail">Change</button> <br> <br>
+
+
+    <label for="regpassword">Change password</label> <br>
+    <input type="password"  name="regpassword" id="regpassword" value="owpakdpokadkopa" disabled>
+    <button type="button" class="btn cancel" value="submit" name="submit" id="changepassword">Change</button> <br> <br> <br>
+
+
+
+    <h4> <i class="fa fa-trash" aria-hidden="true"></i> Delete account</h4>
+    <hr> </hr>
+    <button type="button" class="btn cancel" value="submit" name="submit" id="deleteaccount">Delete account</button>
+
+    
   </form>
 </div>
-</div>
-
-<div id="Security" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
 </div>
 
 <div id="Tokyo" class="tabcontent">
@@ -336,7 +431,4 @@
   <p>Tokyo is the capital of Japan.</p>
 </div>
 
-    <?php
-        include "footer.php";
-    ?>
 </body>

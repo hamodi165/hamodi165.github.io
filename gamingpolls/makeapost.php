@@ -20,7 +20,6 @@ $typereview = 2;
     </div>
 
 <div id="Hot" class="postcontent">
-<div class="thread">
 <form action="<?php echo htmlspecialchars("includes/posts.inc.php");?>"method="post">
     <h4>Create a post </h4>
     <hr></hr>
@@ -33,10 +32,8 @@ $typereview = 2;
     <button type="submit" id="postbutton" name="submit" >Post</button>
   </form>
 </div>
-</div>
 
 <div id="Poll" class="postcontent">
-<div class="thread">
 <form action="<?php echo htmlspecialchars("includes/posts.inc.php");?>"method="post">
     <h4>Create a poll </h4>
     <hr></hr>
@@ -44,15 +41,13 @@ $typereview = 2;
     <input type="text" id="thetitle" name="title" placeholder="Title">
     <input type="hidden"  name="date_created"> <br>
     <input type="number" id="type" name="type" value = "<?php echo (isset($typepoll))?$typepoll:'';?>" min="1" max="1" hidden>
-    <textarea id="summernote" name="content"></textarea>
+    <textarea id="contentarea" name="content"></textarea>
     <hr></hr>
     <button type="submit" id="postbutton" name="submit" >Post</button>
   </form>
 </div>
-</div>
 
 <div id="Review" class="postcontent">
-<div class="thread">
 <form action="<?php echo htmlspecialchars("includes/posts.inc.php");?>"method="post">
     <h4>Create a review </h4>
     <hr></hr>
@@ -60,15 +55,13 @@ $typereview = 2;
     <input type="text" id="thetitle" name="title" placeholder="Title">
     <input type="hidden"  name="date_created"> <br>
     <input type="number" id="type" name="type" value = "<?php echo (isset($typereview))?$typereview:'';?>" min="2" max="2" hidden>
-    <textarea id="summernote" name="content"></textarea>
+    <textarea id="contentaread" name="content"></textarea>
     <hr></hr>
     <button type="submit" id="postbutton" name="submit" >Post</button>
   </form>
 </div>
-</div>
 
 <div id="Upload" class="postcontent">
-<div class="thread">
 <form method="post" action="<?php echo htmlspecialchars("uploadpost.php");?>" enctype="multipart/form-data">
     <h4>Videos & Images</h4>
     <hr></hr>
@@ -78,39 +71,45 @@ $typereview = 2;
     <input type="hidden"  name="date_created">
     <input type="number" id="type" name="type" min="3" max="3" hidden>
     <textarea id="videoimage" name="content" hidden></textarea>
-    <input type="file" name="file" id="imgvid">
-    <img src="" id="img"  width="320" height="240" style="display:none"> <br>
-    <video width="320" height="240" style="display:none" id="video" controls autoplay>
+    <div class="upload-container">
+    <input type="file" id="imgvid" name="file" accept="image/png, image/jpg, image/jpeg, video/mp4"/>
+    <div id="drop-area">
+    <img src="" id="imgsource" style="display:none"> <br>
+    <video width="100%" height="20%" style="display:none" id="video" controls>
     <source src="" id="videoplayer">
     </video>
-    <hr></hr>
-    <button type="submit" name="submitimgvid">Post</button>
+    </div>
+    </div>
+    <button type="submit" name="submitimgvid" id="postbutton">Post</button>
     </form>
-</div>
 </div>
 
 <script>
-  $("#imgvid").change(function() {
-    imgPreview(this);
-   });
-   function imgPreview(input) {
-     var file = input.files[0];
-     var mixedfile = file['type'].split("/");
-     var filetype = mixedfile[0]; // (image, video)
-     if(filetype == "image"){
-       var reader = new FileReader();
-       reader.onload = function(e){
-         $("#img").show().attr("src", e.target.result);
-       }
-       reader.readAsDataURL(input.files[0]);
-     }else if(filetype == "video"){
-       $("#video").show().attr("src", URL.createObjectURL(input.files[0]));
-       $("#videoplayer")[0].load();
-     }else{
-         alert("Invalid file type");
-     }
-   }
-  </script>
+
+$("#imgvid").change(function() {
+   imgPreview(this);
+  });
+  function imgPreview(input) {
+    var file = input.files[0];
+    var mixedfile = file['type'].split("/");
+    var filetype = mixedfile[0]; // (image, video)
+    if(filetype == "image"){
+      var reader = new FileReader();
+      reader.onload = function(e){
+        $("#imgsource").show().attr("src", e.target.result);
+        $("#video").hide().attr("src", URL.createObjectURL(input.files[0]));
+      }
+      reader.readAsDataURL(input.files[0]);
+    }else if(filetype == "video"){
+      $("#video").show().attr("src", URL.createObjectURL(input.files[0]));
+      $("#imgsource").hide().attr("src", e.target.result);
+      $("#videoplayer")[0].load();
+    }else{
+        alert("Invalid file type");
+    }
+  }
+    
+</script>
 
 
 <?php
@@ -122,12 +121,44 @@ $typereview = 2;
     if($_GET["error"] == "nostringontitle"){
       echo '<script>alert("Title must contain only characters and numbers!")</script>';
     }
+
+    
   }
 ?>
 
 
 <script> $(document).ready(function() {
   $('#summernote').summernote({
+        placeholder: 'Text (Optional)',
+        tabsize: 2,
+        height: 160,
+        blockquoteBreakingLevel: 2,
+        toolbar: [
+          ['font', ['bold', 'underline']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['view', ['fullscreen']]
+        ]
+      });
+}); 
+
+$(document).ready(function() {
+  $('#contentarea').summernote({
+        placeholder: 'Text (Optional)',
+        tabsize: 2,
+        height: 160,
+        blockquoteBreakingLevel: 2,
+        toolbar: [
+          ['font', ['bold', 'underline']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['view', ['fullscreen']]
+        ]
+      });
+}); 
+
+$(document).ready(function() {
+  $('#contentaread').summernote({
         placeholder: 'Text (Optional)',
         tabsize: 2,
         height: 160,

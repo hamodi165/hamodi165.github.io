@@ -1,69 +1,17 @@
 /* layout for the post input and button on homepage */
 /* make a post php */
-.thread{
-    position:relative;
-    width:20%;
-    top:200px;
-    left: 40%;
-    margin: -25px 0 0 -25px;
-    border:solid 1px #ff55aa;
-  }
-  
-  .thread h4{
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
   
   #thetitle{
     padding: 7px;
     margin-top: 14px;
     font-size: 16px;
     border: none;
-    width:382px;
+    width:100%;
     background-color: grey;
   }
-  
 
-#postbtn{
-    background-color: cornflowerblue;
-    border-radius: 5px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 500;
-    list-style: none;
-    outline: none;
-    padding: 5px 16px;
-    text-align: center;
-    text-decoration: none;
-  }
-  
-  #postbtn:active{
-    background-color: red;
-  }
-  
-  #postbtn:hover{
-    background-color: green;
-  }
-  
-  #postinput{
-    height:29px;
-    font-size: 14px;
-    border: none;
-    width:425px;
-    border-radius: 4px;
-    text-decoration: none;
-  }
-  
-  #postinput:hover {
-    text-decoration: none;
-  }
-  
-  .making-post{
+  /*the different posts within tabs */
+  .makingapost-container{
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -71,59 +19,8 @@
     right: 0;
     top:85px;
     height:55px;
-    width:30%;
-    box-sizing: border-box;
-    padding: 6px 15px;
-    background-color: #ccc;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-
-  .making-post:active{
-    text-decoration: none;
-  }
-
-  .making-post:hover{
-    text-decoration: none;
-  }
-
-.button-42:hover {
-  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
-}
-  
-  @media screen and (max-width: 979px) {
-    .making-post{
-        margin:0 auto;
-        width:100%;
-        top:50px;
-      }
-
-      #postinput{
-      }
-      #postbtn{
-        display:none;
-        padding:5px 5px;
-      }
-
-    }
-  
-  .making-post img{
-    position:relative;
-    left:-5px;
-    width: 45px;
-    border-radius: 40px;
-  }
-
-  .makingapost-container{
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    top:80px;
-    height:55px;
-    left: 0;
-    right: 0;
     background-color: grey;
-    width:30%;
+    width:19%;
     padding: 6px 15px;
     border-radius: 5px;
     overflow: hidden;
@@ -131,3 +28,143 @@
     background-color: #f1f1f1;
   }
 
+  .makinglinks{
+    background-clip: padding-box;
+    background-color: cornflowerblue;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 3rem;
+    position:relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    padding: 10px 10px;
+  }
+
+  .postcontent{
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    margin:auto;
+    top:100px;
+    position:relative;
+    width:30%;
+    margin-bottom: 200px;
+    -webkit-animation: fadeEffect 2s;
+    animation: fadeEffect 2s;
+  }
+
+
+  .upload-container {
+    margin:0 auto;
+    width:100%;
+    text-align: center;
+  }
+  .upload-container input {
+    border: 1px solid #92b0b3;
+    background: #f1f1f1;
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    padding: 100px 0px 100px 95px;
+    width:100%;
+  }
+  .upload-container input:hover {
+    background: #ddd;
+  }
+
+ 
+  #postbutton{
+      background-clip: padding-box;
+      background-color: cornflowerblue;
+      border: 1px solid transparent;
+      border-radius: .25rem;
+      box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      justify-content: center;
+      line-height: 1.25;
+      min-height: 3rem;
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width:100%;
+      padding: 10px 10px;
+    }
+    
+    #postbutton:hover,
+    #postbutton:focus {
+      background-color: green;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    }
+    
+    #postbutton:hover {
+      transform: translateY(-1px);
+    }
+    
+    #postbutton:active {
+      background-color: #c85000;
+      box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+      transform: translateY(0);
+    }
+
+  #drop-area{
+    margin:0 auto;
+    padding:0px;
+    width:100%;
+    height:25%;
+    background-color:white;
+    border:3px dashed grey;
+    
+  }
+
+  #drop-area img{
+    width:100%;
+    height:100%;
+  }
+
+  #drop-area video{
+    width:100%;
+    height:80%;
+  }
+
+  .postcontent h4{
+    text-align: center;
+  }
+
+  #contentarea{
+    height:29px;
+    font-size: 14px;
+    border: none;
+    width:100%;
+    height:30%;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  #fkmedude{
+    background-color: red;
+  }
+  
+
+
+ 

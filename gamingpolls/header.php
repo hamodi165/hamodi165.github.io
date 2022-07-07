@@ -60,6 +60,9 @@
     <span class="errorMsg" id="erroremail">*Please provide a valid email-ID.</span>	
     </div>
     
+     
+
+
     <div class="input-container">
     <input type="password"  name="password" id="regpassword" class="passwordclass" required>
     <p class="regtext">Password</p>

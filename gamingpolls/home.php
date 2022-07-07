@@ -9,7 +9,10 @@
 <a href="#hot" onclick="openTopic(event, 'Hot')" id="default" class="tablinks"> <i class='fas fa-award'></i> Hot</a>
 <a href="#polls" onclick="openTopic(event, 'Poll')" class="hotlinks"> <i class='fas fa-poll-h'></i> Poll</a>
 <a href="#reviews" onclick="openTopic(event, 'Review')" class="hotlinks"><i class='fas fa-edit'></i> Review</a>
+
 </div>
+
+<button onclick="topFunction()" id="scrollbutton" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
 <?php
 //The interface to make a post as user
@@ -59,6 +62,9 @@
                     $fileext = explode(".", $fileinfo[0]);
                     $fileactualext = $fileext[1];
                      
+                    echo "<div id='fkmedude'>";
+                    echo "</div>";
+
                     echo "<img src='uploads/profile".$upid.".".$fileactualext."?".mt_rand()."' id='profileimghome'>"; echo "<br>";                
                   } else {
                     echo "<img src='uploads/profiledefault.jpg' id='profileimghome'>"; echo "<br>";      
@@ -76,16 +82,21 @@
 
                   echo "<p id='timeforpost'>";
                   $mysqltime = $post_row['date_created'];
+                  $timenow = date('d-m-y h:i:s');
+                  strtotime($mysqltime) * 1000;
+
+                  print_r($mysqltime);
+                  print_r(stringtotime($mysqltime));
                   if ($mysqltime >= 31536000) {
-                    echo "" . intval($mysqltime / 31536000) . " years ago";
+                    echo "" . intval($timenow / 31536000) . " years ago";
                 } elseif ($mysqltime >= 2419200) {
-                    echo "" . intval($mysqltime / 2419200) . " months ago";
+                    echo "" . intval($timenow / 2419200) . " months ago";
                 } elseif ($mysqltime >= 86400) {
-                    echo "" . intval($mysqltime / 86400) . " days ago";
+                    echo "" . intval($timenow / 86400) . " days ago";
                 } elseif ($mysqltime >= 3600) {
-                    echo "" . intval($mysqltime / 3600) . " hours ago";
+                    echo "" . intval($timenow / 3600) . " hours ago";
                 } elseif ($mysqltime >= 60) {
-                    echo "" . intval($mysqltime / 60) . " minutes ago";
+                    echo "" . intval($timenow / 60) . " minutes ago";
                 } else {
                     echo "Less than a minute ago";
                 }

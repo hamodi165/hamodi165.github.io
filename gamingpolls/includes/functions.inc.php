@@ -44,7 +44,7 @@ function botQuestion($botquestion){
 
 function getTitleType($title){
     $result;
-    if(gettype($title) === "string"){
+    if(gettype($title) === "string" && !empty($title)){
         $result = true;
     } else {
         $result = false;
@@ -131,7 +131,7 @@ function uidExists($conn, $username, $email) {
 }
 
 function createUser($conn, $username, $email, $password, $bottest) {
-    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role, gender, status, bottest) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO users (users_username, users_email, users_password, create_datetime, users_role, gender, status, bottest, users_country, users_about) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -143,9 +143,11 @@ function createUser($conn, $username, $email, $password, $bottest) {
     $mysqltime = date ('Y-m-d H:i:s');
     $userRole = array("User", "Community Members", "Moderators", "Super Moderators", "Admin");
     $gender = array("Male", "Female", "Other", "Unknown");
+    $country = array("Unknown");
+    $about = "Write something!";
     $status = 1;
 
-    mysqli_stmt_bind_param($stmt, "ssssssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0], $gender[3], $status, $bottest);
+    mysqli_stmt_bind_param($stmt, "ssssssssss", $username, $email, $hashedPwd, $mysqltime, $userRole[0], $gender[3], $status, $bottest, $country[0], $about);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../home.php?error=none");
@@ -193,13 +195,15 @@ function loginUser($conn, $username, $password){
     $mysqltime = date ('Y-m-d H:i:s');
     $type;
 
+
     mysqli_stmt_bind_param($stmt, "sssss", $title, $users_id, $content, $mysqltime, $type);
     mysqli_stmt_execute($stmt);
-    $_SESSION["postuser"] = $createPost["users_id"];
+
     mysqli_stmt_close($stmt);
     header("location: ../home.php?error=noerroronpost");
      exit();
  }
+
 
 
   function profileStatus($conn, $id){
@@ -216,3 +220,4 @@ function loginUser($conn, $username, $password){
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
  }
+

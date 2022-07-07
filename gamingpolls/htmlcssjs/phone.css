@@ -165,3 +165,20 @@
     color: red;
     cursor: pointer;
   }
+
+
+  @media screen and (max-width: 979px) {
+    .making-post{
+        margin:0 auto;
+        width:100%;
+        top:50px;
+      }
+
+      #postinput{
+      }
+      #postbtn{
+        display:none;
+        padding:5px 5px;
+      }
+
+    }

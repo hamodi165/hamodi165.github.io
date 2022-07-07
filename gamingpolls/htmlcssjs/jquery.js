@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function() { 
     $( "#submitreg" ).on( "click", function() {
      
@@ -140,6 +143,7 @@ $(document).ready(function() {
  
   });
 
+  //when to register an account and tell if email already exists
   $(document).ready(function(){
 
     $("#regemail").keyup(function(){
@@ -165,6 +169,26 @@ $(document).ready(function() {
      });
  
   });
+
+
+  function loadXMLDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("timeforpost").innerHTML =
+        this.responseText;
+      }
+    };
+    xhttp.open("GET", "server.php", true);
+    xhttp.send();
+  }
+  setInterval(function(){
+      loadXMLDoc();
+      // 1sec
+  },1000);
+  
+
+  $("#fkmedude").moment().format('MMMM Do YYYY, h:mm:ss a');
 
 
 

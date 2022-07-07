@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'includes/dbh.inc.php';
+require_once 'includes/functions.inc.php';
 $id = $_SESSION["userid"];
 
 if(isset($_POST["submitimgvid"])){
@@ -25,6 +26,12 @@ if(isset($_POST["submitimgvid"])){
   $fileNameNew = uniqid('', true).".".$fileActualExt;
   $fileDestination = 'pictures/'.$fileNameNew;
 
+  if(getTitleType($title) !== true){
+    header("location: makeapost.php?error=nostringontitle");
+    exit();
+}
+
+
   if(in_array($fileActualExt, $allowed)){
     if($fileError === 0){
       if($fileSize < 50000000){
@@ -45,12 +52,15 @@ if(isset($_POST["submitimgvid"])){
         header("location: home.php?error=noerroronpost");
          exit();
       } else {
-        echo "Your file is too big!";
+        echo '<script>alert("File is too big!")</script>';
+        echo "<script>window.location.href='profile.php';</script>";
       }
     } else {
-      echo "There was an error uploading your file!";
+      echo '<script>alert("There was an error uploading your file!")</script>';
+      echo "<script>window.location.href='profile.php';</script>";
     }
   } else {
-    echo "You cannot upload files of this type!";
+    echo '<script>alert("Wrong type of file!")</script>';
+    echo "<script>window.location.href='makeapost.php';</script>";
   }
 }
