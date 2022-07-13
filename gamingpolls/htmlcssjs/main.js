@@ -127,4 +127,16 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+// Get the modal for delete form
+var deleteAcc = document.getElementById('deleteAccount');
+
+// When the user clicks anywhere outside of the delete modal form, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        deleteAcc.style.display = "none";
+    }
+}
+
+
+
 

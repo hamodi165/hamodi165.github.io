@@ -55,25 +55,14 @@ if(isset($_POST['email'])){
 
 if(isset($_POST['logusername'])){
    $logusername = $_POST["logusername"];
-   $stmt = $conn->prepare('SELECT count(*) as cntUser FROM users WHERE users_username = ?;') or die(mysqli_error());
+
+   $stmt = $conn->prepare('SELECT * FROM users WHERE users_username = ?;') or die(mysqli_error());
 
    $stmt->bind_param('s', $logusername);
    $stmt->execute();
 
-   $resultData = mysqli_stmt_get_result($stmt);
-
-   $data = "<span style='color: red;'>User does not exist!</span>";
-   if(mysqli_num_rows($resultData)){
-      $row = mysqli_fetch_array($resultData);
-
-      $count = $row['cntUser'];
-    
-      if($count > 0){
-          $data = "<span style='display:none'>User does not exist!</span>";
-      }
-   
-   }
-
-   echo $data;
+   echo $data = "<span style='color: red;'>User does not exist!</span>";
+  
    $stmt->close();
+
 }

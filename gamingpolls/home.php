@@ -83,10 +83,7 @@
                   echo "<p id='timeforpost'>";
                   $mysqltime = $post_row['date_created'];
                   $timenow = date('d-m-y h:i:s');
-                  strtotime($mysqltime) * 1000;
-
-                  print_r($mysqltime);
-                  print_r(stringtotime($mysqltime));
+                  
                   if ($mysqltime >= 31536000) {
                     echo "" . intval($timenow / 31536000) . " years ago";
                 } elseif ($mysqltime >= 2419200) {

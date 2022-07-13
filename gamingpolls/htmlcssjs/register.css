@@ -1,37 +1,63 @@
-/* Full-width input fields */
-
-.input-container{
-	position:relative;
-	margin-bottom:25px;
+.topic-container{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top:70px;
+  height:55px;
+  left: 0;
+  right: 0;
+  background-color: #ccc;
+  width:30%;
+  padding: 6px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+  text-decoration: none;
 }
-.input-container p{
-	position:absolute;
-	top:0px;
-	left:0px;
-	font-size:16px;
-	color:#fff;	
-    pointer-event:none;
-	transition: all 0.5s ease-in-out;
-}
-.input-container input{ 
-  border:0;
-  border:1px solid #555;  
-  background:transparent;
-  width:200px;
-  padding:8px 0 5px 0;
-  font-size:16px;
-  color:#fff;
-}
-.input-container input:focus{ 
- 	
-}
-.input-container input:focus ~ p,
-.input-container input:valid ~ p{
-	top:-14px;
-	font-size:12px;
-	
+.topic-container i{
+  
 }
 
+.topic-container p{
+  background-color: black;
+}
+
+.topic-container a{
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: grey;
+  transition: 0.3s;
+  font-size: 15px;
+  margin:auto;
+  display: inline-block;
+  overflow: hidden;
+  padding:10px 10px;
+  text-decoration: none;
+}
+
+.topic-container a:hover{
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.topic-container a:active{
+  background-color: white;
+  text-decoration: none;
+  
+}
+
+.topic-container a:link{
+  text-decoration: none;
+  color: white;
+}
+
+.topic-container a:visited{
+  text-decoration: none;
+  color: #ccc;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
   
   /* Set a style for all buttons */
   #submitreg, #submitlog {

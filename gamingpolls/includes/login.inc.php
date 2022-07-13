@@ -6,11 +6,6 @@ if (isset($_POST ["submit"])){
     $username = $_POST["logusername"];
     $password = $_POST["logpassword"];
 
-    if(emptyInputLogin($username, $password) !== false){
-        header("location: ../home.php?error=emptyinput");
-        exit();
-    }
-
     loginUser($conn, $username, $password);
     
 

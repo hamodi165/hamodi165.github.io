@@ -90,32 +90,6 @@ $(document).ready(function() {
 
     
 
-    //if user cannot login because user exists or doesnt
-    $(document).ready(function() { 
-        $( "#submitlog" ).on( "click", function() {
-         var logusername = $('#logusername').val().trim();   
-         if(logusername != ''){
- 
-            $.ajax({
-               url: 'includes/userExist.php',
-               type: 'post',
-               data: {logusername: logusername},
-               success: function(data){
-   
-                   $('#availability').html(data);
-   
-                }
-            });
-         }else{
-            $("#availability").html(""); 
-         }
-   
-       });
-   
-    });
-          
- 
-
   //when to register an account and tell if user already exists  
  $(document).ready(function(){
 
@@ -171,24 +145,106 @@ $(document).ready(function() {
   });
 
 
-  function loadXMLDoc() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("timeforpost").innerHTML =
-        this.responseText;
-      }
-    };
-    xhttp.open("GET", "server.php", true);
-    xhttp.send();
-  }
-  setInterval(function(){
-      loadXMLDoc();
-      // 1sec
-  },1000);
-  
+    //if user cannot login because user exists or doesnt
+    $(document).ready(function() { 
+        $( "#loginForm" ).on( "change", function(e) {
+            
+          
+            $.ajax({
+               url: 'includes/userExist.php',
+               type: 'post',
+               data: $('#loginForm').serialize(),
+               success: function(data){
+                $('#loginUWU').html(data);            
+                $("#loginUWU").show().delay(4000).fadeOut();
+                
+                }
+            });
+    
+       });
+    
+    });
 
-  $("#fkmedude").moment().format('MMMM Do YYYY, h:mm:ss a');
 
 
+//UPDATE FOR GENDER AND COUNTRY IN ACCOUNT SETTINGS
+
+$(document).ready(function() { 
+    $( "#genderform" ).on( "change", function(e) {
+        e.preventDefault();
+      
+        $.ajax({
+           url: 'includes/updatingData.inc.php',
+           type: 'post',
+           data: $('#genderform').serialize(),
+           success: function(data){
+            $('#genderMessage').html(data);            
+            $("#genderMessage").show().delay(4000).fadeOut();
+            
+            }
+        });
+
+   });
+
+});
+
+
+//UPDATE FOR ABOUT DESCRIPTION IN USER PROFILE
+$(document).ready(function() { 
+    $( "#aboutform" ).on( "change", function(e) {
+        e.preventDefault();
+      
+        $.ajax({
+           url: 'includes/updatingData.inc.php',
+           type: 'post',
+           data: $('#aboutform').serialize(),
+           success: function(data){
+            $('#aboutMessage').html(data);            
+            $("#aboutMessage").show().delay(4000).fadeOut();
+            
+            }
+        });
+
+   });
+
+});
+
+$(document).ready(function() { 
+    $( "#deletetheprof" ).on( "change", function(e) {
+        e.preventDefault();
+      
+        $.ajax({
+           url: 'includes/deleteaccount.inc.php',
+           type: 'post',
+           data: $('#deletetheprof').serialize(),
+           success: function(data){
+            $('#pictureMessage').html(data);            
+            $("#pictureMessage").show().delay(4000).fadeOut();
+            
+            }
+        });
+
+   });
+
+});
+
+
+$(document).ready(function(){
+
+    $("#thefile").on("change", function(e){
+        e.preventDefault();
+           $.ajax({
+              url: '../upload.php',
+              type: 'post',
+              data:  new FormData(this.form),
+              contentType: false,
+              cache: false,
+              processData: false,
+              success: function(data){
+                $('#pictureMessage').html(data);  
+
+              },
+           });
+    });
+});
 

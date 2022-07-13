@@ -5,6 +5,8 @@
 ?>
 <body>
 
+<!-- for outputing save message -->
+
 <!-- All the tabs! -->
 <h3 id="profilesettings">Profile settings</h3>
 <div class="tab">
@@ -17,8 +19,7 @@
 
 <!-- User profile! -->
 <div id="User Profile" class="tabcontent">
-<?php
-        
+<?php  
         $id = $_SESSION["userid"];
         $stmt = $conn->prepare('SELECT * FROM users WHERE users_id = ?');
         $stmt->bind_param('s', $id);
@@ -35,20 +36,23 @@
             <h4>Avatar image</h4>          
             <hr id="avatarimage">
             <p style="font-size:12px;">Images must be .png, .jpg or .jpeg format</p>
-            <?php
-            echo "<img src='uploads/profile".$id.".".$fileactualext."?".mt_rand()."'>";
-            ?>
             <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data" id="profileform">
+            <?php
+            echo "<img src='uploads/profile".$id.".".$fileactualext."?".mt_rand()."' id='theimgsource'>";
+            ?>
               <label for="thefile" id="labelprofile">
                 <i class="fa fa-2x fa-camera"></i>
-                <input type="file" name="file" id="thefile" onchange="javascript:this.form.submit();">
+                <input type="file" name="file" id="thefile">         
               </label>
+              <div id="pictureMessage" ></div>
               </form>
             
-              <form method="post" action="<?php echo htmlspecialchars("deleteprofile.php");?>">
+              <form method="post" id="deletetheprof" action="<?php echo htmlspecialchars("deleteprofile.php");?>">
               <label for="resetimage" id="labelfordelete">
-              <button type="submit" name="deleteprof">Reset Image</button>
+              <button type="submit" name="deleteprof" id="deleteprof">Reset Image</button>
+              
               </label>
+              <div id="pictureMessage" ></div> 
               </form>
 
              <?php
@@ -57,20 +61,15 @@
             <h4>Avatar image</h4>
             <hr id="avatarimage">
             <p style="font-size:12px;">Images must be .png, .jpg or .jpeg format</p>
+            <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data" id="profileform">
             <?php
             echo "<img src='uploads/profiledefault.jpg'>";
             ?>
-            <form method="post" action="<?php echo htmlspecialchars("upload.php");?>" enctype="multipart/form-data" id="profileform">
               <label for="thefile" id="labelprofile">
               <i class="fa fa-plus-square"></i>
                 <input type="file" name="file" id="thefile" onchange="javascript:this.form.submit();">
               </label>
-              </form>
-
-              <form method="post" action="<?php echo htmlspecialchars("deleteprofile.php");?>">
-              <label for="resetimage" id="labelfordelete">
-              <button type="submit" name="deleteprof">Reset Image</button>
-              </label>
+              <div id="pictureMessage" ></div>
               </form>
               <?php
           }
@@ -84,11 +83,25 @@
 <hr id="lineinabout">
 
 <div class="aboutyou">
-<form action="<?php echo htmlspecialchars("includes/posts.inc.php");?>"method="post">
+<form action="<?php echo htmlspecialchars("includes/updatingData.inc.php");?>" id="aboutform" method="post">
+<input type="hidden" name="users_id" value="<?php echo  $_SESSION["userid"] ?>">
 <p style="font-size:12px;">This description will be displayed whenever someone is visiting your profile.</p>
-    <textarea id="description" name="about" placeholder="Write a brief description of yourself!"></textarea> <br> <br> <br>
+    <?php
+$id = $_SESSION["userid"];
+        $stmt = $conn->prepare('SELECT users_about FROM users WHERE users_id = ?');
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while($row = $result->fetch_assoc()){
+          $about = $row['users_about'];
+          echo "<textarea id='description' name='users_about' placeholder='Write a brief description of yourself!'>";
+          echo $about;
+          echo "</textarea>";
+        }
+?>
 
-  </form>
+  <div id="aboutMessage" ></div> 
+  </form> <br> <br> <br>
   </div>
 
 
@@ -112,25 +125,76 @@
 
 <!-- Account settings! -->
 <div id="Account" class="tabcontent">
-<div class="countryclass">
-  <form action="/action_page.php">
+<div class="countryclass">  
     <h4>Account preferences</h4>
     
     <hr> </hr>
 
+    <form action="<?php echo htmlspecialchars("includes/updatingData.inc.php");?>" id ="genderform" method="post">
+    <input type="hidden" name="users_id" value="<?php echo  $_SESSION["userid"] ?>">
+    <label for="genderid">Gender</label> <br>
+    <select name="gender" id="genderid">
+    <?php 
+       $id = $_SESSION["userid"];
+       mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+       $sql = "SELECT gender FROM users WHERE users_id=?;";
 
+       $stmt = mysqli_stmt_init($conn);
 
+       if (!mysqli_stmt_prepare($stmt, $sql)) {
+      header("location: ../home.php?error=sqlerror");
+       exit();
+       }
 
-    <label for="gender">Gender</label> <br>
-    <select id="gender" name="gender">
-    <option value="Man">Male</option>
-    <option value="Female">Female</option>  
-    <option value="Female">Other</option>    
-      </select>  <br> <br>
+     mysqli_stmt_bind_param($stmt, "s", $id);
+     mysqli_stmt_execute($stmt);
+     $resultData = mysqli_stmt_get_result($stmt);
 
+     if(mysqli_num_rows($resultData)){
+      while($row = mysqli_fetch_array($resultData)){
+        $realGender = $row['gender'];
+          echo "<option selected>$realGender</option>";
+      }
+    }
+    mysqli_stmt_close($stmt); 
+
+      ?>    
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+      <option value="Unknown">Unknown</option>
+
+      </select>
+       <br> <br>
 
     <label for="country">Country</label> <br>
     <select id="country" name="country">
+    <?php 
+       $id = $_SESSION["userid"];
+       mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+       $sql = "SELECT users_country FROM users WHERE users_id=?;";
+
+       $stmt = mysqli_stmt_init($conn);
+
+       if (!mysqli_stmt_prepare($stmt, $sql)) {
+      header("location: ../home.php?error=sqlerror");
+       exit();
+       }
+
+     mysqli_stmt_bind_param($stmt, "s", $id);
+     mysqli_stmt_execute($stmt);
+     $resultData = mysqli_stmt_get_result($stmt);
+
+     if(mysqli_num_rows($resultData)){
+      while($row = mysqli_fetch_array($resultData)){
+        $realCountry = $row['users_country'];
+          echo "<option selected>$realCountry</option>";
+      }
+    }
+    mysqli_stmt_close($stmt); 
+
+      ?> 
+
     <option value="Afganistan">Afghanistan</option>
    <option value="Albania">Albania</option>
    <option value="Algeria">Algeria</option>
@@ -377,10 +441,11 @@
    <option value="Zaire">Zaire</option>
    <option value="Zambia">Zambia</option>
    <option value="Zimbabwe">Zimbabwe</option>
-    </select> <br> <br>
+    </select>
+    <div id="genderMessage" ></div> 
+      </form> <br> <br>
 
-
-    <button type="button" class="btn cancel" value="submit" name="submit" id="savesettings">Save</button>
+    
     <h4>Account settings</h4>
     <hr> </hr>
      
@@ -415,16 +480,36 @@
     <input type="password"  name="regpassword" id="regpassword" value="owpakdpokadkopa" disabled>
     <button type="button" class="btn cancel" value="submit" name="submit" id="changepassword">Change</button> <br> <br> <br>
 
-
-
-    <h4> <i class="fa fa-trash" aria-hidden="true"></i> Delete account</h4>
-    <hr> </hr>
-    <button type="button" class="btn cancel" value="submit" name="submit" id="deleteaccount">Delete account</button>
-
-    
-  </form>
 </div>
+
+<!-- delete account button -->
+<h4> <i class="fa fa-trash" aria-hidden="true"></i> Delete account</h4>
+<hr> </hr>
+<button onclick="document.getElementById('deleteAccount').style.display='block'" class="btn cancel" id="deleteaccount">Delete account</button>
+
+<!-- form for delete account -->
+<div id="deleteAccount" class="modalDelete">
+<form action="<?php echo htmlspecialchars("includes/deleteaccount.inc.php");?>" method="post">
+<div class="delete-container">
+  
+<div class="imgcontainer">
+<span onclick="document.getElementById('deleteAccount').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img alt="Voteem" src="pictures/logo-transparent.png">
+    </div>   
+
+    <p>Are you really sure that you want to delete your account?</p>
+    <input type="hidden" name="users_id" value="<?php echo  $_SESSION["userid"] ?>"> <br>
+    <p>Your account will be completely terminated from our platform and you will not be able to recover anything if you decide to delete your account.</p>
+    <p>Type in 'DELETE' if you wish to continue with this process.</p>
+    <input type="text" name ="deleteAccountField" id="deleteAccountField" placeholder="DELETE">
+    <button type="submit" class="btn cancel" name="submitdelete" id="deleteaccountbutton">Delete account</button> <br>
+    <span class="errorAccountMsg" id="deleteSpan" >You must type DELETE in order to continue.</span>
+    </div>
+  </div>
+</form>
+
 </div>
+
 
 <div id="Tokyo" class="tabcontent">
   <h3>Tokyo</h3>

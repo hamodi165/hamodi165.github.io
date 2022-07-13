@@ -8,6 +8,7 @@ if(isset($_POST["submit"])){
     $repeatpassword = $_POST["repeatpassword"];
     $bottest = $_POST["bottest"];
     $botquestion = $_POST["botquestion"];
+    $gender = $_POST["gender"];
 
     if(emptyInputSignup($username, $email, $password, $repeatpassword) !== false){
         header("location: ../home.php?error=emptyinput");
@@ -44,7 +45,7 @@ if(isset($_POST["submit"])){
         exit();
     }
 
-    createUser($conn, $username, $email, $password, $bottest);
+    createUser($conn, $username, $email, $password, $bottest, $gender);
 
 } else {
     header("location: ../home.php");

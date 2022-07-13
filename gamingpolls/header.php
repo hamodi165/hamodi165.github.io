@@ -60,9 +60,6 @@
     <span class="errorMsg" id="erroremail">*Please provide a valid email-ID.</span>	
     </div>
     
-     
-
-
     <div class="input-container">
     <input type="password"  name="password" id="regpassword" class="passwordclass" required>
     <p class="regtext">Password</p>
@@ -86,7 +83,15 @@
     </div> 
 
     <input type="text"  name="bottest" id="bottest" style="display:none">
-     
+      
+    <div class="gendercheck" style="display:none"> 
+      <select name="gender"> 
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+      <option value="Unknown"  selected>Unknown</option>
+      </select>
+      </div>
 
     <br>
     <button type="submit" name="submit" id="submitreg">Register</button>
@@ -102,7 +107,7 @@
 <!--LOGIN BUTTON-->
 
 <div id="loginForm" class="modal">
-<form action="<?php echo htmlspecialchars("includes/login.inc.php");?>" class="modal-content animate" method="post">
+<form action="<?php echo htmlspecialchars("includes/login.inc.php");?>" class="modal-content animate" id="loginJForm" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('loginForm').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img alt="Voteem" src="pictures/logo-transparent.png">
@@ -116,7 +121,7 @@
     <div class="input-container">
 		<input type="text"  name="logusername" id="logusername" required>
     <p>Username</p>	
-    <span id="availability"></span>	
+    <div id="availability"></div>	
 	</div>  
 
     <div class="input-container">
@@ -127,6 +132,7 @@
     </div>
  
     <button type="submit" name="submit" id="submitlog">Login</button>
+    <div id="loginUWU"></div>
     <br></br>
 
     <div class="newtovoteem">
@@ -144,11 +150,10 @@
         echo '<script>alert("Fill in all the fields!")</script>';
       }
       if($_GET["error"] == "wrongusername"){
-        echo"<span style='color: green;'>Available.</span>";
+        echo '<script>alert("User does not exist!")</script>';
       }
 
       if($_GET["error"] == "wrongpassword"){
-        echo"<p>Incorrect password!</p>";
         echo '<script>alert("Incorrect password!")</script>';
       }
     }
