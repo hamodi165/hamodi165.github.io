@@ -42,7 +42,7 @@
             ?>
               <label for="thefile" id="labelprofile">
                 <i class="fa fa-2x fa-camera"></i>
-                <input type="file" name="file" id="thefile">         
+                <input type="file" name="file" id="thefile" onchange="javascript:this.form.submit();">         
               </label>
               <div id="pictureMessage" ></div>
               </form>

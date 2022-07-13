@@ -26,17 +26,20 @@ $id = $_SESSION["userid"];
         }
         move_uploaded_file($fileTmpName, $fileDestination);
         profileStatus($conn, $id);
-        echo $data = "<span id='aboutMessage'>Changes saved!</span>";
+        
+        header("location: profile.php?=uploadsuccess");
+         exit();
       } else {
         echo '<script>alert("File is too big!")</script>';
+        echo "<script>window.location.href='profile.php';</script>";
         
       }
     } else {
       echo '<script>alert("There was an error uploading your file!")</script>';
-      
+      echo "<script>window.location.href='profile.php';</script>";    
     }
   } else { 
     echo '<script>alert("Wrong type of file!")</script>';
-
+    echo "<script>window.location.href='profile.php';</script>";
   }
 

@@ -148,10 +148,11 @@
 }
 
 #labelprofile{
-  position: relative; 
-  left: 10.3%;
-  top:-30px;
-  transform: translateX(-50%);
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: -6.8%;
+  top:60px;
   cursor:pointer;
   text-align:center;
 }
@@ -160,14 +161,21 @@
   font-size:30px
 }
 
+#labelprofile i:hover{
+  font-size:40px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+  transition: 1s;
+
+}
+
 #labelprofile input{
   display:none;
 }
 
 #labelfordelete{
   position: relative; 
-  float:right;
-  top:-30px;
+  float:left;
 
 }
 

@@ -53,11 +53,11 @@ if(isset($_POST["submitimgvid"])){
          exit();
       } else {
         echo '<script>alert("File is too big!")</script>';
-        echo "<script>window.location.href='profile.php';</script>";
+        echo "<script>window.location.href='makeapost.php';</script>";
       }
     } else {
       echo '<script>alert("There was an error uploading your file!")</script>';
-      echo "<script>window.location.href='profile.php';</script>";
+      echo "<script>window.location.href='makeapost.php';</script>";
     }
   } else {
     echo '<script>alert("Wrong type of file!")</script>';

@@ -27,6 +27,7 @@ $status = 1;
 
 mysqli_stmt_bind_param($stmt, "ss", $status, $id);
 mysqli_stmt_execute($stmt);
-echo $data = "<span id='aboutMessage'>Changes saved!</span>";
 mysqli_stmt_close($stmt);
+header("location: profile.php?=deletesuccess");
+exit();
 }
